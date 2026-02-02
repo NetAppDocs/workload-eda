@@ -127,7 +127,7 @@ After the initial configuration, you can edit your thresholds.
 . In the *Latency* page, select *Edit*.
 . Modify any of the threshold values as needed.
 +
-IMPORTANT: Ensure that critical thresholds remain higher than warning thresholds. The system displays an error if you configure critical thresholds lower than warning thresholds.
+NOTE: Ensure that critical thresholds remain higher than warning thresholds. The system displays an error if you configure critical thresholds lower than warning thresholds.
 
 . Select *Apply* to save your changes.
 
