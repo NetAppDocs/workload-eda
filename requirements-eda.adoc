@@ -20,6 +20,8 @@ You need to add AWS credentials to Workload Factory with read/write permissions,
 
 _Basic_ mode and _read-only_ mode permissions are not supported at this time.
 
+NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. link:task-monitor-latency.html[Learn about latency monitoring].
+
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Learn how to add AWS credentials to Workload Factory^]
 
 FSx for ONTAP file system::

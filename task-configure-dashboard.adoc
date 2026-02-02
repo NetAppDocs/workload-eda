@@ -1,17 +1,17 @@
 ---
 sidebar: sidebar
 permalink: task-configure-dashboard.html
-keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation
-summary: Configure your EDA dashboard by adding tags to collect metrics. 
+keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization
+summary: Configure your EDA dashboard by adding tags to collect metrics. Customize filters with single or multi-selection options to meet your business needs. 
 ---
 = Use the dashboard
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-When you first sign in to EDA, you can use the dashboard to observe project usage across your FSx for ONTAP file systems and volumes. The dashboard includes several default filters that you can use to customize the information displayed. Additionally, you can create and apply your own AWS tags to organize and filter the data according to your specific business requirements.
+When you first sign in to EDA, you can use the dashboard to observe project usage across your FSx for ONTAP file systems and volumes. The dashboard includes several default filters that you can use to customize the information displayed. Additionally, you can create up to five custom filters based on your AWS tags, with options for single or multi-selection, to organize and filter the data according to your specific business requirements.
 
-The dashboard helps you monitor storage usage for capacity allocated, capacity used, throughput, and IOPS. 
+The dashboard helps you monitor storage usage for capacity allocated, capacity used, throughput, and IOPS. For proactive latency performance monitoring, see link:task-monitor-latency.html[Monitor volume latency]. 
 
 The CloudWatch metrics collected include:
 
@@ -22,7 +22,7 @@ The CloudWatch metrics collected include:
 
 == Setup the dashboard 
 
-To effectively use the dashboard, configure AWS tags on your FSx for ONTAP volumes based on your business requirements, for example tags that represent projects or business units. For details, see <<Configure custom filters>>.
+To effectively use the dashboard, configure up to five AWS tags on your FSx for ONTAP volumes based on your business requirements, for example tags that represent projects or business units. For details, see <<Configure custom filters>>.
 
 AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
 
@@ -34,18 +34,32 @@ Your dashboard becomes a dynamic tool for organizing, tracking costs, and filter
 
 === Configure custom filters
 
+You can configure up to five custom filters based on your AWS tags. Each custom filter requires three components: a filter label name, an AWS tag key name, and a selection type (single or multi-selection). If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
+
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon is used to navigate to workloads like storage, eda, ai, databases, vmware, and administration.] and then select *EDA*.
 +
 If you have not already configured your dashboard, you are automatically prompted to do so.
-. For each filter required, add a filter label name and the AWS tag key name you want to associate with it.
+. Select *+ Add filters*.
+. For each custom filter you want to create (up to five), provide the following:
++
+* *Filter label name*: The display name that appears in the dashboard.
+* *AWS tag key name*: The AWS resource tag key that corresponds to this filter.
+* *Multi-selection*: Choose whether this filter allows single selection or multiple selection. When you select *Multi-selection*, you can select multiple values for this filter simultaneously. Single-selection restricts you to selecting only one value at a time.
++
+NOTE: Filters appear on the dashboard in the order you configure them. Consider organizing your most frequently used filters first for easier access.
+
 . Select *Apply*. 
++
+You can delete a custom filter by selecting the trash icon next to that filter before applying your changes.
 . To view your changes after applying any tags or filters, select the refresh icon on the dashboard. The dynamic dashboard, configured with the new filters, is displayed in your EDA projects dashboard.
 . To edit the dashboard configuration later, select *Configure*.
 
 === Filter the dashboard
 
-You can filter the information displayed on the dashboard by selecting one or all of the following default filters, as well as any custom filters you have created:
+You can filter the information displayed on the dashboard using a combination of default filters and any custom filters you created.
+
+The following default filters are always available:
 
 * Credentials
 * Region
@@ -53,6 +67,53 @@ You can filter the information displayed on the dashboard by selecting one or al
 * Volume type
 * Time range
 
+Custom filters you configure appear on the dashboard in addition to these default filters. When using filters:
+
+* *Multi-selection filters* allow you to select multiple values simultaneously to broaden your view. For example, you might select multiple projects to view combined metrics.
+* *Single-selection filters* restrict you to selecting only one value at a time, useful when you need to focus on a specific resource or category.
+
 When you have selected your required filters, select the refresh icon to update the dashboard information.
 
 For an explanation of the information shown on a card, select the information icon for that card.
+
+== View volume details
+
+The dashboard provides two viewing modes to help you analyze your storage metrics: Total view and Volume view. You can switch between these modes using the tabs available on the dashboard.
+
+=== Total view
+
+The Total view (default) displays aggregated metrics across all volumes that match your selected filters. This view provides a high-level overview of your overall storage performance, showing combined capacity, IOPS, and throughput metrics.
+
+=== Volume view
+
+The Volume view displays individual volume performance over time, showing the top 10 volumes for each metric. This view helps you identify specific volumes that are driving resource usage and observe their behavior over the selected time period.
+
+To switch to the Volume view, select the *Volume* tab on the dashboard.
+
+==== Volume metrics displayed
+
+When you select the Volume view, the dashboard displays the top 10 volumes out of your total number of volumes.
+* *Volume used capacity*: Shows volumes with the highest current used capacity.
+* *IOPS*: Shows volumes with the highest average IOPS during the selected time period.
+* *Throughput*: Shows volumes with the highest average throughput during the selected time period.
+
+NOTE: The dashboard displays only the top 10 volumes for each metric. If you have more than 10 volumes, some volumes might not be displayed in the detailed view.
+
+When the same volumes appear across *Volume used capacity*, *IOPS*, and *Throughput* metrics, the dashboard uses consistent color coding in the legend to make it easier to track specific volumes across different metrics.
+
+The horizontal axis displays the time range, while a legend shows all volumes (up to 10) represented in the graph.
+
+==== Interactive volume data
+
+You can hover over any volume line in the graphs to view detailed information:
+
+*Volume used capacity*:
+Displays the volume name, used capacity at that point in time, and allocated capacity.
+
+*IOPS*:
+Displays the volume name, average IOPS for the time range, and maximum IOPS for the time range.
+
+*Throughput*:
+Displays the volume name, average throughput for the time range, and maximum throughput for the time range.
+
+This interactive data helps you analyze volume performance patterns and identify potential bottlenecks or optimization opportunities.

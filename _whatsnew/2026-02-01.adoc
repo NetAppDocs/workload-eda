@@ -1,0 +1,29 @@
+=== Enhanced dashboard filtering with customizable tags
+
+You can now configure up to five custom filters on the EDA dashboard based on your AWS tags. Each custom filter includes a label name, AWS tag key, and a selection type (single or multi-selection). 
+
+Multi-selection allows you to select multiple values simultaneously, while single selection restricts you to one value at a time. Custom filters appear in the order you configure them, making it easy to organize your most frequently used filters.
+
+If you don't configure custom filters, the default filters (file system, volume type, and time range) remain available so you can continue to view and interact with your dashboards.
+
+https://docs.netapp.com/us-en/workload-eda/task-configure-dashboard.html[Learn more about configuring custom filters^].
+
+=== Volume details view for granular performance analysis
+
+The dashboard now offers two viewing modes: Total view and Volume view. The Total view displays aggregated metrics across all volumes, while the Volume view shows individual performance for the top 10 volumes over time. 
+
+In Volume view, interactive hover tooltips provide detailed information for each volume, including volume name, metrics, and time-specific values. When the same volumes appear across multiple components, consistent color coding makes it easier to track specific volumes across different metrics.
+
+https://docs.netapp.com/us-en/workload-eda/task-configure-dashboard.html#view-volume-details[Learn more about viewing volume details^].
+
+=== Latency analysis for proactive performance monitoring
+
+Latency analysis enables you to monitor volume read and write latency across your FSx for ONTAP file systems. You can configure customizable warning and critical event thresholds to proactively identify performance bottlenecks before they impact your EDA workloads.
+
+The latency events table displays all warning and critical events enabling you to monitor volume performance and identify volumes that require optimization.
+
+This feature requires AWS credentials and is accessible from the Latency menu in the EDA dashboard.
+
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html[Learn more about latency analysis^].
+
+// Use absolute links in these files
