@@ -1,0 +1,17 @@
+=== Automated latency analysis with AI-powered troubleshooting
+
+Latency analysis now includes automated basic analysis and optional AI-agent powered root cause analysis. When latency events are detected, the system automatically analyzes ONTAP QoS delay center metrics to identify the source of latency issues.
+
+Basic analysis evaluates QoS policies, disk performance, network issues, and cluster configurations to provide immediate insights in the Details column of the latency events table. For complex scenarios involving data or cluster latency, you can invoke AI-agent analysis to receive:
+
+* Detailed root cause identification
+* List of affected EC2 clients
+* Specific remediation steps
+
+AI-agent analysis requires Amazon Bedrock model ARN configuration and is available on-demand for scenarios where basic analysis recommends deeper investigation. The AI agent can identify issues such as bully volumes, non-optimal mount point configurations, FlexGroup rebalancing needs, and scale-out requirements.
+
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#understanding-basic-analysis[Learn more about basic latency analysis^].
+
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#run-ai-agent-analysis[Learn more about AI-agent analysis^].
+
+// Use absolute links in these files
