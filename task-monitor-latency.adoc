@@ -1,15 +1,15 @@
 ---
 sidebar: sidebar
 permalink: task-monitor-latency.html
-keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, AI agent, root cause analysis, QoS delay center, automated analysis, latency troubleshooting
-summary: Monitor and analyze volume latency performance with configurable thresholds for warning and critical events. Use automated basic analysis and optional AI-powered root cause analysis to proactively identify and resolve performance bottlenecks.
+keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, root cause analysis, QoS delay center, automated analysis, latency troubleshooting
+summary: Monitor and analyze volume latency performance with configurable thresholds for warning and critical events. Use automated basic analysis to proactively identify and resolve performance bottlenecks.
 ---
 = Monitor volume latency
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-As an IT administrator or DevOps engineer managing EDA workloads, you can use latency analysis to proactively monitor volume performance by tracking read and write latency metrics across your FSx for ONTAP file systems. Configure customizable thresholds for warning and critical events to identify potential performance bottlenecks before they impact simulation run-time and time-to-market. When latency events are detected, automated basic analysis helps identify the root cause, and optional AI-agent analysis provides detailed remediation recommendations.
+As an IT administrator or DevOps engineer managing EDA workloads, you can use latency analysis to proactively monitor volume performance by tracking read and write latency metrics across your FSx for ONTAP file systems. Configure customizable thresholds for warning and critical events to identify potential performance bottlenecks before they impact simulation run-time and time-to-market. When latency events are detected, automated basic analysis helps identify the root cause.
 
 == Overview
 
@@ -17,14 +17,19 @@ High latency directly impacts simulation run-time and time-to-market for your ED
 
 Latency analysis collects and monitors CloudWatch metrics for volume read and write operations. When both latency and IOPS thresholds are breached for all data points within a specified time range, the system generates alerts that appear in the latency events table. 
 
-When latency events are detected, the system automatically performs basic analysis using ONTAP QoS delay center metrics to identify the latency source. For complex scenarios involving data or cluster issues, you can invoke optional AI-agent analysis for detailed root cause identification and remediation recommendations.
+When latency events are detected, the system automatically performs basic analysis using ONTAP QoS delay center metrics to identify the latency source.
+////
+For complex scenarios involving data or cluster issues, you can invoke optional AI-agent analysis for detailed root cause identification and remediation recommendations.
+////
 
 This enables you to:
 
 * Identify volumes experiencing performance degradation.
 * Distinguish between warning-level and critical-level performance issues. 
 * Automatically analyze the root cause of latency issues.
+////
 * Get AI-powered remediation recommendations for complex scenarios.
+////
 * Track latency trends over time to optimize storage configurations.
 * Take proactive action before latency impacts workload performance.
 
@@ -39,12 +44,14 @@ _Basic_ mode and _read-only_ mode permissions are not supported for latency moni
 +
 If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
 
+////
 Amazon Bedrock model ARN (optional)::
 To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory configuration. AI-agent analysis is invoked manually for data and cluster latency scenarios to provide detailed root cause analysis, affected client information, and remediation recommendations. 
 +
 For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
 +
 If you don't configure a Bedrock model ARN, you can still use latency monitoring and automated basic analysis. AI-agent analysis will not be available.
+////
 
 FSx for ONTAP file system::
 You need at least one FSx for ONTAP file system with volumes deployed in your AWS environment. The latency monitoring feature automatically collects metrics for all volumes associated with your configured AWS credentials.
@@ -164,9 +171,12 @@ The basic analysis evaluates multiple latency components and provides specific g
 * *Network delays*
 
 * *Data or cluster delays*
+////
 +
 For data or cluster scenarios, you can invoke AI-agent analysis to get detailed root cause identification, affected client information, and specific remediation steps.
+////
 
+////
 == Run AI-agent analysis
 
 While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation to determine the specific root cause and remediation steps. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
@@ -204,6 +214,7 @@ The AI agent follows the basic analysis guidelines and may identify scenarios su
 * Recommended remediation steps
 . Implement the recommended remediation steps to resolve the latency issue.
 . After remediation, monitor the latency events table to verify the issue is resolved.
+////
 
 == Manage latency configuration
 
@@ -234,4 +245,6 @@ Consider these recommendations when configuring and using latency analysis:
 
 * *Review dismissed events*: Periodically review why events were dismissed to identify opportunities for threshold adjustment or infrastructure improvements.
 
+////
 * *Use AI analysis strategically*: Invoke AI-agent analysis for data and cluster scenarios where basic analysis recommends it. AI analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
+////
