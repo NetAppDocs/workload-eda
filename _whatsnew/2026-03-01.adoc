@@ -1,3 +1,16 @@
+=== overview dashboard for cluster monitoring
+
+As an IT administrator managing dozens of FSx for ONTAP file systems, you can use the overview dashboard to answer common operational questions about cluster health, utilization, and volume placement.
+
+The overview dashboard includes:
+
+* *Health and inventory*: Information summarized at the top of the dashboard that highlight performance, capacity, availability and protection, and security events across your clusters.
+* *Cluster table*: A searchable, filterable, and paginated table showing SSD capacity, capacity pool, and throughput metrics per cluster, with support for column customization and CSV export.
+
+The previous main dashboard is now accessible in the *Project* tab. EDA tabs are now ordered: Overview, Latency , Project, CI/CD.
+
+https://docs.netapp.com/us-en/workload-eda/task-monitor-clusters.html[Learn more about the overview dashboard^].
+
 === Automated latency analysis
 
 Latency analysis now includes automated basic analysis. When latency events are detected, the system automatically analyzes ONTAP QoS delay center metrics to identify the source of latency issues.

@@ -37,7 +37,15 @@ You'll need a deployed and discovered FSx for ONTAP file system that contains at
 [role="quick-margin-para"]
 link:requirements-eda.html[Learn more about EDA requirements^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Configure the project dashboard
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Enable the overview dashboard
+
+[role="quick-margin-para"]
+Enable the overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP clusters. Accept the consent prompt to allow Workload Factory to begin collecting CloudWatch metrics.
+
+[role="quick-margin-para"]
+link:task-monitor-clusters.html[Learn how to enable the overview dashboard^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure the project dashboard
 
 [role="quick-margin-para"]
 Configure the project dashboard to monitor system health, performance, and storage usage, enabling you to optimize your EDA environment effectively.
@@ -45,7 +53,7 @@ Configure the project dashboard to monitor system health, performance, and stora
 [role="quick-margin-para"]
 link:task-configure-dashboard.html[Learn how to configure the project dashboard^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure latency monitoring
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Configure FSx latency analysis
 
 [role="quick-margin-para"]
 Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run-time. Configure warning and critical alerts, and leverage automated basic analysis.
@@ -53,7 +61,7 @@ Set up latency thresholds to proactively identify and resolve performance issues
 [role="quick-margin-para"]
 link:task-monitor-latency.html[Learn how to configure latency monitoring^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Integrate with other services
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Integrate with other services
 
 [role="quick-margin-para"]
 Integrate EDA with other services such as a service portal or Perforce Helix Core using the workload Factory REST API.

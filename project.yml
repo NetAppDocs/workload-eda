@@ -26,14 +26,18 @@ sidebar:
         url: /learn-eda.html 
       - title: Quick start
         url: /quick-start-eda.html
-  - title: Use the project dashboard
-    entries: 
-      - title: Use the dashboard
-        url: /task-configure-dashboard.html
-  - title: Monitor volume latency
+  - title: Monitor clusters
+    entries:
+      - title: Monitor FSx for ONTAP clusters
+        url: /task-monitor-clusters.html
+  - title: FSx latency analysis
     entries:
       - title: Monitor volume latency
         url: /task-monitor-latency.html
+  - title: Use the project dashboard
+    entries:
+      - title: Use the project dashboard
+        url: /task-configure-dashboard.html
   - title: Use Perforce integration
     entries: 
       - title: Learn about Perforce integration

@@ -4,7 +4,7 @@ permalink: task-monitor-latency.html
 keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, root cause analysis, QoS delay center, automated analysis, latency troubleshooting
 summary: Monitor and analyze volume latency performance with configurable thresholds for warning and critical events. Use automated basic analysis to proactively identify and resolve performance bottlenecks.
 ---
-= Monitor volume latency
+= Monitor volume latency in EDA workloads
 :icons: font
 :imagesdir: ./media/
 

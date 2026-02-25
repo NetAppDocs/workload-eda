@@ -20,6 +20,8 @@ You need to add AWS credentials to Workload Factory with read/write permissions,
 
 _Basic_ mode and _read-only_ mode permissions are not supported at this time.
 
+NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. link:task-monitor-latency.html[Learn about latency monitoring].
+
 ////
 NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To enable optional AI-agent analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:task-monitor-latency.html[Learn about latency monitoring].
 ////

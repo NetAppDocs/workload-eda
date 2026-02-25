@@ -2,14 +2,14 @@
 sidebar: sidebar
 permalink: task-configure-dashboard.html
 keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization
-summary: Configure your EDA dashboard by adding tags to collect metrics. Customize filters with single or multi-selection options to meet your business needs. 
+summary: Configure the EDA project dashboard by adding tags to collect metrics. Customize filters with single or multi-selection options to meet your business needs. 
 ---
-= Use the dashboard
+= Use the project dashboard
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-As an IT administrator or project manager overseeing EDA workloads, you can use the dashboard to observe and analyze project usage across your FSx for ONTAP file systems and volumes. The dashboard helps you plan capacity, assess costs, and make data-driven decisions about resource allocation. You can create up to five custom filters based on your AWS tags, with options for single or multi-selection, to organize and filter the data according to your specific business requirements such as projects, teams, or applications.
+As an IT administrator or project manager overseeing EDA workloads, you can use the Project tab to observe and analyze project usage across your FSx for ONTAP file systems and volumes. The dashboard helps you plan capacity, assess costs, and make data-driven decisions about resource allocation. You can create up to five custom filters based on your AWS tags, with options for single or multi-selection, to organize and filter the data according to your specific business requirements such as projects, teams, or applications.
 
 The dashboard provides visibility into storage usage patterns, helping you identify resource-intensive projects, track costs, and optimize storage allocation before capacity or performance issues impact your EDA simulations.
 
@@ -44,6 +44,7 @@ You can configure up to five custom filters based on your AWS tags. Each custom 
 
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon is used to navigate to workloads like storage, eda, ai, databases, vmware, and administration.] and then select *EDA*.
+. Select *Project*.
 +
 If you have not already configured your dashboard, you are automatically prompted to do so.
 . Select *+ Add filters*.
