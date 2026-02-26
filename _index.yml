@@ -12,15 +12,15 @@ indexpage:
           url: /quick-start-eda.html
     - title: Use the overview dashboard
       links:
-        - title: Use the overview dashboard
+        - title: Manage EDA storage operations
           url: /task-use-overview-dashboard.html
     - title: FSx latency analysis
       links:
         - title: Monitor volume latency
           url: /task-monitor-latency.html
-    - title: Use the project dashboard
+    - title: Analyze project usage
       links:
-        - title: Use the EDA dashboard for FSx for ONTAP
+        - title: Analyze project usage 
           url: /task-configure-dashboard.html
     - title: Use Perforce integration
       links:

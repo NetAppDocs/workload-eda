@@ -28,15 +28,15 @@ sidebar:
         url: /quick-start-eda.html
   - title: Use the overview dashboard
     entries:
-      - title: Use the EDA dashboard for FSx for ONTAP
+      - title: Manage EDA storage operations
         url: /task-use-overview-dashboard.html
   - title: FSx latency analysis
     entries:
       - title: Monitor volume latency
         url: /task-monitor-latency.html
-  - title: Use the project dashboard
+  - title: Analyze project usage
     entries:
-      - title: Use the project dashboard
+      - title: Analyze project usage 
         url: /task-configure-dashboard.html
   - title: Use Perforce integration
     entries: 
