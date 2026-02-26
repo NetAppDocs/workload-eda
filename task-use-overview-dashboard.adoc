@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: task-monitor-clusters.html
+permalink: task-use-overview-dashboard.html
 keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, cluster utilization, capacity, throughput, IOPS, EMS events, latency events, performance widgets, cluster table, volume placement, scale up, scale down, CloudWatch metrics, CSV export
 summary: Use the overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP clusters. View cluster utilization at scale and make informed decisions about volume placement and capacity scaling.
 ---

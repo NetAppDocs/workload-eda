@@ -26,7 +26,7 @@ sidebar:
         url: /learn-eda.html 
       - title: Quick start
         url: /quick-start-eda.html
-  - title: EDA storage operations
+  - title: EDA storage overview
     entries:
       - title: Manage EDA storage operations
         url: /task-use-overview-dashboard.html

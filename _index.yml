@@ -10,7 +10,7 @@ indexpage:
           url: /learn-eda.html
         - title: Quick start
           url: /quick-start-eda.html
-    - title: EDA storage operations
+    - title: EDA storage overview
       links:
         - title: Manage EDA storage operations
           url: /task-use-overview-dashboard.html
