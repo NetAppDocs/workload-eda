@@ -26,10 +26,10 @@ sidebar:
         url: /learn-eda.html 
       - title: Quick start
         url: /quick-start-eda.html
-  - title: Monitor clusters
+  - title: Use the overview dashboard
     entries:
-      - title: Monitor FSx for ONTAP clusters
-        url: /task-monitor-clusters.html
+      - title: Use the EDA dashboard for FSx for ONTAP
+        url: /task-use-overview-dashboard.html
   - title: FSx latency analysis
     entries:
       - title: Monitor volume latency

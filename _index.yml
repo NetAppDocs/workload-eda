@@ -10,17 +10,17 @@ indexpage:
           url: /learn-eda.html
         - title: Quick start
           url: /quick-start-eda.html
-    - title: Monitor clusters
+    - title: Use the overview dashboard
       links:
-        - title: Monitor FSx for ONTAP clusters
-          url: /task-monitor-clusters.html
+        - title: Use the overview dashboard
+          url: /task-use-overview-dashboard.html
     - title: FSx latency analysis
       links:
         - title: Monitor volume latency
           url: /task-monitor-latency.html
     - title: Use the project dashboard
       links:
-        - title: Use the project dashboard
+        - title: Use the EDA dashboard for FSx for ONTAP
           url: /task-configure-dashboard.html
     - title: Use Perforce integration
       links:
