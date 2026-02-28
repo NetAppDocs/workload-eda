@@ -28,7 +28,7 @@ Setting up custom filters enables you to view metrics organized by your business
 
 To effectively use the dashboard, configure up to five AWS tags on your FSx for ONTAP volumes based on your business requirements, for example tags that represent projects or business units. For details, see <<Configure custom filters>>.
 
-AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and  https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
+AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
 
 When they are configured, in the *Tag configuration* page provide the AWS tag key names and the corresponding labels to display in your dashboard.
 
