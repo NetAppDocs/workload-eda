@@ -164,14 +164,14 @@ NOTE: There might be slight discrepancies between latency values from ONTAP QoS 
 
 The basic analysis evaluates multiple latency components and provides specific guidance based on the results for each scenario:
 
-* *Flexcache* Latency per I/O operation for FlexCache operations
-* *Capacity pool* Latency per I/O operation for capacity pool operations 
-* *QoS min* Latency per I/O operation for QoS Policy Group Floor 
-* *QoS max* Latency per I/O operation for QoS Policy Group Ceiling  
-* *Disk* Latency per I/O operation in the Storage subsystem 
-* *Data* Latency per I/O operation in the WAFL subsystem  file system, which includes tasks such as CPU processing, metadata updates, and cache management 
-* *Cluster* Latency per I/O operation across the internally connected nodes in a cluster 
-* *Other* Latency per I/O operation on FSx for ONTAP subsystems
+* *Flexcache*: Latency per I/O operation for FlexCache operations
+* *Capacity pool*: Latency per I/O operation for capacity pool operations 
+* *QoS min*: Latency per I/O operation for QoS Policy Group Floor 
+* *QoS max*: Latency per I/O operation for QoS Policy Group Ceiling  
+* *Disk*: Latency per I/O operation in the Storage subsystem 
+* *Data*: Latency per I/O operation in the WAFL subsystem  file system, which includes tasks such as CPU processing, metadata updates, and cache management 
+* *Cluster*: Latency per I/O operation across the internally connected nodes in a cluster 
+* *Other*: Latency per I/O operation on FSx for ONTAP subsystems
 ////
 +
 For data or cluster scenarios, you can invoke AI-agent analysis to get detailed root cause identification, affected client information, and specific remediation steps.
