@@ -26,14 +26,18 @@ sidebar:
         url: /learn-eda.html 
       - title: Quick start
         url: /quick-start-eda.html
-  - title: Use the project dashboard
-    entries: 
-      - title: Use the dashboard
-        url: /task-configure-dashboard.html
-  - title: Monitor volume latency
+  - title: EDA storage overview
     entries:
-      - title: Monitor volume latency
+      - title: Manage EDA storage operations
+        url: /task-use-overview-dashboard.html
+  - title: FSx latency analysis
+    entries:
+      - title: Monitor FSx volume latency
         url: /task-monitor-latency.html
+  - title: Project usage analysis
+    entries:
+      - title: Analyze project storage usage 
+        url: /task-configure-dashboard.html
   - title: Use Perforce integration
     entries: 
       - title: Learn about Perforce integration
