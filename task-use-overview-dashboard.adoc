@@ -2,38 +2,37 @@
 sidebar: sidebar
 permalink: task-use-overview-dashboard.html
 keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, cluster usage, capacity, throughput, IOPS, EMS events, latency events, performance widgets, clusters table, volume placement, scale up, scale down, CloudWatch metrics, CSV export
-summary: Use the overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP clusters. View cluster usage at scale and make informed decisions about volume placement and capacity scaling.
+summary: Use the overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP file systems. View storage usage at scale and make informed decisions about volume placement and capacity scaling.
 ---
 = Use the overview dashboard in EDA workloads
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-As an IT administrator managing EDA workloads across dozens of FSx for ONTAP file systems, you can use the overview dashboard to answer common daily operational questions about the state of your clusters. Use it to determine where to place new volumes or jobs, understand cluster usage at scale, and make informed decisions about scaling capacity and throughput up or down.
+As an IT administrator managing EDA workloads across multiple FSx for ONTAP file systems (ONTAP clusters), you can use the overview dashboard to quickly assess cluster health and usage. Use it to decide where to place new volumes or jobs, identify candidates for moving volumes or SVMs, and determine when to scale capacity or throughput.
 
 == Overview
-
-The overview dashboard provides a centralized cluster view that helps you quickly understand cluster usage across capacity, throughput, and IOPS, and determine where to place new volumes or move existing volumes and SVMs.
+The overview dashboard provides a centralized view of your FSx for ONTAP clusters, including capacity and throughput. Use it to place new volumes, rebalance workloads, and plan capacity or throughput scaling.
 
 The dashboard includes:
 
-* *Cluster health status*: Information summarized at the top of the dashboard that highlights latency, availability and protection, and security events and capacity recommendations across your clusters.
-* *Clusters table*: A detailed, searchable table showing usage and performance metrics for each FSx for ONTAP cluster, with support for filtering, sorting, pagination, and CSV export.
+* *Cluster health status*: Information summarized at the top of the dashboard that highlights latency events, SSD utilization and capacity recommendations, and ONTAP EMS events across your file systems.
+* *Clusters table*: A detailed, searchable table showing usage and performance metrics for each cluster, with support for filtering, sorting, pagination, and CSV export.
 
 == Requirements
 
 Before using the overview dashboard, ensure you meet the following requirements:
 
 AWS credentials with view permissions::
-You must have AWS credentials configured in Workload Factory with at least read (view) permissions for General Storage. Credentials configured with _Basic_ mode are not supported.
+You must configure AWS credentials in Workload Factory with at least read (view) permissions for General Storage. _Basic_ credentials are not supported.
 +
-If you have not configured credentials with view permissions, you are redirected to the AWS credentials setup page when you open the Overview tab.
+If you haven't configured credentials with view permissions, you are redirected to the AWS credentials setup page when you open the Overview tab.
 +
 If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
 
-Activate the EDA dashboard::
+Activate the dashboard::
 
-After credentials with view permissions are confirmed, you must activate the dashboard for Workload Factory to begin collecting CloudWatch metrics for your FSx for ONTAP file systems.
+After Workload Factory confirms credentials with view permissions, you must activate the dashboard to begin collecting CloudWatch metrics for your FSx for ONTAP file systems.
 
 NOTE: Metrics collection can take some time after you provide consent. The dashboard notifies you while the initial collection is in progress.
 
@@ -52,32 +51,71 @@ Workload Factory begins collecting CloudWatch metrics for all FSx for ONTAP file
 
 == Filter the dashboard
 
-Use the filters at the top of the overview dashboard to focus on the file systems relevant to your current task. These are Workload Factory-level filters that apply to both the latency and ONTAP events information and the clusters table.
+Use the filters at the top of the overview dashboard to focus on specific file systems. These filters apply to the latency, utilization, and ONTAP events sections and to the clusters table.
 
 Available filters:
 
 * *Region*: Filter by one or more AWS regions.
 * *AWS account*: Filter by one or more AWS accounts associated with your configured credentials.
 
-When you update the filter selections, all information is refreshed to show only the matching file systems and clusters.
+When you update the filter selections, all information is refreshed to show only the matching file systems.
 
 == Cluster health status
 
-At the top of the overview dashboard, a summarized view of event activity and health status across your filtered clusters is displayed. This information is only shown when at least one FSx for ONTAP link is associated with your file systems. If no links are available, the information is hidden.
+At the top of the overview dashboard, a snapshot of health and activity across your filtered file systems is displayed. This information is only shown when at least one FSx for ONTAP link is associated with your file systems. If no links are available, the information is hidden.
+
+* *Latency*: Displays the number of latency events detected across the file systems in scope.
+* *Utilization*: Displays SSD utilization status and identifies file systems with active capacity recommendations.
+* *ONTAP events*: Displays the number of EMS events detected, categorized by Capacity, Availability & protection, and Security & other.
 
 === Latency
 
-The Latency section displays the number of latency events detected across the file systems in scope.
+Latency displays the number of latency events detected across the file systems in scope.
 
-* The count reflects latency events generated by the link:task-monitor-latency.html[FSx latency analysis] feature.
-* Selecting *Review* navigates to the *Latency* tab.
+* When you select *Review*, the *Latency* tab is displayed.
 * You can only view latency information if you have enabled latency monitoring. If you have not configured latency thresholds, select *Configure*. For details on latency monitoring, see link:task-monitor-latency.html[FSx latency analysis^].
 
-=== Capacity
+=== Utilization
+
+Utilization displays the number of file systems in scope that have at least one cluster with SSD usage above 80%, and the number of file systems with active capacity recommendations. This helps you quickly identify file systems that might require capacity attention.
+
+==== Capacity recommendations
+
+Workload Factory automatically runs a capacity recommendation algorithm for each FSx for ONTAP file system visible in your EDA inventory. The algorithm scans once every 24 hours and identifies when SSD capacity adjustments are recommended.
+
+When a recommendation is identified:
+
+* You receive an immediate notification by email or WAD notification, as configured in your Workload Factory account. This notification is sent as soon as a recommendation is identified, rather than as part of the weekly summary.
+* A lightbulb indicator appears in the Clusters table row for any file system with an active recommendation.
+* The total number of file systems with active recommendations is displayed. This ensures recommendations are visible even if the affected file system is not on the first page of the table.
+
+==== View and apply capacity recommendations
+
+.Steps
+
+. Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
+. Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
+. Select the *Overview* tab.
+. In the *Clusters* table, locate a file system with a lightbulb indicator.
++
+Hover over the lightbulb indicator to see a tooltip with a brief description of the recommendation.
+. Select the cluster name in the table to open it and view the recommendations.
+. Review the SSD recommendation and the capacity graph.
++
+The recommendation explains the suggested change and the reasoning behind it. For example: _We recommend increasing the SSD size based on your file system SSD usage pattern._
+The graph presents current SSD usage alongside historical trends and shows you how the capacity recommendation algorithm would have adjusted capacity over time.
+
+NOTE: Each file system has a distinct URL for this screen. Select *Overview* at the top of the screen to return to the Overview dashboard.
+. Use the time range selector above the graph to change the period displayed. The default is one week.
+
+=== ONTAP events
+The ONTAP events section displays the number of EMS events detected across the file systems in scope, categorized by Capacity, Availability & protection, and Security & other.
+
+==== Capacity
 
 The Capacity section displays the number of EMS messages related to capacity issues, along with the number of file systems affected.
 
-EMS events monitored includes but is not limited to:
+Examples of EMS events monitored include:
 
 * Aggregate nearly full
 * Aggregate full
@@ -86,14 +124,14 @@ EMS events monitored includes but is not limited to:
 * Snapshot reserve nearly full
 * Snapshot reserve full
 * Directory size full
-* Flex groups full
+* FlexGroup full
 * Inodes full
 
 For a full list of the EMS events monitored, see link:https://docs.netapp.com/us-en/ontap-cli-9171/index.html[Capacity events^].
 
 Selecting *Capacity* navigates to the capacity analysis screen in Storage workloads.
 
-=== Availability & protection
+==== Availability & protection
 
 The Availability & protection section displays the number of EMS messages related to availability and data protection, along with the number of file systems affected.
 
@@ -101,7 +139,7 @@ Events monitored include FlexCache and SnapMirror-related EMS events.
 
 Selecting *Availability & protection* navigates to the availability and protection analysis screen in Storage workloads.
 
-=== Security & other
+==== Security & other
 
 The Security & other section displays the number of EMS messages for events not categorized under Capacity or Availability & protection, along with the number of file systems affected. Events monitored include anti-ransomware protection, NFS authentication failures, and others.
 
@@ -109,7 +147,7 @@ Selecting *Security & other* navigates to the event analysis screen in Storage w
 
 == Clusters table
 
-The clusters table provides a detailed view of each FSx for ONTAP cluster associated with your configured AWS credentials, filtered by the active region and AWS account selections. Data is collected from CloudWatch metrics. The table supports search, column filtering, pagination, column customization, and CSV export.
+The clusters table provides a detailed view of each FSx for ONTAP file system associated with your configured AWS credentials, filtered by the active region and AWS account selections. Data is collected from CloudWatch metrics. The table supports search, column filtering, pagination, column customization, and CSV export.
 
 === Search and filter
 
@@ -120,13 +158,15 @@ The clusters table provides a detailed view of each FSx for ONTAP cluster associ
 
 The table includes the following columns. Columns shown by default are indicated in the table. You can add or remove non-default columns using the column selector. For throughput columns, hover over the column header for details about the 30-day calculation period and usage formula.
 
+NOTE: File systems with active capacity recommendations display a lightbulb indicator in the table. Select any file system name to view SSD capacity metrics, historical usage trends, and capacity recommendations for that file system.
+
 [cols="30,10,60", options="header"]
 |===
 | Column | Default | Description
 
-| Cluster name | Yes | The name of the FSx for ONTAP cluster.
-| Region | Yes | The AWS region where the cluster is deployed.
-| AWS account | No | The AWS account associated with the cluster.
+| Name | Yes | The name of the cluster.
+| Region | Yes | The AWS region where the file system is deployed.
+| AWS account | No | The AWS account associated with the file system.
 | SSD used capacity | Yes | The amount of SSD storage currently in use.
 | Total SSD capacity | Yes | The total provisioned SSD storage capacity.
 | SSD usage | Yes | The percentage of SSD capacity in use. Use this to identify clusters approaching capacity limits before they impact workload performance.
