@@ -30,13 +30,6 @@ _Basic_ mode and _Read-only_ mode permissions are not supported for latency moni
 +
 If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
 
-Amazon Bedrock model ARN (optional)::
-To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory settings.
-+
-For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
-+
-If you don't configure a Bedrock model ARN, you can still use latency monitoring and automated basic analysis. AI-agent analysis will not be available.
-
 FSx for ONTAP file system::
 You need at least one FSx for ONTAP file system with volumes deployed in your AWS environment. The latency monitoring feature automatically collects metrics for all volumes associated with your configured AWS credentials.
 
@@ -44,6 +37,13 @@ Link to FSx for ONTAP::
 To view basic analysis insights in the latency events table and analysis panel, you must associate a link with the FSx for ONTAP file system. Without a link, events can still be detected, but the analysis provides limited insights. If no link is already associated, select *Associate link* in EDA, choose whether to create a new link or associate an existing link, and then select *Continue* to automatically go to the link creation page in Storage workloads.
 +
 For instructions on creating and associating links, see link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
+
+Amazon Bedrock model ARN (optional)::
+To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory settings.
++
+For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
++
+If you don't configure a Bedrock model ARN, you can still use latency monitoring and automated basic analysis. AI-agent analysis will not be available.
 
 == Understanding alerts
 
