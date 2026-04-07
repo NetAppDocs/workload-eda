@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-monitor-latency.html
-keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, root cause analysis, QoS delay center, automated analysis, latency troubleshooting
+keywords: latency analysis, CloudWatch alarms, volume latency, read latency, write latency, critical events, warning events, latency thresholds, IOPS thresholds, latency monitoring, FSx for ONTAP, root cause analysis, QoS delay center, automated analysis, latency troubleshooting, ai latency analysis, latency events table
 summary: Monitor and analyze volume latency performance with configurable thresholds for warning and critical events. Use automated basic analysis to proactively identify and resolve performance bottlenecks.
 ---
 = Monitor volume latency in EDA workloads
@@ -9,29 +9,15 @@ summary: Monitor and analyze volume latency performance with configurable thresh
 :imagesdir: ./media/
 
 [.lead]
-As an IT administrator or DevOps engineer managing EDA workloads, you can use latency analysis to proactively monitor volume performance by tracking read and write latency metrics across your FSx for ONTAP file systems. Configure customizable thresholds for warning and critical events to identify potential performance bottlenecks before they impact simulation run-time and time-to-market. When latency events are detected, automated basic analysis helps identify the root cause.
+As an IT administrator or DevOps engineer managing EDA workloads, you can use latency analysis to monitor FSx for ONTAP volume read and write latency. Configure warning and critical thresholds to detect performance issues early. When events occur, Workload Factory provides automated basic analysis, and you can optionally run AI-agent analysis for root cause details, impacted clients, and recommended remediation steps.
 
 == Overview
 
-High latency directly impacts simulation run-time and time-to-market for your EDA projects. Unhealthy volumes can cause significant performance degradation, leading to costly production delays. Latency analysis helps you proactively identify, troubleshoot, and remediate operational issues across your entire storage estate before they affect your workloads.
+Latency analysis collects CloudWatch metrics for read and write operations on all FSx for ONTAP volumes associated with your AWS credentials. An alert is generated when both the latency threshold and the IOPS threshold are breached for all data points within the configured time range. This dual-condition logic reduces false positives by ensuring elevated latency is sustained under real load.
 
-Latency analysis collects and monitors CloudWatch metrics for volume read and write operations. When both latency and IOPS thresholds are breached for all data points within a specified time range, the system generates alerts that appear in the latency events table. 
+When an event is detected, Workload Factory runs basic analysis using ONTAP QoS delay center metrics to identify the primary latency contributor (for example, FlexCache, capacity pool, QoS limits, disk, data, cluster, or other subsystems). 
 
-When latency events are detected, the system automatically performs basic analysis using ONTAP QoS delay center metrics to identify the latency source.
-////
-For complex scenarios involving data or cluster issues, you can invoke optional AI-agent analysis for detailed root cause identification and remediation recommendations.
-////
-
-This enables you to:
-
-* Identify volumes experiencing performance degradation.
-* Distinguish between warning-level and critical-level performance issues. 
-* Automatically analyze the root cause of latency issues.
-////
-* Get AI-powered remediation recommendations for complex scenarios.
-////
-* Track latency trends over time to optimize storage configurations.
-* Take proactive action before latency impacts workload performance.
+For data and cluster scenarios, you can optionally invoke AI-agent analysis from the Latency analysis panel to get a detailed root cause explanation, a list of affected EC2 clients, and recommended remediation steps.
 
 == Requirements
 
@@ -40,24 +26,22 @@ To use latency monitoring and analysis features, ensure you meet the following r
 AWS credentials and permissions::
 You must add AWS credentials to Workload Factory with read/write permissions. The latency monitoring feature requires access to CloudWatch metrics for all FSx for ONTAP volumes associated with your AWS credentials.
 +
-_Basic_ mode and _read-only_ mode permissions are not supported for latency monitoring.
+_Basic_ mode and _Read-only_ mode permissions are not supported for latency monitoring.
 +
 If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
 
-////
 Amazon Bedrock model ARN (optional)::
-To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory configuration. AI-agent analysis is invoked manually for data and cluster latency scenarios to provide detailed root cause analysis, affected client information, and remediation recommendations. 
+To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory settings.
 +
 For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
 +
 If you don't configure a Bedrock model ARN, you can still use latency monitoring and automated basic analysis. AI-agent analysis will not be available.
-////
 
 FSx for ONTAP file system::
 You need at least one FSx for ONTAP file system with volumes deployed in your AWS environment. The latency monitoring feature automatically collects metrics for all volumes associated with your configured AWS credentials.
 
 Link to FSx for ONTAP::
-To get insights from basic analysis, you must associate a link with your FSx for ONTAP file system. If no link is already associated, select *Associate link* in EDA, choose whether to create a new link or associate an existing link, and then select *Continue* to automatically go to the link creation page in Storage workloads.
+To view basic analysis insights in the latency events table and analysis panel, you must associate a link with the FSx for ONTAP file system. Without a link, events can still be detected, but the analysis provides limited insights. If no link is already associated, select *Associate link* in EDA, choose whether to create a new link or associate an existing link, and then select *Continue* to automatically go to the link creation page in Storage workloads.
 +
 For instructions on creating and associating links, see link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
 
@@ -84,26 +68,20 @@ For example, with default warning thresholds, a read alert triggers only if read
 
 === Event severity
 
-* *Warning events*: Indicate elevated latency that might need attention.
-* *Critical events*: Indicate severe latency that requires immediate investigation.
+* *Warning events*: Indicate elevated latency that might need attention
+* *Critical events*: Indicate severe latency that requires immediate investigation
 
 == Configure latency thresholds
 
-Configuring appropriate latency thresholds enables you to receive timely notifications when volumes are experiencing performance issues. By setting both warning and critical thresholds, you can distinguish between issues that need attention and those requiring immediate action, allowing you to manage your storage estate more effectively and prevent performance problems from impacting production workloads.
-
-You can configure thresholds for both warning and critical events. Each event type includes separate thresholds for read and write operations. The system evaluates these thresholds continuously and generates alerts when conditions are met.
+Configure warning and critical thresholds for read and write operations. The system evaluates thresholds continuously and generates alerts when conditions are met.
 
 NOTE: You must set critical event thresholds higher than warning event thresholds to ensure proper alert escalation. If not, you cannot save your configuration.
-
-.About this task
-
-For an alert to trigger, both the latency threshold and the IOPS threshold must be breached for all data points within the specified time range. This dual-condition logic helps reduce false positives by ensuring that high latency is sustained under significant load.
 
 .Steps
 
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
-. From the EDA menu, select *Latency*.
+. Select the *Latency* tab.
 . In the EDA latency configuration page, configure the following thresholds:
 +
 * *Warning events*
@@ -131,58 +109,54 @@ Workload Factory begins collecting latency metrics for all FSx for ONTAP volumes
 
 == View latency events
 
-As an administrator managing multiple file systems and volumes, the latency events table provides a centralized view of all performance issues requiring your attention. The table displays all warning and critical events detected within the last 72 hours. Each event includes automated basic analysis results in the Details column, helping you quickly identify the root cause of latency issues and prioritize remediation efforts across your estate.
+The latency events table provides a centralized view of all warning and critical events detected within the last 72 hours.
 
 * Only the latest breach for each volume appears in the table. If a volume experiences multiple breaches, only the most recent event is displayed.
 * Events are automatically removed after 72 hours.
 * The table displays a maximum of 200 events. Older events are removed as new events are added.
+* Events appear in the table even if no link is associated with the file system. A link is required to view basic analysis details and run AI-agent analysis.
 
 .Steps
 
 . In the *Latency* tab, view the latency events table.
 . Review the information for each event including:
 +
-* *Severity*: Indicates whether the event is Critical or Warning.
-* *Volume name*: The name of the affected volume.
-* *Volume ID*: The ID of the affected volume.
-* *File system*: The FSx for ONTAP file system containing the volume.
+* *Severity*: Indicates whether the event is Critical or Warning
+* *Volume name*: The name of the affected volume
+* *Volume ID*: The ID of the affected volume
+* *File system*: The FSx for ONTAP file system containing the volume
+* *Median latency (ms)*: The median latency value during the breach period
+* *% above threshold*: The percentage by which the latency exceeded the configured threshold
 * *Time detected*: When the breach was detected
-* *Median latency*: The median latency value during the breach period.
-* *Details*: Automated basic analysis results identifying the latency source and recommended actions.
-
+. To view details for a latency event, select the event in the *Severity* column of the latency events table. This opens a latency analysis panel for that event.
 . To sort the table, select any column header. By default, critical events appear first sorted by time, followed by warning events sorted by time.
-. To dismiss one or more events, next to each event select *Dismiss*.
-. To add columns to the table, select the column icon, choose the columns, and select *Apply*.
+. To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
+. To add columns to the table, select image:column-icon.png[The column icon], choose the columns, and select *Apply*.
 
 == Understanding basic analysis
 
-Basic analysis helps you quickly identify the root cause of latency issues without manual investigation. When a latency event is detected, Workload Factory automatically performs basic analysis using ONTAP QoS delay center metrics. The analysis identifies which component is causing the latency and provides actionable guidance in the Details column of the latency events table, enabling you to understand root cause.
+Basic analysis helps you quickly identify the root cause of latency issues without manual investigation. When a latency event is detected, Workload Factory automatically performs basic analysis using ONTAP QoS delay center metrics. The analysis identifies which component is causing the latency and provides a short description in the Latency analysis panel.
 
 NOTE: There might be slight discrepancies between latency values from ONTAP QoS analysis and CloudWatch data due to different collection methodologies. The basic analysis uses ONTAP data for root cause identification.
 
-=== Analysis scenarios
+=== Latency analysis panel
 
-The basic analysis evaluates multiple latency components and provides specific guidance based on the results for each scenario:
+Selecting a latency event in the *Severity* column of the latency events table opens a latency analysis panel for that event.
 
-* *Flexcache*: Latency per I/O operation for FlexCache operations
-* *Capacity pool*: Latency per I/O operation for capacity pool operations 
-* *QoS min*: Latency per I/O operation for QoS Policy Group Floor 
-* *QoS max*: Latency per I/O operation for QoS Policy Group Ceiling  
-* *Disk*: Latency per I/O operation in the Storage subsystem 
-* *Data*: Latency per I/O operation in the WAFL subsystem  file system, which includes tasks such as CPU processing, metadata updates, and cache management 
-* *Cluster*: Latency per I/O operation across the internally connected nodes in a cluster 
-* *Other*: Latency per I/O operation on FSx for ONTAP subsystems
-////
-+
-For data or cluster scenarios, you can invoke AI-agent analysis to get detailed root cause identification, affected client information, and specific remediation steps.
-////
+* *FlexCache*: Latency from FlexCache operations
+* *Capacity pool*: Latency from capacity pool operations
+* *QoS min*: Latency from QoS policy group floor limits
+* *QoS max*: Latency from QoS policy group ceiling limits
+* *Disk*: Latency from the storage subsystem
+* *Data*: Latency from the WAFL subsystem, including CPU processing, metadata updates, and cache management
+* *Cluster*: Latency across internally connected nodes
+* *Other*: Latency from other subsystems such as NVRAM and network
 
-////
+If an Amazon Bedrock model ARN is configured, the panel also includes an option to run AI-agent analysis for data and cluster scenarios. If Bedrock is not configured, the panel displays a link to the Storage workloads configuration page for the specific file system where you can configure Bedrock access.
+
 == Run AI-agent analysis
 
-While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation to determine the specific root cause and remediation steps. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
-
-For complex latency scenarios involving data or cluster components, you can use AI-agent analysis to receive detailed troubleshooting guidance. AI-agent analysis is optional and requires Amazon Bedrock model ARN configuration.
+While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation to determine the specific root cause and potential remediation steps. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
 
 .Before you begin
 
@@ -190,13 +164,13 @@ You must have configured an Amazon Bedrock model ARN in Workload Factory setting
 
 .About this task
 
-When you invoke AI-agent analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI agent. The AI agent evaluates the latency scenario and provides:
+When you run AI-agent analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI-agent. The AI-agent evaluates the latency scenario and provides:
 
 * *Potential root cause*: Detailed explanation of what's causing the latency issue
 * *Affected clients*: List of EC2 instance names impacted by the latency
-* *Remediation steps*: Two or more specific actions to resolve the issue
+* *Potential remediation steps*: Two or more specific actions to resolve the issue
 
-The AI agent follows the basic analysis guidelines and may identify scenarios such as:
+The AI-agent follows the basic analysis guidelines to identify scenarios such as:
 
 * Bully volumes consuming excessive resources (for data delays)
 * Non-optimal mount point configurations (for cluster delays)
@@ -206,16 +180,18 @@ The AI agent follows the basic analysis guidelines and may identify scenarios su
 .Steps
 
 . In the *Latency* tab, locate the event you want to analyze.
-. Verify that the Details column recommends running AI agent analysis.
-. Select *Analyze* for the event.
+. In the *Severity* column of the latency events table, select a latency event to open an analysis panel for that event.
++
+If no link is associated with the file system, a prompt is displayed asking you to associate a link with the affected file system. Select the prompt to be redirected to the link setup page for that file system. A tooltip explains the redirect and notes that associating a link and configuring Bedrock access (recommended) enables full event analysis.
+. In the analysis panel, review the basic analysis results to understand the latency source.
+. If the latency source is identified as data or cluster, select *Analyze*.
 . Review the AI-agent analysis results, which include:
 +
-* Potential root cause explanation
+* Root cause explanation
 * List of affected EC2 clients
-* Recommended remediation steps
+* Potential remediation steps
 . Implement the recommended remediation steps to resolve the latency issue.
 . After remediation, monitor the latency events table to verify the issue is resolved.
-////
 
 == Manage latency configuration
 
@@ -246,6 +222,4 @@ Consider these recommendations when configuring and using latency analysis:
 
 * *Review dismissed events*: Periodically review why events were dismissed to identify opportunities for threshold adjustment or infrastructure improvements.
 
-////
-* *Use AI analysis strategically*: Invoke AI-agent analysis for data and cluster scenarios where basic analysis recommends it. AI analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
-////
+* *Use AI-agent analysis strategically*: Run AI-agent analysis for data and cluster scenarios where basic analysis recommends it. AI-agent analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
