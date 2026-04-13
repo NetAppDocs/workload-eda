@@ -73,7 +73,7 @@ At the top of the dashboard, a snapshot of health and activity across your filte
 Displays the number of latency events detected across the file systems in scope.
 
 * When you select *Review*, the *Latency* tab is displayed.
-* You can only view latency information if you have enabled latency monitoring. If you have not configured latency thresholds, select *Configure*. For details on latency monitoring, see link:task-monitor-latency.html[FSx latency analysis^].
+* You can only view latency information if you have enabled latency monitoring. If you have not configured latency thresholds, select *Configure*. For details on latency monitoring, see link:task-monitor-latency.html[FSx for ONTAP latency analysis^].
 
 === Utilization
 

@@ -9,7 +9,7 @@ summary: Manage versions of your EDA projects using snapshots and clones.
 :imagesdir: ./media/
 
 [.lead]
-Work with different versions of your EDA projects by creating on-demand snapshots and clones directly from Workload Factory. Snapshots and clones of a project are stored in the filesystem that was associated with the project when it was created. You can also manage snapshots and clones using the https://console.workloads.netapp.com/api-doc[Workload Factory REST API^].
+Work with different versions of your EDA projects by creating on-demand snapshots and clones directly from Workload Factory. Snapshots and clones of a project are stored in the file system that was associated with the project when it was created. You can also manage snapshots and clones using the https://console.workloads.netapp.com/api-doc[Workload Factory REST API^].
 
 == Create a snapshot of a project
 You can create a snapshot of a project by following these steps.
