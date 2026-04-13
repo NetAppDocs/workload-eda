@@ -13,22 +13,22 @@ You can manage EDA projects to control how your code and artifacts are managed f
 
 == Create a project
 
-You can create a new EDA project so that you can leverage the data protection features of your Amazon FSX for NetApp ONTAP filesystem for your code and artifacts. 
+You can create a new EDA project so that you can leverage the data protection features of your FSx for ONTAP file system for your code and artifacts. 
 .Steps
 
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon is used to navigate to workloads like storage, eda, ai, databases, vmware, and administration.] and then select *EDA*.
 . Select *CI/CD*.
-. Select *Create project*.  
+. Select *Add project*.  
 . On the Create project page, provide the following:
 .. *Project name*: Enter a name for the project.
 .. *Description*: Enter a description for the project.
 .. *Filesystem*: Provide the following:
-... *Credentials*: Select the Amazon AWS credentials to use. EDA uses these credentials to discover FSx for ONTAP filesystems that you can use with this project and to create clones and snapshots of projects.
-... *Region*: Select the region that this FSx for ONTAP filesystem resides in.
-... *FSx for ONTAP filesystem*: Select an FSx for ONTAP filesystem to use with this project.
+... *Credentials*: Select the Amazon AWS credentials to use. EDA uses these credentials to discover FSx for ONTAP file systems that you can use with this project and to create clones and snapshots of projects.
+... *Region*: Select the region that this FSx for ONTAP file system resides in.
+... *FSx for ONTAP file system*: Select an FSx for ONTAP file system to use with this project.
 +
-You can only select filesystems that are configured with a link. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
+You can only select file systems that are configured with a link. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
 ... *Choose a volume*: Select a volume on which to store the project; EDA uses this volume as a software repository.
 +
 You can only select volumes that are configured as an NFS share.
