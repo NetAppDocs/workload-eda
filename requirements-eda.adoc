@@ -37,9 +37,9 @@ This FSx for ONTAP file system must use FlexVol volumes. FlexGroup volumes are n
 
 * You'll need to know the AWS region, VPC, and subnet where the AWS FSx for ONTAP file system resides.
 
-* You'll need at least one volume in the filesystem with the following configuration:
+* You'll need at least one volume in the file system with the following configuration:
 ** The volume must be configured as an NFS share.
-** The filesystem must be configured with a link. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
+** The file system must be configured with a link. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
 
 * You'll need to consider the tag key/value pairs that you want to apply to the AWS resources that are part of this deployment (optional).
 +
