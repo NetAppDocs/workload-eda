@@ -34,6 +34,8 @@ sidebar:
     entries:
       - title: Monitor FSx for ONTAP volume latency
         url: /task-monitor-latency.html
+      - title: Analyze latency trends
+        url: /task-analyze-latency-trends.html
   - title: Project usage analysis
     entries:
       - title: Analyze project storage usage 
