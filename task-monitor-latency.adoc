@@ -257,4 +257,4 @@ Consider these recommendations when configuring and using latency analysis:
 
 * *Use AI-agent analysis strategically*: Run AI-agent analysis for data and cluster scenarios where basic analysis recommends it. AI-agent analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
 
-For best practices on analyzing latency trends, see link:task-analyze-latency-trends.html#graph-interpretation-tips[Graph interpretation tips].
+For best practices on analyzing latency trends, see link:task-analyze-latency-trends.html#graph-interpretation[Graph interpretation].
