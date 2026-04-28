@@ -5,7 +5,7 @@ keywords: limitations, builders, eda, electronic design automation
 summary: Known limitations identify platforms, devices, or functions that are not supported by this release of the product, or that do not interoperate correctly with it. Review these limitations carefully.
 ---
 
-= Known limitations of NetApp Workload Factory for EDA
+= Known limitations in Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 

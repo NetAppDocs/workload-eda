@@ -4,7 +4,7 @@ permalink: integrate-perforce.html
 keywords: software builders, integrate, integration, Perforce, EDA, electronic design automation
 summary: Learn how to integrate EDA with Perforce. 
 ---
-= Integrate EDA with Perforce
+= Integrate Workload Factory for EDA with Perforce
 :icons: font
 :imagesdir: ./media/
 

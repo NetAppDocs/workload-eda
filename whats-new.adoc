@@ -4,7 +4,7 @@ permalink: whats-new.html
 keywords: what's new, features, new, release notes, enhancements, fixes, new features, Workload Factory, builders, Workload Factory, EDA, electronic design automation
 summary: Learn what's new with Workload Factory for EDA.
 ---
-= What's new with NetApp Workload Factory for EDA
+= What's new with Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 

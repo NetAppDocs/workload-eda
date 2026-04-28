@@ -5,7 +5,7 @@ keywords: requirements, permissions, eda, builders, quick start, electronic desi
 summary: Databases has three different modes that have different requirements. 
 ---
 
-= Quick start for EDA
+= Quick start for Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 
