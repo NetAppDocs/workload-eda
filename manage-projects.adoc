@@ -4,7 +4,7 @@ permalink: manage-projects.html
 keywords: Microsoft SQL Server instance, server instance, manage host, view host, database host, database instance, manage, unmanage
 summary: Manage Microsoft SQL Server instances in Workload Factory for Databases. 
 ---
-= Manage EDA projects
+= Manage EDA projects in Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 

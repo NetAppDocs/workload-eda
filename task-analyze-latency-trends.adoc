@@ -4,7 +4,7 @@ permalink: task-analyze-latency-trends.html
 keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency
 summary: Use the interactive latency graph to analyze volume latency trends over time, identify patterns, and track remediation effectiveness.
 ---
-= Analyze latency trends for EDA in NetApp Workload Factory
+= Analyze latency trends for EDA in Workload Factory
 :icons: font
 :imagesdir: ./media/
 

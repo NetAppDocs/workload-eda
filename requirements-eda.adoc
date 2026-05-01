@@ -5,7 +5,7 @@ keywords: Builders, FSx, project, projects. eda, electronic design automation, r
 summary: Ensure that Workload Factory and AWS are set up properly before you begin using NetApp Workload Factory for EDA. This includes having your AWS log in credentials, a deployed FSx for ONTAP file system, and more.
 ---
 
-= EDA requirements
+= Workload Factory for EDA requirements
 :icons: font
 :imagesdir: ./media/
 

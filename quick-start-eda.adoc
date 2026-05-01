@@ -5,7 +5,7 @@ keywords: requirements, permissions, eda, builders, quick start, electronic desi
 summary: Get started with Workload Factory for EDA by setting up your environment, enabling monitoring dashboards, and configuring latency analysis.
 ---
 
-= Quick start for EDA
+= Quick start for Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 

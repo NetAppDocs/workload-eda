@@ -4,7 +4,7 @@ permalink: learn-eda.html
 keywords: software builders, development, benefits, eda, electronic design automation
 summary: NetApp Workload Factory for EDA helps you optimize FSx for ONTAP usage performance. 
 ---
-= Learn about NetApp Workload Factory for EDA
+= Learn about Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 
