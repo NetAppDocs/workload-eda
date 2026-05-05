@@ -1,0 +1,82 @@
+---
+sidebar: sidebar
+permalink: task-analyze-latency-trends.html
+keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency
+summary: Use the interactive latency graph to analyze volume latency trends over time, identify patterns, and track remediation effectiveness.
+---
+= Analyze latency trends for EDA in Workload Factory
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+After detecting a latency event, you can use the interactive graph to analyze volume latency behavior over time. This helps you identify patterns, understand whether performance issues are recurring or isolated, and make data-driven decisions about remediation.
+
+== Before you begin
+
+You must have link:task-monitor-latency.html[configured latency monitoring] and at least one latency event detected.
+
+== Analyze latency trends
+
+The latency graph provides a visual representation of volume latency behavior over time.
+
+.About this task
+
+The latency graph displays CloudWatch latency data for the affected volume. The graph automatically shows read latency or write latency based on which alarm triggered the event. You can adjust the time range to view latency behavior over different periods.
+
+It includes:
+
+* *Latency metric line*: Shows actual latency values (in milliseconds) collected from CloudWatch over time
+* *Threshold lines*: Dotted horizontal lines indicating your configured warning and critical thresholds
+* *Breach indicators*: Visual markers showing when and how many times thresholds were exceeded during the time period
+* *Breach details*: For each breach, view the median latency value, percentage above threshold, QoS delay center data, and detection time
+
+.Steps
+
+. In the *Latency* tab, select a latency event from the events table.
++
+The latency analysis panel opens.
+
+. Select the *Over time* tab.
+
+. Review the default graph view that shows latency data for the past 3 hours.
+
+. Change the time range to analyze different periods and identify patterns.
+
+. Observe the latency trend line relative to the threshold lines.
+
+. Review breach indicators on the graph:
++
+When thresholds are exceeded multiple times during the displayed time period, breach markers indicate when thresholds were exceeded.
+
+. To view breach details, hover over or select a breach indicator.
+
+. Review the breach count summary:
++
+The graph displays the total number of warning or critical breaches detected during the selected time period.
+
+. Use the graph insights to:
++
+* Determine if latency issues are isolated or recurring
+* Identify time-of-day patterns that correlate with high latency
+* Assess whether latency spikes are brief or sustained
+* Correlate latency events with workload patterns or system changes
+
+.Result
+
+You get a comprehensive view of volume latency behavior over time, helping you make informed decisions about whether immediate remediation is needed, thresholds need to be adjusted, or underlying infrastructure issues need to be investigated.
+
+NOTE: The latency graph shows CloudWatch metric data, which can differ slightly from ONTAP QoS delay center data due to different collection methodologies. Both data sources are provided for comprehensive analysis.
+
+== Graph interpretation
+
+Consider these recommendations when analyzing latency trends:
+
+* *Use multiple time frames*: Review the graph across different time frames to distinguish between isolated spikes and sustained performance degradation. Start with the 24H view for context, then zoom in to shorter periods to analyze specific incidents, or expand to 72H to identify daily patterns.
+
+* *Compare thresholds visually*: Use the threshold lines on the graph to evaluate whether the warning and critical values you configured are appropriate for your workload patterns. If latency frequently approaches but doesn't cross the threshold, consider whether your threshold is set too high. If you see many brief threshold crossings that don't impact operations, your threshold might be too sensitive.
+
+* *Identify daily patterns*: Use the 24H and 72H views to identify time-of-day patterns. If latency spikes occur at predictable times, you can proactively schedule resource-intensive operations during off-peak periods or add capacity to handle peak loads.
+
+* *Distinguish spike types*: Brief, sharp spikes indicate transient issues (like a temporary resource contention), while sustained elevated latency suggests systemic problems (like capacity constraints or configuration issues). Each requires different remediation approaches.
+
+* *Monitor trends after changes*: After adjusting thresholds, adding capacity, or changing configurations, monitor the graph for at least 72 hours to confirm your changes have the desired effect.
