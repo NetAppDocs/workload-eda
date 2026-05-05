@@ -1,0 +1,22 @@
+=== Email and SNS notifications for latency events
+
+You can now receive automatic notifications when latency events are detected on your FSx for ONTAP volumes. Configure email or Amazon SNS notifications in Workload Factory settings to receive real-time alerts when volumes breach your configured latency thresholds.
+
+Notifications are sent on a file system basis and include details about all affected volumes, severity levels, threshold comparisons, and a direct link to the Latency page for investigation.
+
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#configure-latency-notifications[Learn how to configure latency notifications^].
+
+=== Latency trend visualization with interactive graphs
+
+The latency analysis panel now includes a tabbed interface for comprehensive latency analysis:
+
+* *Overview*: View automated basic analysis results showing which component is causing latency
+* *Over time*: Visualize volume latency behavior with an interactive graph across multiple time frames (1 hour, 3 hours, 12 hours, 24 hours, or 72 hours)
+
+The *Over time* tab displays raw CloudWatch latency data (read or write, depending on which alarm triggered) with warning and critical threshold lines, breach indicators, and detailed metrics for each violation.
+
+This comprehensive visualization helps you identify patterns, understand whether latency issues are recurring or isolated, and make more informed decisions about remediation.
+
+https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn how to analyze latency trends^].
+
+// Use absolute links in these files

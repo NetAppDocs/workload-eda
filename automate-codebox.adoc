@@ -4,7 +4,7 @@ permalink: automate-codebox.html
 keywords: automation, code automation, automate, codebox
 summary: You can automate host deployment, database creation, and more with Codebox. 
 ---
-= Automate EDA workload tasks with Codebox
+= Automate EDA workloads with Codebox
 :icons: font
 :imagesdir: ./media/
 

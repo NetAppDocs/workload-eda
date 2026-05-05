@@ -5,7 +5,7 @@ keywords: Builders, FSx, project, projects. eda, electronic design automation, r
 summary: Ensure that Workload Factory and AWS are set up properly before you begin using NetApp Workload Factory for EDA. This includes having your AWS log in credentials, a deployed FSx for ONTAP file system, and more.
 ---
 
-= EDA requirements
+= Workload Factory for EDA requirements
 :icons: font
 :imagesdir: ./media/
 
@@ -20,11 +20,7 @@ You need to add AWS credentials to Workload Factory with read/write permissions,
 
 _Basic_ mode and _Read-only_ mode permissions are not supported at this time.
 
-NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To enable optional AI-agent analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:task-monitor-latency.html[Learn about latency monitoring].
-
-////
-NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To enable optional AI-agent analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:task-monitor-latency.html[Learn about latency monitoring].
-////
+NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To receive notifications for latency events, configure notification preferences in Workload Factory settings. To enable optional AI-agent analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:task-monitor-latency.html[Learn about latency monitoring].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Learn how to add AWS credentials to Workload Factory^]
 
