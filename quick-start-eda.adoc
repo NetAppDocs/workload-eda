@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: quick-start-eda.html  
 keywords: requirements, permissions, eda, builders, quick start, electronic design automation
-summary: Databases has three different modes that have different requirements. 
+summary: Get started with Workload Factory for EDA by setting up your environment, enabling monitoring dashboards, and configuring latency analysis.
 ---
 
 = Quick start for Workload Factory for EDA
@@ -10,7 +10,7 @@ summary: Databases has three different modes that have different requirements.
 :imagesdir: ./media/
 
 [.lead]
-Get started creating an EDA project. Administrators and team leads can use EDA to administer projects and workspaces for teams of developers.
+Get started with Workload Factory for EDA by setting up your environment, enabling monitoring dashboards, and configuring latency analysis to optimize FSx for ONTAP performance for your EDA workloads.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Log in to Workload Factory
 
@@ -56,10 +56,10 @@ link:task-configure-dashboard.html[Learn how to configure the Project dashboard^
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Configure FSx for ONTAP latency analysis
 
 [role="quick-margin-para"]
-Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run time. Configure warning and critical alerts, leverage automated basic analysis, and optionally enable AI-agent analysis for complex scenarios by configuring an Amazon Bedrock model ARN.
+Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run time. Configure warning and critical alerts, set up email or SNS notifications to receive real-time alerts, leverage automated basic analysis, and optionally enable AI-agent analysis for complex scenarios by configuring an Amazon Bedrock model ARN.
 
 [role="quick-margin-para"]
-link:task-monitor-latency.html[Learn how to configure latency monitoring^].
+link:task-monitor-latency.html[Learn how to configure latency monitoring^]. After events are detected, you can link:task-analyze-latency-trends.html[analyze latency trends^] using the interactive graph.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Integrate with other services
 
