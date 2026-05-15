@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: task-use-overview-dashboard.html
-keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, cluster usage, capacity, throughput, IOPS, EMS events, latency events, performance widgets, clusters table, volume placement, scale up, scale down, CloudWatch metrics, CSV export
+keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, cluster usage, capacity, throughput, IOPS, EMS events, latency events, performance widgets, clusters table, volume placement, scale up, scale down, CloudWatch metrics, CSV export, SSD management, capacity automation, capacity recommendations, decision points, bulk edit, parameter configuration
 summary: Use the Overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP file systems. View storage usage at scale and make informed decisions about volume placement and capacity scaling.
 ---
-= Manage EDA storage operations
+= Use the Overview dashboard in Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 
@@ -62,7 +62,7 @@ When you update the filter selections, all information is refreshed to show only
 
 == Cluster health status
 
-At the top of the dashboard, a snapshot of health and activity across your filtered file systems is displayed. This information is only shown when at least one FSx for ONTAP link is associated with your file systems. If no links are available, the information is hidden.
+At the top of the dashboard, a snapshot of health and activity across your filtered file systems is displayed. This information is only shown when at least one FSx for ONTAP link is associated with your file systems. If no links are available, the information is hidden. A link is the Workload Factory connection to an FSx for ONTAP file system; it's used to validate connectivity and enable dashboard insights.
 
 * *Latency*: Displays the number of latency events detected across the file systems in scope.
 * *Utilization*: Displays SSD utilization status and identifies file systems with active capacity recommendations.
@@ -106,6 +106,107 @@ The recommendation explains the suggested change and the reasoning behind it. Fo
 +
 The graph presents current SSD usage alongside historical trends and shows you how the capacity recommendation algorithm would have adjusted capacity over time.
 . On the top right of the graph, select the time range to change the period displayed. The default is one week.
++
+The graph also displays recommendation decision points and automation decision points (if automation mode is enabled). Hover over any decision point to see details about the capacity recommendation or automation action at that moment.
+
+==== SSD management modes
+
+Workload Factory provides SSD capacity management modes to match your operational preferences:
+
+* *Recommend*: Workload Factory analyzes your SSD usage patterns and provides capacity increase recommendations. You manually review and apply recommendations.
+* *Automation*: Workload Factory automatically increases SSD capacity based on predefined thresholds and usage patterns. The system manages capacity scaling without manual intervention.
+* *None*: No capacity recommendations or automated actions are performed.
+
+When viewing a file system detail page, the current SSD management mode and associated parameters are displayed at the top of the SSD usage graph. You can change the mode and parameters for individual file systems or edit parameters in bulk across multiple file systems.
+
+.Change SSD management mode
+
+To change the SSD management mode for a file system:
+
+. From the *Overview* tab, select a file system name in the table.
+. Locate the SSD management mode indicator above the capacity graph.
+. Select *Configure* to modify the mode and parameters.
+. Choose your preferred mode:
+   * *Recommend*: Set recommendation thresholds
+   * *Automation*: Configure automation thresholds and increase parameters
+   * *None*: Disable all capacity management
+. Select *Save*.
+
+.Bulk edit SSD management parameters
+
+You can adjust the SSD capacity management parameters for multiple file systems simultaneously. This is useful when you need to apply consistent settings across your clusters.
+
+The editable parameters include:
+
+* *Threshold* (10-90%): The SSD usage percentage that triggers capacity recommendations or automation actions
+* *Lookback* (1-200 hours): The time period used to analyze historical SSD usage patterns
+* *Ahead* (1-200 hours): The time period used to project future capacity needs
+
+When you select multiple file systems for bulk editing:
+
+* If all selected file systems have identical parameter values, those values appear as defaults in the edit dialog
+* If any selected file system is in None mode, default values are populated in the dialog
+* If parameter values differ across the selected file systems, default values are populated in the dialog
+
+To bulk edit SSD management parameters:
+
+. From the *Overview* tab, select the checkboxes next to the file systems you want to edit in the Clusters table.
++
+TIP: You can select individual file systems or use the header checkbox to select all visible file systems.
+. Select *Edit parameters* above the table.
+. In the edit dialog, adjust the Threshold, Lookback, and Ahead parameters as needed.
++
+Each parameter field includes a tooltip describing its purpose and valid range. The dialog indicates the current values or defaults based on your selection.
+. Select *Save* to apply the changes to all selected file systems.
+
+.Result
+
+The parameters are updated for all selected file systems. File systems in Recommend or Automation mode use the new parameters immediately for capacity analysis and decision-making.
+
+==== Understanding capacity decision points
+
+The SSD usage graph displays decision points that indicate when capacity recommendations were generated or automation actions were taken. These visual indicators help you understand the capacity management algorithm behavior over time.
+
+===== Recommendation decision points
+
+Recommendation decision points appear on the SSD usage graph when the capacity recommendation algorithm identifies that additional SSD capacity is needed. These points are displayed in a distinct color from automation decision points.
+
+Recommendation decision points can occur as frequently as every 30 minutes if SSD capacity has not been increased. The graph displays all decision points when possible, or consolidates them if the time range makes individual points too dense. When consolidated, the most recent recommendation point is shown.
+
+To view recommendation details, hover over a decision point. The tooltip displays:
+
+* Timestamp when the recommendation was generated
+* Recommended SSD increase size (TB)
+* Current SSD capacity size
+
+===== Automation decision points
+
+Automation decision points appear on the SSD usage graph when the automation system attempts to increase SSD capacity. These points are displayed in a distinct color from recommendation decision points and indicate whether the automation action succeeded or failed.
+
+To view automation details, hover over a decision point. The tooltip displays:
+
+* Timestamp when the automation action was performed
+* Success or failure status
+* SSD increase size (TB)
+* New SSD aggregate size after the increase
+
+For failed automation attempts, the tooltip also includes the reason for the failure, such as:
+
+* Maximum SSD capacity limit reached
+* AWS service quota exceeded
+* Insufficient permissions
+* File system maintenance in progress
+* Other system constraints
+
+.Analyze capacity trends
+
+Use decision points with the historical SSD usage graph to:
+
+* Understand how frequently capacity adjustments are needed
+* Evaluate whether automation or recommendation mode better fits your workload patterns
+* Identify recurring capacity constraints
+* Plan for future capacity needs based on growth trends
+* Troubleshoot failed automation attempts
 
 === ONTAP events
 Displays the number of EMS events detected across the file systems in scope, categorized by Capacity, Availability & protection, and Security & other.
@@ -145,12 +246,19 @@ Selecting *Security & other* navigates to the event analysis screen in Storage w
 
 Provides a detailed view of each FSx for ONTAP file system associated with your configured AWS credentials, filtered by the active region and AWS account selections. Data is collected from CloudWatch metrics. The table supports search, column filtering, pagination, column customization, and CSV export.
 
+You can select multiple clusters using the checkboxes to bulk edit their SSD management parameters. See <<SSD management modes>> for details.
+
 Key metrics include:
 
 * Name, region, and AWS account
+* Link configured: Indicates whether an FSx for ONTAP link is configured for the file system and validates the connection status. Connection validity is checked daily.
 * SSD capacity metrics (used, total, and usage percentage)
 * Capacity pool storage
 * Throughput metrics (average, P95, P99, and max over the last 30 days)
+* SSD management parameters:
+** *Threshold* (percentage): The SSD usage percentage that triggers capacity recommendations or automation actions
+** *Lookback* (hours): The time period used to analyze historical SSD usage patterns
+** *Ahead* (hours): The time period used to project future capacity needs
 
 Use *SSD usage* to identify file systems approaching capacity limits. Use *Throughput usage (P99)* to compare throughput demand to the provisioned throughput SKU. Hover over throughput column headers for calculation details.
 

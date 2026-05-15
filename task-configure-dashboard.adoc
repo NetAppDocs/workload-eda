@@ -2,9 +2,9 @@
 sidebar: sidebar
 permalink: task-configure-dashboard.html
 keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, top volumes, capacity utilization, throughput utilization, IOPS utilization
-summary: Configure the EDA Project dashboard by adding tags to collect metrics. Customize filters with single or multi-selection options to meet your business needs. 
+summary: Configure the EDA Projects dashboard by adding tags to collect metrics. Customize filters with single or multi-selection options to meet your business needs. 
 ---
-= Use the Project dashboard in Workload Factory for EDA
+= Use the Projects dashboard in Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 
@@ -38,7 +38,7 @@ Your dashboard becomes a dynamic tool for organizing, tracking costs, and filter
 
 === Configure custom filters
 
-NOTE: Only the first admin user to access the Project dashboard can configure, add, or delete custom filters. All other users, including subsequent admins, have read-only access to the filters.
+NOTE: Only the first admin user to access the Projects dashboard can configure, add, or delete custom filters. All other users, including subsequent admins, have read-only access to the filters.
 
 Custom filters allow you to organize your dashboard data according to how your organization operates. By aligning filters with your project structure, teams, or cost centers, you can quickly access the specific data you need without navigating through irrelevant information. This makes capacity planning, cost tracking, and performance monitoring more efficient.
 

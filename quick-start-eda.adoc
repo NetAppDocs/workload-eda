@@ -45,13 +45,13 @@ Enable the Overview dashboard to monitor the health, capacity, and throughput of
 [role="quick-margin-para"]
 link:task-use-overview-dashboard.html[Learn how to enable the Overview dashboard^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure the Project dashboard
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure the Projects dashboard
 
 [role="quick-margin-para"]
-Configure the Project dashboard to monitor system health, performance, and storage usage, enabling you to optimize your EDA environment effectively.
+Configure the Projects dashboard to monitor system health, performance, and storage usage, enabling you to optimize your EDA environment effectively.
 
 [role="quick-margin-para"]
-link:task-configure-dashboard.html[Learn how to configure the Project dashboard^].
+link:task-configure-dashboard.html[Learn how to configure the Projects dashboard^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Configure FSx for ONTAP latency analysis
 
