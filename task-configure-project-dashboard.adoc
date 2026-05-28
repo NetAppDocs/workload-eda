@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: task-configure-project-dashboard.html
+keywords: configure, dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, custom filters, project tags, team tags
+summary: Configure custom filters for the Projects dashboard to organize metrics by your business structure such as projects, teams, or applications.
+---
+= Configure the Projects dashboard in Workload Factory for EDA
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+Configure custom filters for the Projects dashboard to organize and view metrics according to your business structure. Custom filters let you track costs accurately, identify which projects consume the most resources, and make informed decisions about resource allocation and budget planning.
+
+== Before you begin
+
+To effectively use custom filters, configure AWS tags on your FSx for ONTAP volumes based on your business requirements—for example, tags that represent projects, teams, or business units.
+
+AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
+
+== Configure custom filters
+
+NOTE: Only the first admin user to access the Projects dashboard can configure, add, or delete custom filters. All other users, including subsequent admins, have read-only access to the filters.
+
+.About this task
+
+You can configure up to five custom filters based on your AWS tags. Each custom filter requires three components: a filter label name, an AWS tag key name, and a selection type (single or multi-selection). 
+
+If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
+
+Custom filters allow you to organize your dashboard data according to how your organization operates. By aligning filters with your project structure, teams, or cost centers, you can quickly access the specific data you need without navigating through irrelevant information. This makes capacity planning, cost tracking, and performance monitoring more efficient.
+
+.Steps
+
+. Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
+. Select the menu image:workloads-menu-icon.png[The hamburger menu icon is used to navigate to workloads like storage, eda, ai, databases, vmware, and administration.] and then select *EDA*.
+. Select *Projects*.
++
+If you have not already configured your dashboard, you are automatically prompted to do so.
+. Select *+ Add filters*.
+. For each custom filter you want to create, add the details:
+* Filter label name (the display name in the dashboard)
+* AWS tag key name (the actual tag key used on your resources)
+* Selection type (single or multi-selection)
++
+NOTE: Filters appear on the dashboard in the order you configure them. Consider organizing your most frequently used filters first for easier access.
+
+. Select *Apply*. 
++
+You can delete a custom filter by selecting the trash icon next to that filter before applying your changes.
+. To view your changes after applying any tags or filters, select the refresh icon on the dashboard.
+. To edit the dashboard configuration later, select *Configure*.
+
+.Result
+
+When these tags are applied, Workload Factory begins collecting and displaying the relevant CloudWatch metrics. Your dashboard becomes a dynamic tool for organizing, tracking costs, and filtering resources based on your organizational needs.
+
+== Related information
+
+* link:learn-project-dashboard.html[Learn about the Projects dashboard]
+* link:task-use-project-dashboard.html[Use the Projects dashboard]

@@ -8,7 +8,7 @@ Workload Factory now offers SSD capacity increase management modes to match your
 
 The current mode and its parameters are shown at the top of the SSD usage graph on the file system details page. You can switch modes at any time based on your operational needs.
 
-link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#ssd-management-modes[Learn about SSD management modes^].
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#change-ssd-management-mode[Learn about SSD management modes^].
 
 === Bulk edit SSD capacity increase management parameters
 
@@ -27,7 +27,7 @@ The SSD usage graph now shows decision points indicating when capacity recommend
 
 Decision points can occur every 30 minutes and are displayed individually or consolidated depending on the selected time range.
 
-link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#understanding-capacity-decision-points[Learn about capacity decision points^].
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#analyze-capacity-trends-and-decision-points[Learn about capacity decision points^].
 
 === Link configured status in Clusters table
 

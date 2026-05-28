@@ -12,16 +12,28 @@ indexpage:
           url: /quick-start-eda.html
     - title: EDA storage overview
       links:
-        - title: Manage EDA storage operations
+        - title: Learn about the Overview dashboard
+          url: /learn-overview-dashboard.html
+        - title: Activate the Overview dashboard
+          url: /task-activate-overview-dashboard.html
+        - title: Use the Overview dashboard
           url: /task-use-overview-dashboard.html
     - title: FSx for ONTAP latency analysis
       links:
-        - title: Monitor FSx for ONTAP volume latency
-          url: /task-monitor-latency.html
+        - title: Learn about latency monitoring
+          url: /learn-latency-monitoring.html
+        - title: Configure latency monitoring
+          url: /task-configure-latency-monitoring.html
+        - title: Analyze latency issues
+          url: /task-analyze-latency-issues.html
     - title: Project usage analysis
       links:
-        - title: Analyze project storage usage 
-          url: /task-configure-dashboard.html
+        - title: Learn about the Projects dashboard
+          url: /learn-project-dashboard.html
+        - title: Configure the Projects dashboard
+          url: /task-configure-project-dashboard.html
+        - title: Use the Projects dashboard
+          url: /task-use-project-dashboard.html
     - title: Use Perforce integration
       links:
         - title: Learn about Perforce integration

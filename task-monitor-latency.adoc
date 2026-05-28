@@ -87,26 +87,7 @@ NOTE: Latency thresholds you set in EDA apply to your whole account by default. 
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
 . Select the *Latency* tab.
-. In the EDA latency configuration page, configure the following thresholds:
-+
-* *Warning events*
-+
-** *Read latency threshold*: Enter the latency threshold in milliseconds. Default: 6 ms.
-** *Read IOPS threshold*: Enter the IOPS threshold in operations per second. Default: 100 ops/sec.
-** *Read time range*: Enter the time range in minutes (5-20). Default: 10 minutes.
-** *Write latency threshold*: Enter the latency threshold in milliseconds. Default: 8 ms.
-** *Write IOPS threshold*: Enter the IOPS threshold in operations per second. Default: 100 ops/sec.
-** *Write time range*: Enter the time range in minutes (5-20). Default: 10 minutes.
-+
-* *Critical events*
-+
-** *Read latency threshold*: Enter the latency threshold in milliseconds. Default: 12 ms.
-** *Read IOPS threshold*: Enter the IOPS threshold in operations per second. Default: 100 ops/sec.
-** *Read time range*: Enter the time range in minutes (5-20). Default: 10 minutes.
-** *Write latency threshold*: Enter the latency threshold in milliseconds. Default: 15 ms.
-** *Write IOPS threshold*: Enter the IOPS threshold in operations per second. Default: 100 ops/sec.
-** *Write time range*: Enter the time range in minutes (5-20). Default: 10 minutes.
-. Select *Apply*.
+. In the EDA latency configuration page, configure the thresholds.
 
 .Result
 
@@ -123,15 +104,7 @@ The latency events table provides a centralized view of all warning and critical
 
 .Steps
 
-. In the *Latency* tab, review the information for each event including:
-+
-* *Severity*: Indicates whether the event is Critical or Warning
-* *Volume name*: The name of the affected volume
-* *Volume ID*: The ID of the affected volume
-* *File system*: The FSx for ONTAP file system containing the volume
-* *Median latency (ms)*: The median latency value during the breach period
-* *% above threshold*: The percentage by which the latency exceeded the configured threshold
-* *Time detected*: When the breach was detected
+. In the *Latency* tab, review the information for each event.
 . To view details for a latency event, select the event in the *Severity* column. This opens a latency analysis panel for that event.
 . To sort the table, select any column header. By default, critical events are displayed first sorted by time, followed by warning events sorted by time.
 . To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
@@ -153,16 +126,7 @@ Select a latency event in the *Severity* column to open the latency analysis pan
 
 ==== Overview
 
-The *Overview* tab displays the results of automated basic analysis, identifying which component is causing the latency:
-
-* *FlexCache*: Latency from FlexCache operations
-* *Capacity pool*: Latency from capacity pool operations
-* *QoS min*: Latency from QoS policy group floor limits
-* *QoS max*: Latency from QoS policy group ceiling limits
-* *Disk*: Latency from the storage subsystem
-* *Data*: Latency from the WAFL subsystem, including CPU processing, metadata updates, and cache management
-* *Cluster*: Latency across internally connected nodes
-* *Other*: Latency from other subsystems such as NVRAM and network
+The *Overview* tab displays the results of automated basic analysis, identifying which component is causing the latency.
 
 If an Amazon Bedrock model ARN is configured, the *Overview* tab also includes an option to run AI-agent analysis for data and cluster scenarios. If Bedrock is not configured, the tab displays a link to the Storage workloads configuration page for the specific file system where you can configure Bedrock access.
 
@@ -227,14 +191,6 @@ You can configure email or Amazon SNS notifications to receive alerts when laten
 Latency notifications are sent on a per-file-system basis. When one or more volumes in a file system breach latency thresholds, you receive a single notification listing all affected volumes.
 
 NOTE: If more than 10 volumes are affected, the email displays the first 10 volumes and indicates how many additional volumes are affected. You can view all affected volumes in Workload Factory console.
-
-Notifications include:
-
-* File system details
-* List of volumes with breached thresholds
-* Event severity (Warning or Critical)
-* Latency values and threshold comparisons
-* Direct link to the Latency page for investigation
 
 Notification channels:
 

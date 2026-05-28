@@ -1,0 +1,118 @@
+---
+sidebar: sidebar
+permalink: task-configure-latency-monitoring.html
+keywords: latency analysis, configure thresholds, CloudWatch alarms, latency monitoring, FSx for ONTAP, warning events, critical events, latency notifications, email notifications, SNS notifications, latency configuration
+summary: Configure latency monitoring thresholds and notification settings to detect and respond to performance issues with FSx for ONTAP volumes.
+---
+= Configure latency monitoring in Workload Factory for EDA
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+Configure warning and critical thresholds for read and write latency to monitor FSx for ONTAP volume performance. Set up optional email or Amazon SNS notifications to receive real-time alerts when latency events are detected.
+
+== Before you begin
+
+Ensure you meet the following requirements before configuring latency monitoring.
+
+=== AWS credentials and permissions
+
+You must add AWS credentials to Workload Factory with read/write permissions. The latency monitoring feature requires access to CloudWatch metrics for all FSx for ONTAP volumes associated with your AWS credentials.
+
+_Basic_ mode and _Read-only_ mode permissions are not supported for latency monitoring.
+
+If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
+
+=== FSx for ONTAP file system
+
+You need at least one FSx for ONTAP file system with volumes deployed in your AWS environment. The latency monitoring feature automatically collects metrics for all volumes associated with your configured AWS credentials.
+
+=== Link to FSx for ONTAP
+
+To view basic analysis insights, you must associate a link with the FSx for ONTAP file system. Without a link, events can still be detected, but the analysis provides limited insights. If no link is already associated, select *Associate link* in EDA, choose whether to create a new link or associate an existing link, and then select *Continue* to automatically go to the link creation page in Storage workloads.
+
+For instructions on creating and associating links, see link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
+
+=== Amazon Bedrock model ARN (optional)
+
+To use the optional AI-agent analysis feature, you must provide an Amazon Bedrock model ARN in your Workload Factory settings.
+
+For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
+
+If you don't configure a Bedrock model ARN, you can still use latency monitoring and automated basic analysis, but AI-agent analysis is not available.
+
+=== Notification configuration (optional)
+
+To receive email or Amazon SNS notifications when latency events are detected, configure notification preferences in Workload Factory settings. See <<Configure latency notifications>> for details.
+
+== Configure latency thresholds
+
+Configure warning and critical thresholds for read and write operations. The system evaluates thresholds continuously and generates alerts when conditions are met.
+
+NOTE: You must set critical event thresholds higher than warning event thresholds to ensure proper alert escalation. If not, you cannot save your configuration.
+
+NOTE: Latency thresholds you set in EDA apply to your whole account by default. If a volume has its own latency thresholds set in Storage, those volume settings take priority for that volume. Updating account-level thresholds in EDA won't change any volume-level settings.
+
+.Steps
+
+. Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
+. Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
+. Select the *Latency* tab.
+. In the EDA latency configuration page, configure the thresholds for:
+* Read latency (warning and critical)
+* Write latency (warning and critical)
+* IOPS thresholds for each
+* Time ranges for evaluation
+. Select *Apply* to save your configuration.
+
+.Result
+
+Workload Factory begins collecting latency metrics for all FSx for ONTAP volumes associated with your AWS credentials. Metrics are collected at least every 20 minutes. Any volumes that breach your configured thresholds are displayed in the latency events table.
+
+== Configure latency notifications
+
+Configure email or Amazon SNS notifications to receive alerts when latency events are detected. Notifications are sent each time a volume breaches your configured thresholds, providing real-time awareness of performance issues.
+
+Latency notifications are sent on a per-file-system basis. When one or more volumes in a file system breach latency thresholds, you receive a single notification listing all affected volumes.
+
+NOTE: If more than 10 volumes are affected, the email displays the first 10 volumes and indicates how many additional volumes are affected. You can view all affected volumes in Workload Factory console.
+
+Notification channels:
+
+* *Email*: Sent to configured email addresses in your Workload Factory notification settings
+* *Amazon SNS*: Published to your configured SNS topic for integration with other systems
+
+To enable notifications, see link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications[Configure notification settings].
+
+== Manage latency configuration
+
+After the initial configuration, you can edit your thresholds as needed.
+
+.Steps
+
+. In the *Latency* page, select *Edit*.
+. Modify any of the threshold values as needed.
++
+NOTE: Ensure that critical thresholds remain higher than warning thresholds. The system displays an error if you configure critical thresholds lower than warning thresholds.
+
+. Select *Apply* to save your changes.
+
+== Best practices
+
+Consider these recommendations when configuring latency monitoring:
+
+* *Set realistic thresholds*: Configure thresholds based on your workload requirements. Default values provide a starting point but might need adjustment for your specific environment.
+
+* *Start with warning thresholds*: Use warning events to establish baseline performance expectations before fine-tuning critical thresholds.
+
+* *Consider time ranges carefully*: Shorter time ranges (5-10 minutes) detect issues faster but might generate more alerts. Longer time ranges (15-20 minutes) reduce false positives but might delay detection.
+
+* *Coordinate IOPS and latency thresholds*: The dual-condition logic means both must be exceeded. Setting very high IOPS thresholds might prevent alerts even when latency is problematic.
+
+* *Review dismissed events*: Periodically review why events were dismissed to identify opportunities for threshold adjustment or infrastructure improvements.
+
+== Related information
+
+* link:learn-latency-monitoring.html[Learn about latency monitoring]
+* link:task-analyze-latency-issues.html[Analyze latency issues]
+* link:task-analyze-latency-trends.html[Analyze latency trends]

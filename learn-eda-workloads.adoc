@@ -36,7 +36,7 @@ For more information about Workload Factory, refer to the link:https://docs.neta
 You can create a project and assign a volume that represents your software environment and its artifacts. Each time that you create a new version of the software, you need resync the volume data and create a project snapshot to mark the volume state as a known version. The project source volume might get rolling updates and have multiple snapshots to mark multiple versions. You can use each snapshot immediately as an instant clone, a dedicated or shared editable repository available to developers, QA or build processes. A clone in the context of a specific software version is a workspace.
  
 == Automation with Workload Factory Codebox
-Workload factory introduces built-in automation with the _Codebox_. The Codebox offers the following automation benefits: 
+Workload Factory introduces built-in automation with the _Codebox_. The Codebox offers the following automation benefits: 
 
 * *Code snippet generation*: Infrastructure-as-Code (IaC) snippets are generated during resource creation, enabling seamless integration with existing orchestration workflows. 
 * *Infrastructure-as-code co-pilot*: the Codebox is an Infrastructure-as-code (IaC) co-pilot that helps developers and DevOps generate code to execute any operation supported by Workload Factory.  

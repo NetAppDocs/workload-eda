@@ -13,7 +13,7 @@ As an IT administrator or project manager overseeing EDA workloads, you can use 
 
 The dashboard provides visibility into storage usage patterns, helping you identify resource-intensive projects, track costs, and optimize storage allocation before capacity or performance issues impact your EDA simulations.
 
-The dashboard helps you monitor storage usage for capacity allocated, capacity used, throughput, and IOPS. For proactive latency performance monitoring, see link:task-monitor-latency.html[Monitor volume latency]. 
+It helps you monitor storage usage for capacity allocated, capacity used, throughput, and IOPS. For proactive latency performance monitoring, see link:learn-latency-monitoring.html[Learn about latency monitoring]. 
 
 The CloudWatch metrics collected include:
 
@@ -22,7 +22,7 @@ The CloudWatch metrics collected include:
 * Average/Maximum throughput: Calculated as the average or maximum of the sum of DataReadBytes and DataWriteBytes over the specified time period.
 * Average/Maximum IOPS: Calculated as the average or maximum of the sum of DataReadOperations, DataWriteOperations, and MetadataOperations over the specified time period.
 
-== Setup the dashboard 
+== Set up the dashboard 
 
 Setting up custom filters enables you to view metrics organized by your business structure—such as by project, team, or application. This organization helps you track costs accurately, identify which projects consume the most resources, and make informed decisions about resource allocation and budget planning.
 
@@ -44,17 +44,15 @@ Custom filters allow you to organize your dashboard data according to how your o
 
 You can configure up to five custom filters based on your AWS tags. Each custom filter requires three components: a filter label name, an AWS tag key name, and a selection type (single or multi-selection). If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
 
+.Steps
+
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon is used to navigate to workloads like storage, eda, ai, databases, vmware, and administration.] and then select *EDA*.
 . Select *Project*.
 +
 If you have not already configured your dashboard, you are automatically prompted to do so.
 . Select *+ Add filters*.
-. For each custom filter you want to create (up to five), provide the following:
-+
-* *Filter label name*: The display name that appears in the dashboard.
-* *AWS tag key name*: The AWS resource tag key that corresponds to this filter.
-* *Multi-selection*: Choose whether this filter allows single selection or multiple selection. When you select *Multi-selection*, you can select multiple values for this filter simultaneously. Single-selection restricts you to selecting only one value at a time.
+. For each custom filter you want to create, add the details.
 +
 NOTE: Filters appear on the dashboard in the order you configure them. Consider organizing your most frequently used filters first for easier access.
 
@@ -69,19 +67,6 @@ You can delete a custom filter by selecting the trash icon next to that filter b
 Filtering helps you focus on specific subsets of your storage resources, making it easier to analyze trends, identify issues, and generate reports for stakeholders. By combining multiple filters, you can answer specific business questions like "How much storage is my ASIC project team using?" or "Which volumes in the US-West region have the highest IOPS?"
 
 You can filter the information displayed on the dashboard using a combination of default filters and any custom filters you created.
-
-The following default filters are always available:
-
-* Credentials
-* Region
-* File system
-* Volume type
-* Time range
-
-Custom filters you configure appear on the dashboard in addition to these default filters. When using filters:
-
-* *Multi-selection filters* allow you to select multiple values simultaneously to broaden your view. For example, you might select multiple projects to view combined metrics.
-* *Single-selection filters* restrict you to selecting only one value at a time, useful when you need to focus on a specific resource or category.
 
 When you have selected your required filters, select the refresh icon to update the dashboard information.
 

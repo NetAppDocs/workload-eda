@@ -13,7 +13,7 @@ After detecting a latency event, you can use the interactive graph to analyze vo
 
 == Before you begin
 
-You must have link:task-monitor-latency.html[configured latency monitoring] and at least one latency event detected.
+You must have link:task-configure-latency-monitoring.html[configured latency monitoring] and at least one latency event detected.
 
 == Analyze latency trends
 
