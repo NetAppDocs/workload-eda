@@ -70,12 +70,7 @@ NOTE: There might be slight discrepancies between latency values from ONTAP QoS 
 
 === AI-agent analysis
 
-While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as:
-
-* Bully volumes consuming excessive resources (for data delays)
-* Non-optimal mount point configurations (for cluster delays)
-* FlexGroup rebalancing needs (for cluster delays)
-* Scale-out requirements (for cluster delays)
+While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
 
 When you run AI-agent analysis, the system provides:
 
