@@ -9,13 +9,11 @@ summary: Configure custom filters for the Projects dashboard to organize metrics
 :imagesdir: ./media/
 
 [.lead]
-Configure custom filters for the Projects dashboard to organize and view metrics according to your business structure. Custom filters let you track costs accurately, identify which projects consume the most resources, and make informed decisions about resource allocation and budget planning.
+Configure custom filters for the Projects dashboard to organize metrics according to your business structure—such as projects, teams, or cost centers. This helps you track costs accurately, identify which resources consume the most capacity, and make informed decisions about resource allocation and budget planning. By aligning filters with how your organization operates, you can quickly access relevant data and improve efficiency in capacity planning, cost tracking, and performance monitoring.
 
 == Before you begin
 
 To effectively use custom filters, configure AWS tags on your FSx for ONTAP volumes based on your business requirements—for example, tags that represent projects, teams, or business units.
-
-AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
 
 == Configure custom filters
 
@@ -26,8 +24,6 @@ NOTE: Only the first admin user to access the Projects dashboard can configure, 
 You can configure up to five custom filters based on your AWS tags. Each custom filter requires three components: a filter label name, an AWS tag key name, and a selection type (single or multi-selection). 
 
 If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
-
-Custom filters allow you to organize your dashboard data according to how your organization operates. By aligning filters with your project structure, teams, or cost centers, you can quickly access the specific data you need without navigating through irrelevant information. This makes capacity planning, cost tracking, and performance monitoring more efficient.
 
 .Steps
 

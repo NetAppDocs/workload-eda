@@ -38,7 +38,7 @@ At the top of the dashboard, a snapshot of health and activity across your filte
 The cluster health status includes the following key areas:
 
 * *Latency*: Number of latency events detected
-* *Utilization*: SSD utilization status and file systems with active capacity recommendations
+* *SSD capacity mode*: SSD utilization status and file systems with active capacity recommendations
 * *ONTAP events*: Number of EMS events by category (Capacity, Availability & protection, Security & other)
 
 .Steps
@@ -85,35 +85,34 @@ Change the SSD capacity management mode for individual file systems to control w
 SSD management modes include:
 
 * *Recommend*: Receive capacity recommendations that you manually review and apply
-* *Automation*: Automatically increase SSD capacity based on predefined thresholds
+* *Automate*: Automatically increase SSD capacity based on predefined thresholds
 * *None*: No capacity recommendations or automated actions
+
+If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes recommendations or automation decisions.
+
+* *Threshold* (10-90%): The SSD usage percentage that triggers capacity recommendations or automation actions
+* *Lookback* (1-200 hours): The time period used to analyze historical SSD usage patterns
+* *Ahead* (1-200 hours): The time period used to project future capacity needs
 
 .Steps
 
 . From the *Overview* tab, select a file system name in the table.
-. Locate the SSD management mode indicator above the capacity graph.
-. Select *Configure* to modify the mode and parameters.
+. Select image:icon-action.png[The action menu icon] and then select *Change SSD capacity management*.
 . Choose your preferred mode:
-* *Recommend*: Set the Threshold, Lookback, and Ahead parameters for recommendation analysis
-* *Automation*: Set the Threshold, Lookback, and Ahead parameters for automated capacity scaling
 * *None*: Disable capacity management
-. Select *Save*.
+* *Recommend*: Set the Threshold, Lookback, and Ahead parameters for recommendation analysis
+* *Automate*: Set the Threshold, Lookback, and Ahead parameters for automated capacity scaling
+. Select *Apply*.
 
 .Result
 
-The file system uses the new mode immediately. If you selected Recommend or Automation, the system uses the configured parameters for capacity analysis and decision-making.
+The file system uses the new mode immediately. If you selected Recommend or Automate, the system uses the configured parameters for capacity analysis and decision-making.
 
 == Bulk edit SSD management parameters
 
 Adjust SSD capacity management parameters for multiple file systems simultaneously to apply consistent settings across your clusters.
 
 .About this task
-
-The editable parameters include:
-
-* *Threshold* (10-90%): The SSD usage percentage that triggers capacity recommendations or automation actions
-* *Lookback* (1-200 hours): The time period used to analyze historical SSD usage patterns
-* *Ahead* (1-200 hours): The time period used to project future capacity needs
 
 When you select multiple file systems for bulk editing:
 
@@ -127,15 +126,16 @@ When you select multiple file systems for bulk editing:
 +
 TIP: You can select individual file systems or use the header checkbox to select all visible file systems.
 
-. Select *Edit parameters* above the table.
+. Select *Change SSD capacity management* above the table.
+. Choose your preferred mode.
 . In the edit dialog, adjust the Threshold, Lookback, and Ahead parameters as needed.
 +
 Each parameter field includes a tooltip describing its purpose and valid range. The dialog indicates the current values or defaults based on your selection.
-. Select *Save* to apply the changes to all selected file systems.
+. Select *Apply* to apply the changes to all selected file systems.
 
 .Result
 
-The parameters are updated for all selected file systems. File systems in Recommend or Automation mode use the new parameters immediately for capacity analysis and decision-making.
+The parameters are updated for all selected file systems. File systems in Recommend or Automate mode use the new parameters immediately for capacity analysis and decision-making.
 
 == Analyze capacity trends and decision points
 

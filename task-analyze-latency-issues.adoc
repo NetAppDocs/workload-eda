@@ -40,9 +40,7 @@ The latency events table provides a centralized view of all warning and critical
 
 == Analyze a latency event
 
-Basic analysis helps you quickly identify the root cause of latency issues without manual investigation. When a latency event is detected, Workload Factory automatically performs basic analysis using ONTAP QoS delay center metrics. The analysis identifies which component is causing the latency and provides a short description.
-
-NOTE: There might be slight discrepancies between latency values from ONTAP QoS analysis and CloudWatch data due to different collection methodologies. The basic analysis uses ONTAP data for root cause identification.
+Basic analysis helps you quickly identify the root cause of latency issues without manual investigation.
 
 === Latency analysis panel
 
@@ -71,11 +69,11 @@ For detailed instructions on using the graph, see link:task-analyze-latency-tren
 If no link is associated with the file system, a prompt is displayed asking you to associate a link with the affected file system. Select the prompt to be redirected to the link setup page for that file system.
 . Review the *Overview* tab to understand the basic analysis results and identify the latency source.
 . Optionally, select the *Over time* tab to view latency trends for the affected volume.
-. If the latency source requires deeper investigation (data or cluster scenarios), proceed to run AI-agent analysis.
+. If the latency source requires deeper investigation (data or cluster scenarios), run AI-agent analysis.
 
 == Run AI-agent analysis
 
-While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation to determine the specific root cause and potential remediation steps. AI-agent analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
+AI-agent analysis provides deeper investigation to determine the specific root cause and potential remediation steps. 
 
 .Before you begin
 
@@ -83,18 +81,7 @@ Configure an Amazon Bedrock model ARN in Workload Factory settings, see link:htt
 
 .About this task
 
-When you run AI-agent analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI-agent. The AI-agent evaluates the latency scenario and provides:
-
-* *Potential root cause*: Detailed explanation of what's causing the latency issue
-* *Affected clients*: List of EC2 instance names impacted by the latency
-* *Potential remediation steps*: Two or more specific actions to resolve the issue
-
-The AI-agent follows the basic analysis guidelines to identify scenarios such as:
-
-* Bully volumes consuming excessive resources (for data delays)
-* Non-optimal mount point configurations (for cluster delays)
-* FlexGroup rebalancing needs (for cluster delays)
-* Scale-out requirements (for cluster delays)
+When you run AI-agent analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI-agent.
 
 .Steps
 

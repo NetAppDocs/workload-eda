@@ -2,8 +2,8 @@
 
 Workload Factory now offers SSD capacity increase management modes to match your operational preferences:
 
-* *Recommend*
 * *Automate*
+* *Recommend*
 * *None*
 
 The current mode and its parameters are shown at the top of the SSD usage graph on the file system details page. You can switch modes at any time based on your operational needs.
@@ -34,5 +34,9 @@ link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html
 The Clusters table on the Overview dashboard now includes a Link configured column that shows whether an FSx for ONTAP link is configured for each file system. Connection status is validated daily, helping you identify file systems that need link configuration or may have connectivity issues.
 
 link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html[View the Overview dashboard^].
+
+=== Support for AWS GovCloud (US) in NetApp Workload Factory
+
+NetApp Workload Factory supports AWS GovCloud (US) accounts. Using a GovCloud account, you can deploy and manage storage workloads in the AWS GovCloud (US) regions.
 
 // Use absolute links in these files
