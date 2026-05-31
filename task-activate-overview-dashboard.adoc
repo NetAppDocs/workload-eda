@@ -47,7 +47,7 @@ Workload Factory begins collecting CloudWatch metrics for all FSx for ONTAP file
 After activating the dashboard, you can:
 
 * link:task-use-overview-dashboard.html[Use the Overview dashboard] to monitor cluster health and capacity
-* Configure SSD capacity management modes (Recommend, Automation, or None)
+* Configure SSD capacity management modes (Automate, Recommend, or None)
 * Set up filters to focus on specific regions or AWS accounts
 
 == Related information

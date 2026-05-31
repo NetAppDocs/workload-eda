@@ -84,8 +84,8 @@ Change the SSD capacity management mode for individual file systems to control w
 
 SSD management modes include:
 
-* *Recommend*: Receive capacity recommendations that you manually review and apply
 * *Automate*: Automatically increase SSD capacity based on predefined thresholds
+* *Recommend*: Receive capacity recommendations that you manually review and apply
 * *None*: No capacity recommendations or automated actions
 
 If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes recommendations or automation decisions.
