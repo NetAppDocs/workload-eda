@@ -41,4 +41,4 @@ The default name for the clone is the project name with a suffix of the current 
 .. Select *Create*.
 
 .Result 
-Workload factory creates a new clone of the project, and the clone appears as a new project on the Projects page.
+Workload Factory creates a new clone of the project, and the clone appears as a new project on the Projects page.

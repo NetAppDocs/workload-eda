@@ -1,0 +1,106 @@
+---
+sidebar: sidebar
+permalink: learn-project-dashboard.html
+keywords: projects dashboard, AWS tags, CloudWatch, FSx for ONTAP, Workload Factory, EDA, electronic design automation, volume details, capacity utilization, throughput utilization, IOPS utilization, custom filters
+summary: Learn how the Projects dashboard in Workload Factory for EDA helps you monitor and analyze project storage usage across FSx for ONTAP file systems and volumes.
+---
+= Learn about the Projects dashboard in Workload Factory for EDA
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+The Projects dashboard helps IT administrators and project managers observe and analyze project usage across FSx for ONTAP file systems and volumes. It provides visibility into storage usage patterns, helping you identify resource-intensive projects, track costs, and optimize storage allocation before capacity or performance issues impact your EDA simulations.
+
+== How the Projects dashboard works
+
+The Projects dashboard collects CloudWatch metrics for all FSx for ONTAP volumes associated with your AWS credentials. You can create up to five custom filters based on your AWS tags to organize and filter the data according to your specific business requirements such as projects, teams, or applications.
+
+The dashboard helps you:
+
+* Plan capacity and assess costs
+* Make data-driven decisions about resource allocation
+* Identify resource-intensive projects
+* Track costs accurately across projects or teams
+* Optimize storage allocation before issues occur
+
+For proactive latency performance monitoring, see link:learn-latency-monitoring.html[Learn about latency monitoring].
+
+=== CloudWatch metrics collected
+
+The dashboard collects and displays the following CloudWatch metrics:
+
+* *Provisioned capacity*: Volume-level metric representing the provisioned storage capacity.
+* *Used capacity*: Volume-level metric representing the storage used.
+* *Average/Maximum throughput*: Calculated as the average or maximum of the sum of DataReadBytes and DataWriteBytes over the specified time period.
+* *Average/Maximum IOPS*: Calculated as the average or maximum of the sum of DataReadOperations, DataWriteOperations, and MetadataOperations over the specified time period.
+
+== Custom filters
+
+Custom filters allow you to organize your dashboard data according to how your organization operates. By aligning filters with your project structure, teams, or cost centers, you can quickly access the specific data you need without navigating through irrelevant information. This makes capacity planning, cost tracking, and performance monitoring more efficient.
+
+You can configure up to five custom filters based on your AWS tags. Each custom filter requires the following components:
+
+* *Filter label name*: The display name that appears in the dashboard
+* *AWS tag key name*: The actual AWS tag key used on your resources
+* *Selection type*: Single selection or multi-selection
+
+If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
+
+=== AWS tags
+
+AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. 
+
+To effectively use custom filters, configure AWS tags on your FSx for ONTAP volumes based on your business requirements—for example, tags that represent projects, teams, or business units.
+
+For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
+
+== Volume details
+
+The dashboard provides viewing modes to help you analyze your storage metrics at different levels of detail.
+
+=== Total view
+
+The Total view (default) displays aggregated metrics across all volumes that match your selected filters. This view provides a high-level overview of your overall storage performance, showing combined capacity, IOPS, and throughput metrics. 
+
+Use this view to:
+
+* Understand overall trends
+* Plan for future capacity needs
+* Report on total resource consumption across projects or teams
+
+=== Volume view
+
+The Volume view displays individual volume performance over time, showing the top 10 volumes for each metric. This view helps you identify specific volumes that are driving resource usage and observe their behavior over the selected time period.
+
+Use this view to:
+
+* Find performance bottlenecks
+* Identify volumes that may need rightsizing
+* Pinpoint which specific projects or workloads are consuming the most resources
+
+==== Volume metrics displayed
+
+When you view individual volumes, the dashboard displays the top 10 volumes out of your total number of volumes for each metric:
+
+* *Volume used capacity*: Shows volumes with the highest current used capacity.
+* *IOPS*: Shows volumes with the highest average IOPS during the selected time period.
+* *Throughput*: Shows volumes with the highest average throughput during the selected time period.
+
+NOTE: The dashboard displays only the top 10 volumes for each metric. If you have more than 10 volumes, some volumes might not be displayed in the detailed view.
+
+When the same volumes appear across multiple metrics, the dashboard uses consistent color coding in the legend to make it easier to track specific volumes across different metrics.
+
+==== Interactive volume data
+
+Interactive hover data provides precise metrics at specific points in time, helping you correlate performance changes with specific events or timeframes. This detailed information is valuable for troubleshooting performance issues, validating optimization efforts, or explaining resource usage patterns to stakeholders.
+
+When you hover over any volume line in the graphs, you can view:
+
+* *Volume used capacity*: Volume name, used capacity at that point in time, and allocated capacity
+* *IOPS*: Volume name, average IOPS for the time range, and maximum IOPS for the time range
+* *Throughput*: Volume name, average throughput for the time range, and maximum throughput for the time range
+
+== Related information
+
+* link:task-configure-project-dashboard.html[Configure the Projects dashboard]
+* link:task-use-project-dashboard.html[Use the Projects dashboard]

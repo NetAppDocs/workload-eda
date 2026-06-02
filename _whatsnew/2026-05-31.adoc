@@ -1,0 +1,42 @@
+=== SSD capacity increase management modes and automation
+
+Workload Factory now offers SSD capacity increase management modes to match your operational preferences:
+
+* *Automate*
+* *Recommend*
+* *None*
+
+The current mode and its parameters are shown at the top of the SSD usage graph on the file system details page. You can switch modes at any time based on your operational needs.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#change-ssd-management-mode[Learn about SSD management modes^].
+
+=== Bulk edit SSD capacity increase management parameters
+
+You can now adjust SSD capacity increase management parameters across multiple file systems from the Overview dashboard. Select one or more clusters in the Clusters table and edit the Threshold (10-90%), Lookback (1-200 hours), and Ahead (1-200 hours) values in bulk.
+
+The edit dialog automatically populates based on your selection: if all selected file systems share the same parameter values, those values are shown; otherwise, default values are used. This helps you apply consistent capacity settings across your environment.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#bulk-edit-ssd-management-parameters[Learn how to bulk edit parameters^].
+
+=== Capacity decision points visualization
+
+The SSD usage graph now shows decision points indicating when capacity recommendations were generated or automated actions were taken.
+
+* *Recommendation decision points*: Hover to view timestamp, recommended increase size, and current capacity.
+* *Automation decision points*: Hover to view timestamp, success or failure status, increase size, and new aggregate size. Failed attempts include the failure reason.
+
+Decision points can occur every 30 minutes and are displayed individually or consolidated depending on the selected time range.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#analyze-capacity-trends-and-decision-points[Learn about capacity decision points^].
+
+=== Link configured status in Clusters table
+
+The Clusters table on the Overview dashboard now includes an Associated link column that shows whether an FSx for ONTAP link is configured for each file system. Connection status is validated daily, helping you identify file systems that need link configuration or may have connectivity issues.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html[View the Overview dashboard^].
+
+=== Support for AWS GovCloud (US) in NetApp Workload Factory
+
+NetApp Workload Factory supports AWS GovCloud (US) accounts. Using a GovCloud account, you can deploy and manage storage workloads in the AWS GovCloud (US) regions.
+
+// Use absolute links in these files

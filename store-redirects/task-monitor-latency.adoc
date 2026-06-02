@@ -1,0 +1,4 @@
+---
+permalink: task-monitor-latency.html
+redirect: learn-latency-monitoring.html
+---
