@@ -43,15 +43,15 @@ link:requirements-eda.html[Learn more about EDA requirements^].
 Enable the Overview dashboard to monitor the health, capacity, and throughput of your FSx for ONTAP clusters. Accept the consent prompt to allow Workload Factory to begin collecting CloudWatch metrics.
 
 [role="quick-margin-para"]
-link:task-use-overview-dashboard.html[Learn how to enable the Overview dashboard^].
+link:task-activate-overview-dashboard.html[Learn how to activate the Overview dashboard^].
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure the Project dashboard
-
-[role="quick-margin-para"]
-Configure the Project dashboard to monitor system health, performance, and storage usage, enabling you to optimize your EDA environment effectively.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Configure the Projects dashboard
 
 [role="quick-margin-para"]
-link:task-configure-dashboard.html[Learn how to configure the Project dashboard^].
+Configure the Projects dashboard to monitor system health, performance, and storage usage, enabling you to optimize your EDA environment effectively.
+
+[role="quick-margin-para"]
+link:task-configure-project-dashboard.html[Learn how to configure the Projects dashboard^].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Configure FSx for ONTAP latency analysis
 
@@ -59,12 +59,19 @@ link:task-configure-dashboard.html[Learn how to configure the Project dashboard^
 Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run time. Configure warning and critical alerts, set up email or SNS notifications to receive real-time alerts, leverage automated basic analysis, and optionally enable AI-agent analysis for complex scenarios by configuring an Amazon Bedrock model ARN.
 
 [role="quick-margin-para"]
-link:task-monitor-latency.html[Learn how to configure latency monitoring^]. After events are detected, you can link:task-analyze-latency-trends.html[analyze latency trends^] using the interactive graph.
+link:task-configure-latency-monitoring.html[Learn how to configure latency monitoring^]. After events are detected, you can link:task-analyze-latency-trends.html[analyze latency trends^] using the interactive graph.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Integrate with other services
 
 [role="quick-margin-para"]
-Integrate EDA with other services such as a service portal or Perforce Helix Core using the workload Factory REST API.
+Integrate EDA with other services such as a service portal or Perforce Helix Core using the Workload Factory REST API.
 
 [role="quick-margin-para"]
 link:integrate-perforce.html[Learn how to integrate EDA with Perforce^].
+
+== What's next?
+
+* link:task-configure-latency-monitoring.html[Configure latency monitoring for FSx for ONTAP]
+* link:task-configure-project-dashboard.html[Configure the Projects dashboard]
+* link:learn-eda-workloads.html[Learn about EDA workloads]
+* link:get-help-eda.html[Get help with EDA]

@@ -1,0 +1,117 @@
+---
+sidebar: sidebar
+permalink: task-analyze-latency-issues.html
+keywords: latency analysis, analyze latency, latency events, root cause analysis, QoS delay center, AI-agent analysis, latency troubleshooting, volume latency, basic analysis, affected clients, remediation steps
+summary: View and analyze latency events to identify performance issues with FSx for ONTAP volumes. Use automated basic analysis and optional AI-agent analysis to determine root causes and recommended remediation steps.
+---
+= Analyze latency issues in Workload Factory for EDA
+:icons: font
+:imagesdir: ./media/
+
+[.lead]
+View detected latency events and use automated analysis tools to identify root causes and resolve performance bottlenecks in your FSx for ONTAP volumes.
+
+== Before you begin
+
+You must have link:task-configure-latency-monitoring.html[configured latency monitoring] before you can view and analyze latency events.
+
+== View latency events
+
+The latency events table provides a centralized view of all warning and critical events detected within the last 72 hours.
+
+.About this task
+
+* Only the latest breach for each volume is shown. If a volume experiences multiple breaches, only the most recent event is shown.
+* Events are automatically removed after 72 hours.
+* A maximum of 200 events is shown. Older events are removed as new events are added.
+* Events are displayed even if no link is associated with the file system. A link is required to view basic analysis details and run AI-agent analysis.
+
+.Steps
+
+. Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
+. Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
+. Select the *Latency* tab.
+. Review the information for each event in the latency events table.
+. To view details for a latency event, select the event in the *Severity* column. This opens a latency analysis panel for that event.
+. To sort the table, select any column header. By default, critical events are displayed first sorted by time, followed by warning events sorted by time.
+. To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
+. To add columns to the table, select image:column-icon.png[The column icon], choose the columns, and select *Apply*.
+. To analyze latency trends over time, select an event to open the latency analysis panel. Use the *Over time* tab to view the interactive latency graph. See link:task-analyze-latency-trends.html[Analyze latency trends] for details.
+
+== Analyze a latency event
+
+Basic analysis helps you quickly identify the root cause of latency issues without manual investigation.
+
+=== Latency analysis panel
+
+Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event:
+
+* *Overview*: Displays basic analysis results showing which component is causing the latency
+* *Over time*: Shows an interactive latency graph with historical data
+
+==== Overview tab
+
+The *Overview* tab displays the results of automated basic analysis, identifying which component is causing the latency.
+
+If an Amazon Bedrock model ARN is configured, the *Overview* tab also includes an option to run AI-agent analysis for data and cluster scenarios. If Bedrock is not configured, the tab displays a link to the Storage workloads configuration page for the specific file system where you can configure Bedrock access.
+
+==== Over time tab
+
+The *Over time* tab displays an interactive latency graph showing CloudWatch latency metrics over time for the affected volume. The graph shows either read or write latency depending on which alarm type triggered the event. You can select different time frames (1H, 3H, 12H, 24H, 72H) to view latency behavior over different periods.
+
+For detailed instructions on using the graph, see link:task-analyze-latency-trends.html[Analyze latency trends].
+
+=== Steps
+
+. In the *Latency* tab, locate the event you want to analyze.
+. In the *Severity* column, select a latency event to open an analysis panel for that event.
++
+If no link is associated with the file system, a prompt is displayed asking you to associate a link with the affected file system. Select the prompt to be redirected to the link setup page for that file system.
+. Review the *Overview* tab to understand the basic analysis results and identify the latency source.
+. Optionally, select the *Over time* tab to view latency trends for the affected volume.
+. If the latency source requires deeper investigation (data or cluster scenarios), run AI-agent analysis.
+
+== Run AI-agent analysis
+
+AI-agent analysis provides deeper investigation to determine the specific root cause and potential remediation steps. 
+
+.Before you begin
+
+Configure an Amazon Bedrock model ARN in Workload Factory settings, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
+
+.About this task
+
+When you run AI-agent analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI-agent.
+
+.Steps
+
+. In the *Latency* tab, locate the event you want to analyze.
+. In the *Severity* column, select a latency event to open an analysis panel for that event.
++
+If no link is associated with the file system, a prompt is displayed asking you to associate a link with the affected file system. Select the prompt to be redirected to the link setup page for that file system.
+. Review the *Overview* tab to understand the basic analysis results and identify the latency source.
+. If the latency source is identified as data or cluster, select *Analyze* to run AI-agent analysis.
+. Review the AI-agent analysis results including:
+* Potential root cause explanation
+* List of affected EC2 clients
+* Recommended remediation steps
+. Implement the recommended remediation steps to resolve the latency issue.
+. After remediation, monitor the latency events table to verify the issue is resolved.
+
+== Best practices
+
+Consider these recommendations when analyzing latency issues:
+
+* *Monitor trends*: Regularly review the latency events table to identify patterns or recurring issues that might indicate underlying configuration problems.
+
+* *Use AI-agent analysis strategically*: Run AI-agent analysis for data and cluster scenarios where basic analysis recommends it. AI-agent analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
+
+* *Review dismissed events*: Periodically review why events were dismissed to identify opportunities for threshold adjustment or infrastructure improvements.
+
+For best practices on analyzing latency trends, see link:task-analyze-latency-trends.html#graph-interpretation[Graph interpretation].
+
+== Related information
+
+* link:learn-latency-monitoring.html[Learn about latency monitoring]
+* link:task-configure-latency-monitoring.html[Configure latency monitoring]
+* link:task-analyze-latency-trends.html[Analyze latency trends]
