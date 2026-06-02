@@ -31,7 +31,7 @@ link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html
 
 === Link configured status in Clusters table
 
-The Clusters table on the Overview dashboard now includes a Link configured column that shows whether an FSx for ONTAP link is configured for each file system. Connection status is validated daily, helping you identify file systems that need link configuration or may have connectivity issues.
+The Clusters table on the Overview dashboard now includes an Associated link column that shows whether an FSx for ONTAP link is configured for each file system. Connection status is validated daily, helping you identify file systems that need link configuration or may have connectivity issues.
 
 link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html[View the Overview dashboard^].
 

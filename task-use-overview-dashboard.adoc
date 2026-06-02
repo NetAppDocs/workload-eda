@@ -25,8 +25,9 @@ Use the filters at the top of the dashboard to focus on specific file systems. T
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
 . Select the *Overview* tab.
 . Use the available filters to narrow your view:
-* *Region*: Filter by one or more AWS regions
-* *AWS account*: Filter by one or more AWS accounts associated with your configured credentials
+* *AWS accounts*: Filter by one or more AWS accounts associated with your configured credentials
+* *Credentials*: Filter by specific AWS credentials if you have multiple configured
+* *Regions*: Filter by one or more AWS regions
 . When you update the filter selections, all information is refreshed to show only the matching file systems.
 
 == View cluster health status
@@ -49,23 +50,20 @@ The cluster health status includes the following key areas:
 * If latency monitoring is not configured, select *Configure* to set up latency thresholds
 +
 For details on latency monitoring, see link:task-configure-latency-monitoring.html[Configure latency monitoring^].
-. To view ONTAP events by category, select the category name:
-* *Capacity*: Navigates to the capacity analysis screen in Storage workloads
-* *Availability & protection*: Navigates to the availability and protection analysis screen in Storage workloads
-* *Security & other*: Navigates to the event analysis screen in Storage workloads
+. To view ONTAP events for your FSx for ONTAP file systems, select *Review*.
 +
-For a full list of EMS events monitored, see link:https://docs.netapp.com/us-en/ontap-cli-9171/index.html[ONTAP CLI documentation^].
+The ONTAP events view card displays the number of EMS events by category (Capacity, Availability & protection, and Security & other). For a full list of EMS events monitored, see link:https://docs.netapp.com/us-en/ontap-cli-9171/index.html[ONTAP CLI documentation^].
 
 == View and apply capacity recommendations
 
-Workload Factory automatically runs a capacity recommendation algorithm for each FSx for ONTAP file system. When a recommendation is identified, a lightbulb indicator appears in the Clusters table.
+Workload Factory automatically runs a capacity recommendation algorithm for each FSx for ONTAP file system. You can identify file systems with capacity recommendations by filtering the Clusters table.
 
 .Steps
 
-. In the *Clusters* table, locate a file system with a lightbulb indicator.
+. In the *Clusters* table, filter by the *Last SSD increase timestamp* or *Last SSD increase description* columns.
 +
-Hover over the lightbulb indicator to see a tooltip with a brief description of the recommendation.
-. Select the cluster name in the table to open it and view the recommendations.
+File systems with capacity recommendations appear at the top of the table.
+. Select a file system name in the table to open it and view the recommendations.
 . Review the SSD recommendation and the capacity graph.
 +
 The recommendation explains the suggested change and the reasoning behind it. For example: _We recommend increasing the SSD size based on your file system SSD usage pattern._
@@ -88,7 +86,7 @@ SSD management modes include:
 * *Recommend*: Receive capacity recommendations that you manually review and apply
 * *None*: No capacity recommendations or automated actions
 
-If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes recommendations or automation decisions.
+If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes automation decisions. If you select Recommend mode, you can configure only the Threshold parameter.
 
 * *Threshold* (10-90%): The SSD usage percentage that triggers capacity recommendations or automation actions
 * *Lookback* (1-200 hours): The time period used to analyze historical SSD usage patterns
@@ -96,11 +94,10 @@ If you select Automate mode, you can configure the Threshold, Lookback, and Ahea
 
 .Steps
 
-. From the *Overview* tab, select a file system name in the table.
-. Select image:icon-action.png[The action menu icon] and then select *Change SSD capacity management*.
+. In the Clusters table find the file system name. Next to it, open image:icon-action.png[the action menu icon] and select *Change SSD capacity management*.
 . Choose your preferred mode:
 * *None*: Disable capacity management
-* *Recommend*: Set the Threshold, Lookback, and Ahead parameters for recommendation analysis
+* *Recommend*: Set the Threshold parameter for recommendation analysis
 * *Automate*: Set the Threshold, Lookback, and Ahead parameters for automated capacity scaling
 . Select *Apply*.
 
@@ -152,7 +149,7 @@ Decision points on the graph indicate when:
 
 . From the *Overview* tab, select a file system name in the table.
 . Review the SSD usage graph showing historical capacity trends.
-. Select different time ranges (top right) to view capacity behavior over various periods.
+. Select different time ranges to view capacity behavior over various periods.
 . Hover over decision points on the graph to view details about recommendations or automation actions at specific moments.
 . Use the insights from the graph to:
 * Understand how frequently capacity adjustments are needed
@@ -188,7 +185,7 @@ Consider these recommendations when using the Overview dashboard:
 
 * *Use filters effectively*: Combine region and account filters to focus on specific subsets of your infrastructure.
 
-* *Review recommendations promptly*: When lightbulb indicators appear, review and act on capacity recommendations to prevent capacity constraints.
+* *Review recommendations promptly*: Filter the Clusters table by Last SSD increase timestamp or description to identify file systems with capacity recommendations. Review and act on these recommendations to prevent capacity constraints.
 
 * *Choose the right mode*: Use Recommend mode when you want control over capacity decisions, or Automation mode for hands-off management.
 

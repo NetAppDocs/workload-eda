@@ -51,7 +51,7 @@ Configure warning and critical thresholds for read and write operations. The sys
 
 NOTE: You must set critical event thresholds higher than warning event thresholds to ensure proper alert escalation. If not, you cannot save your configuration.
 
-NOTE: Latency thresholds you set in EDA apply to your whole account by default. If a volume has its own latency thresholds set in Storage, those volume settings take priority for that volume. Updating account-level thresholds in EDA won't change any volume-level settings.
+NOTE: Latency thresholds you set in EDA apply to your whole account by default. You can also set individual volume latency thresholds in General Storage workloads and those volume settings take priority for that volume. Updating account-level thresholds in EDA won't change any volume-level settings.
 
 .Steps
 

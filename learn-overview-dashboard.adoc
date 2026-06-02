@@ -54,7 +54,7 @@ Use the table to:
 * Identify file systems approaching capacity limits (SSD usage column)
 * Compare throughput demand to provisioned throughput SKU (Throughput usage P99 column)
 * Track performance metrics across multiple clusters
-* Check link configuration status (Link configured column) - Connection validity is verified daily
+* Check link configuration status (Associated link column) - Connection validity is verified daily
 * Select multiple clusters for bulk parameter updates
 
 == SSD capacity management
@@ -79,23 +79,23 @@ When Workload Factory is in Automate or Recommend mode, the system automatically
 When a recommendation is identified:
 
 * You receive an immediate notification based on your Workload Factory notification settings
-* A lightbulb indicator appears in the Clusters table row
+* File systems with recommendations can be identified by filtering the Clusters table by Last SSD increase timestamp or Last SSD increase description columns
 * The total number of file systems with active recommendations is displayed
 
 The recommendation explains the suggested change and the reasoning behind it, such as: _We recommend increasing the SSD size based on your file system SSD usage pattern._
 
 === SSD management parameters
 
-Three parameters control how the capacity management system analyzes and acts on your SSD usage:
+Parameters control how the capacity management system analyzes and acts on your SSD usage:
 
 *Threshold* (10-90%)::
-The SSD usage percentage that triggers capacity recommendations or automation actions. For example, a threshold of 80% means recommendations or actions occur when SSD usage reaches 80%.
+The SSD usage percentage that triggers capacity recommendations or automation actions. For example, a threshold of 80% means recommendations or actions occur when SSD usage reaches 80%. Available in both Recommend and Automate modes.
 
 *Lookback* (1-200 hours)::
-The time period used to analyze historical SSD usage patterns. A longer lookback period provides more historical context for capacity decisions.
+The time period used to analyze historical SSD usage patterns. A longer lookback period provides more historical context for capacity decisions. Available in Automate mode only.
 
 *Ahead* (1-200 hours)::
-The time period used to project future capacity needs. A longer ahead period plans further into the future for capacity growth.
+The time period used to project future capacity needs. A longer ahead period plans further into the future for capacity growth. Available in Automate mode only.
 
 You can configure these parameters individually for each file system or apply consistent settings across multiple file systems using bulk editing.
 
