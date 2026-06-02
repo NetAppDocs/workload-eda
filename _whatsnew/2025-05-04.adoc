@@ -1,4 +1,4 @@
-=== Updated permissions terminology
+=== Updated permissions terminology in Workload Factory for EDA
 The Workload Factory user interface and documentation now use "read-only" to refer to read permissions and "read/write" to refer to automate permissions.
 
 // Use absolute links in these files

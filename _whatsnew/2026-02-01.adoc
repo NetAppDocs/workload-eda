@@ -1,4 +1,4 @@
-=== Enhanced dashboard filtering with customizable tags
+=== Enhanced dashboard filtering with customizable tags in EDA workloads
 
 You can now configure up to five custom filters on the EDA dashboard based on your AWS tags. Each custom filter includes a label name, AWS tag key, and a selection type (single or multi-selection). 
 
