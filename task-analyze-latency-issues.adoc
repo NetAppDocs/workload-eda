@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: task-analyze-latency-issues.html
 keywords: latency analysis, analyze latency, latency events, root cause analysis, QoS delay center, AI analysis, latency troubleshooting, volume latency, basic analysis, affected clients, remediation steps
-summary: View and analyze latency events to identify performance issues with FSx for ONTAP volumes. Use automated basic analysis and optional AI analysis to determine root causes and recommended remediation steps.
+summary: View and analyze latency events to find performance issues with FSx for ONTAP volumes. Use automatic basic analysis, and optional AI analysis, to identify the root cause and suggested fixes.
 ---
 = Analyze latency issues in Workload Factory for EDA
 :icons: font
@@ -102,11 +102,11 @@ If no link is associated with the file system, a prompt is displayed asking you 
 
 Consider these recommendations when analyzing latency issues:
 
-* *Monitor trends*: Regularly review the latency events table to identify patterns or recurring issues that might indicate underlying configuration problems.
+* *Monitor trends*: Regularly check the latency events table to spot patterns or repeated issues that might point to configuration problems.
 
-* *Use AI analysis strategically*: Run AI analysis for data and cluster scenarios where basic analysis recommends it. AI analysis provides deeper insights for complex performance issues that require detailed troubleshooting.
+* *Use AI analysis strategically*: Use AI analysis when reviewing data if basic analysis suggests it. AI analysis can reveal deeper insights for complex performance issues that need detailed troubleshooting.
 
-* *Review dismissed events*: Periodically review why events were dismissed to identify opportunities for threshold adjustment or infrastructure improvements.
+* *Review dismissed events*: Regularly review why events were dismissed to see if thresholds should be adjusted or the system improved.
 
 For best practices on analyzing latency trends, see link:task-analyze-latency-trends.html#graph-interpretation[Graph interpretation].
 
