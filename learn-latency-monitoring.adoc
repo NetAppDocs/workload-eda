@@ -9,17 +9,17 @@ summary: Learn how latency monitoring in Workload Factory for EDA helps you dete
 :imagesdir: ./media/
 
 [.lead]
-Latency monitoring in Workload Factory for EDA helps you proactively identify and resolve performance bottlenecks in your FSx for ONTAP volumes. The system monitors read and write latency using CloudWatch metrics and provides automated analysis to help you understand the root cause of performance issues.
+Latency monitoring in Workload Factory for EDA helps you find and fix performance slowdowns in your FSx for ONTAP volumes. It tracks read and write latency using CloudWatch metrics and automatically analyzes the data to help identify the cause of performance issues.
 
 == How latency monitoring works
 
-Latency analysis collects CloudWatch metrics for read and write operations on all FSx for ONTAP volumes associated with your AWS credentials. The system continuously evaluates these metrics against configurable thresholds to detect performance issues early.
+Latency analysis collects CloudWatch metrics for read and write operations on all FSx for ONTAP volumes linked to your AWS credentials. It continually checks these metrics against set thresholds to spot performance issues early.
 
-When a latency event is detected, Workload Factory automatically performs basic analysis using ONTAP QoS delay center metrics to identify the primary latency contributor. For more complex scenarios involving data or cluster components, you can optionally run AI analysis to get detailed root cause explanations, affected client lists, and specific remediation steps.
+When latency increases, Workload Factory automatically analyzes ONTAP QoS delay center metrics to find the main source of the slowdown. For more complex cases involving data or cluster components, you can optionally run AI analysis to receive a detailed root cause, a list of affected clients, and recommended steps to fix the issue.
 
 === Alert generation
 
-An alert is generated when both the latency threshold and the IOPS threshold are breached for all data points within the configured time range. This dual-condition approach reduces false positives by ensuring elevated latency is sustained under real load.
+An alert is triggered only if two conditions are met across the entire selected time range: latency is above its threshold and IOPS is above its threshold. Requiring both conditions helps prevent false alarms by confirming that high latency occurs while the system is under real load.
 
 You can configure separate thresholds for:
 
@@ -28,7 +28,7 @@ You can configure separate thresholds for:
 * Warning severity
 * Critical severity
 
-All detected events appear in the latency events table, and if you've configured notifications, you receive email or Amazon SNS notifications with details about affected volumes.
+All detected events appear in the latency events table. If notifications are set up, you also receive an email or Amazon SNS message with details about the affected volumes.
 
 == Understanding alerts
 
@@ -62,15 +62,15 @@ Workload Factory provides two levels of analysis to help you troubleshoot latenc
 
 === Basic analysis
 
-When a latency event is detected, Workload Factory automatically runs basic analysis using ONTAP QoS delay center metrics to identify which component is causing the latency (for example, FlexCache, capacity pool, QoS limits, disk, data, cluster, or other subsystems). This analysis provides a quick identification of the latency source without manual investigation.
+When a latency event occurs, Workload Factory automatically runs a basic analysis to find the cause. It uses ONTAP QoS delay center metrics to see which component is responsible for the slowdown, such as FlexCache, the capacity pool, QoS limits, disks, data, the cluster, or another subsystem. This quickly identifies the source of the latency without requiring manual investigation.
 
-Basic analysis is available for all latency events when you have associated a link with the FSx for ONTAP file system. Without a link, events can still be detected, but the analysis provides limited insights.
+NOTE: Basic analysis is available for all latency events when a link is associated with the FSx for ONTAP file system. If no link is associated, events can still be detected, but the analysis will provide limited information.
 
-NOTE: There might be slight discrepancies between latency values from ONTAP QoS analysis and CloudWatch data due to different collection methodologies. The basic analysis uses ONTAP data for root cause identification.
+NOTE: Latency values from ONTAP QoS analysis and CloudWatch might differ slightly because they collect data in different ways. The basic analysis uses ONTAP data to identify the root cause.
 
 === AI analysis
 
-While basic analysis identifies the latency source, complex scenarios involving data or cluster components often require deeper investigation. AI analysis provides this deeper level of troubleshooting by identifying issues such as bully volumes, non-optimal configurations, or scale-out requirements that basic analysis cannot detect.
+While basic analysis can identify the source of latency, more complex situations involving data or cluster components often need deeper investigation. AI analysis provides this deeper troubleshooting by finding problems such as overloaded volumes, poor configuration, or the need to add more capacity—issues that basic analysis may miss.
 
 When you run AI analysis, the system provides:
 
@@ -78,7 +78,7 @@ When you run AI analysis, the system provides:
 * *Affected clients*: List of EC2 instance names impacted by the latency
 * *Potential remediation steps*: Two or more specific actions to resolve the issue
 
-AI analysis requires an Amazon Bedrock model ARN configured in your Workload Factory settings. If Bedrock is not configured, you can still use latency monitoring and automated basic analysis.
+AI analysis requires an Amazon Bedrock model ARN in your Workload Factory settings. If Bedrock isn't set up, you can still use latency monitoring and basic automated analysis.
 
 == Related information
 

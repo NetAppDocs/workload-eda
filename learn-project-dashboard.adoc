@@ -9,19 +9,19 @@ summary: Learn how the Projects dashboard in Workload Factory for EDA helps you 
 :imagesdir: ./media/
 
 [.lead]
-The Projects dashboard helps IT administrators and project managers observe and analyze project usage across FSx for ONTAP file systems and volumes. It provides visibility into storage usage patterns, helping you identify resource-intensive projects, track costs, and optimize storage allocation before capacity or performance issues impact your EDA simulations.
+The Projects dashboard lets IT admins and project managers see how projects use storage across FSx for ONTAP file systems and volumes. It shows storage usage patterns so you can spot projects using the most resources, track costs, and adjust storage before capacity or performance problems affect EDA simulations.
 
 == How the Projects dashboard works
 
-The Projects dashboard collects CloudWatch metrics for all FSx for ONTAP volumes associated with your AWS credentials. You can create up to five custom filters based on your AWS tags to organize and filter the data according to your specific business requirements such as projects, teams, or applications.
+The Projects dashboard shows CloudWatch metrics for all FSx for ONTAP volumes linked to your AWS credentials. You can create up to five filters using AWS tags to organize and view the data by project, team, application, or other categories.
 
 The dashboard helps you:
 
-* Plan capacity and assess costs
-* Make data-driven decisions about resource allocation
-* Identify resource-intensive projects
-* Track costs accurately across projects or teams
-* Optimize storage allocation before issues occur
+* Plan capacity and understand costs  
+* Use data to decide how to assign resources  
+* Spot projects that use a lot of resources  
+* Track costs by project or team  
+* Adjust storage before problems occur
 
 For proactive latency performance monitoring, see link:learn-latency-monitoring.html[Learn about latency monitoring].
 
@@ -36,21 +36,21 @@ The dashboard collects and displays the following CloudWatch metrics:
 
 == Custom filters
 
-Custom filters allow you to organize your dashboard data according to how your organization operates. By aligning filters with your project structure, teams, or cost centers, you can quickly access the specific data you need without navigating through irrelevant information. This makes capacity planning, cost tracking, and performance monitoring more efficient.
+Custom filters help you organize dashboard data to match how your organization works. Set filters by project, team, or cost center so you can quickly find the data you need without sorting through unrelated information. This makes it easier to plan capacity, track costs, and monitor performance.
 
-You can configure up to five custom filters based on your AWS tags. Each custom filter requires the following components:
+You can configure up to five custom filters based on your AWS tags.
 
 * *Filter label name*: The display name that appears in the dashboard
 * *AWS tag key name*: The actual AWS tag key used on your resources
 * *Selection type*: Single selection or multi-selection
 
-If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
+If you don't configure any custom filters, the default filters—file system, volume type, and time range—will still be available, so you can view and use your dashboards.
 
 === AWS tags
 
 AWS tags are metadata for your AWS resources. They help you categorize your AWS resources in different ways, for example, by project, application, or business unit. 
 
-To effectively use custom filters, configure AWS tags on your FSx for ONTAP volumes based on your business requirements—for example, tags that represent projects, teams, or business units.
+To use custom filters, add AWS tags to your FSx for ONTAP volumes that match your needs, such as tags for projects, teams, or business units.
 
 For more details about tagging, see https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/what-are-tags.html[What are tags?^] and https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html[AWS Resource Groups Tagging API Reference^].
 
@@ -60,7 +60,7 @@ The dashboard provides viewing modes to help you analyze your storage metrics at
 
 === Total view
 
-The Total view (default) displays aggregated metrics across all volumes that match your selected filters. This view provides a high-level overview of your overall storage performance, showing combined capacity, IOPS, and throughput metrics. 
+The Total view (default) shows combined metrics for all volumes that match your selected filters. It gives you a quick overview of overall storage performance, including total capacity, IOPS, and throughput. 
 
 Use this view to:
 
@@ -70,13 +70,13 @@ Use this view to:
 
 === Volume view
 
-The Volume view displays individual volume performance over time, showing the top 10 volumes for each metric. This view helps you identify specific volumes that are driving resource usage and observe their behavior over the selected time period.
+The Volume view shows how individual volumes perform over time. It displays the top 10 volumes for each metric. This helps you see which volumes use the most resources and how they behave during the selected time period.
 
 Use this view to:
 
-* Find performance bottlenecks
-* Identify volumes that may need rightsizing
-* Pinpoint which specific projects or workloads are consuming the most resources
+* Find what is slowing performance  
+- Identify storage volumes that might need to be resized  
+- See which projects or workloads are using the most resources
 
 ==== Volume metrics displayed
 
@@ -88,11 +88,11 @@ When you view individual volumes, the dashboard displays the top 10 volumes out 
 
 NOTE: The dashboard displays only the top 10 volumes for each metric. If you have more than 10 volumes, some volumes might not be displayed in the detailed view.
 
-When the same volumes appear across multiple metrics, the dashboard uses consistent color coding in the legend to make it easier to track specific volumes across different metrics.
+When the same volumes appear in multiple metrics, the dashboard uses the same colors in the legend so you can easily follow those volumes across different metrics.
 
 ==== Interactive volume data
 
-Interactive hover data provides precise metrics at specific points in time, helping you correlate performance changes with specific events or timeframes. This detailed information is valuable for troubleshooting performance issues, validating optimization efforts, or explaining resource usage patterns to stakeholders.
+Hover over the chart to see exact values at specific times. This helps you link performance changes to events or time periods. The detailed data can help you find performance problems, confirm that optimizations worked, and explain resource usage to others.
 
 When you hover over any volume line in the graphs, you can view:
 
