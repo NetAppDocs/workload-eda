@@ -51,7 +51,7 @@ Select a latency event in the *Severity* column to open the latency analysis pan
 
 ==== Overview tab
 
-The *Overview* tab shows the results of automated basic analysis, identifying which component is causing the delay.
+The *Overview* tab shows the results of an automatic analysis. If the file is linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 
 If an Amazon Bedrock model ARN is configured, the **Overview** tab lets you run AI analysis on data and cluster scenarios. If Bedrock is not configured, the tab shows a link to the Storage Workloads configuration page for that file system, where you can set up Bedrock access.
 
@@ -65,9 +65,7 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 
 . In the *Latency* tab, locate the event you want to analyze.
 . In the *Severity* column, select a latency event to open an analysis panel for that event.
-+
-If no link is connected to the file system, a prompt appears asking you to add one. Select the prompt to go to the file system's link setup page.
-. Review the *Overview* tab to understand the basic analysis results and identify the latency source.
+. Review the *Overview* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
 . Optionally, select the *Over time* tab to view latency trends for the affected volume.
 . If the latency needs deeper investigation, such as possible data or cluster issues, run the AI analysis.
 

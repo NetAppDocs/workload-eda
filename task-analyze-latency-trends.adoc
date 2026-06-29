@@ -13,7 +13,7 @@ After a latency event is detected, use the interactive graph to see how latency 
 
 == Before you begin
 
-You must have link:task-configure-latency-monitoring.html[configured latency monitoring] and at least one latency event detected.
+You must have link:task-configure-latency-monitoring.html[configured latency monitoring] and at least one latency event detected. You can view performance graphs if you have AWS credentials. To see the component breakdown, you need a link.
 
 == Analyze latency trends
 

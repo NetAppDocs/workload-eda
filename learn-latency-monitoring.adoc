@@ -13,13 +13,13 @@ Latency monitoring in Workload Factory for EDA helps you find and fix performanc
 
 == How latency monitoring works
 
-Latency analysis collects CloudWatch metrics for read and write operations on all FSx for ONTAP volumes linked to your AWS credentials. It continually checks these metrics against set thresholds to spot performance issues early.
+Latency analysis collects CloudWatch metrics for read and write activity on all FSx for ONTAP volumes connected to your AWS account. It continuously checks these metrics against defined limits to detect performance problems early.
 
-When latency increases, Workload Factory automatically analyzes ONTAP QoS delay center metrics to find the main source of the slowdown. For more complex cases involving data or cluster components, you can optionally run AI analysis to receive a detailed root cause, a list of affected clients, and recommended steps to fix the issue.
+If latency rises, Workload Factory automatically reviews ONTAP QoS delay metrics to identify the main cause of the slowdown. For more complex issues involving data or cluster components, you can run an optional AI analysis that provides the likely root cause, identifies affected clients, and suggests steps to resolve the problem.
 
 === Alert generation
 
-An alert is triggered only if two conditions are met across the entire selected time range: latency is above its threshold and IOPS is above its threshold. Requiring both conditions helps prevent false alarms by confirming that high latency occurs while the system is under real load.
+An alert triggers only when these conditions are true for the entire selected time range: latency stays above its threshold and IOPS stays above its threshold. Requiring both reduces false alarms by ensuring that high latency occurs while the system is handling real workload.
 
 You can configure separate thresholds for:
 
@@ -64,7 +64,7 @@ Workload Factory provides two levels of analysis to help you troubleshoot latenc
 
 When a latency event occurs, Workload Factory automatically runs a basic analysis to find the cause. It uses ONTAP QoS delay center metrics to see which component is responsible for the slowdown, such as FlexCache, the capacity pool, QoS limits, disks, data, the cluster, or another subsystem. This quickly identifies the source of the latency without requiring manual investigation.
 
-NOTE: Basic analysis is available for all latency events when a link is associated with the FSx for ONTAP file system. If no link is associated, events can still be detected, but the analysis will provide limited information.
+NOTE: You can see a component breakdown only when a link is associated with the FSx for ONTAP file system. If there is no link, you can still view graphs for latency, IOPS, and throughput.
 
 NOTE: Latency values from ONTAP QoS analysis and CloudWatch might differ slightly because they collect data in different ways. The basic analysis uses ONTAP data to identify the root cause.
 
