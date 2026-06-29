@@ -12,6 +12,8 @@ A new filter lets you switch between All, Read, Write, or Metadata operations fo
 
 These graphs help you see how latency, IOPS, and throughput relate to each other, making it easier to find the cause of performance issues and decide how to fix them.
 
+Performance graphs are now available only when AWS credentials are provided. FSx for ONTAP links are required only for the component breakdown in basic and AI analysis.
+
 https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn how to analyze latency trends with multiple graphs^].
 
 // Use absolute links in these files
