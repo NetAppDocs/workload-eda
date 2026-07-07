@@ -69,7 +69,10 @@ Workload Factory collects latency metrics for all FSx for ONTAP volumes linked t
 
 == Configure latency notifications
 
-Set up email or Amazon SNS notifications to get alerts when high latency is detected. You will receive a notification each time a volume exceeds the thresholds you set, so you know right away if there is a performance issue.
+Set up email or Amazon SNS notifications to get alerts when high latency is detected. You can control notification frequency with two options:
+
+* *Remind me every day (Recommended)*: Get notified when a new breach occurs in any file system. After sending a notification for a file system, wait 24 hours before sending another notification for the same file system.
+* *Notify on any latency breach (every 20 minutes)*: Get notified when a breach is detected, at most once every 20 minutes.
 
 Latency notifications are sent on a per-file-system basis. When one or more volumes in a file system breach latency thresholds, you receive a single notification listing all affected volumes.
 

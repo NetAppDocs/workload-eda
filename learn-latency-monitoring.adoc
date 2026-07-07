@@ -28,7 +28,7 @@ You can configure separate thresholds for:
 * Warning severity
 * Critical severity
 
-All detected events appear in the latency events table. If notifications are set up, you also receive an email or Amazon SNS message with details about the affected volumes.
+All detected events appear in the latency events table. If notifications are set up, you also receive an email or Amazon SNS message with details about the affected volumes. You can control how often you receive notifications—either daily per file system or every 20 minutes.
 
 == Understanding alerts
 
