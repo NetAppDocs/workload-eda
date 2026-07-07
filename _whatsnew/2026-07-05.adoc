@@ -16,4 +16,20 @@ Performance graphs are now available only when AWS credentials are provided. FSx
 
 https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn how to analyze latency trends with multiple graphs^].
 
+=== Set latency notification frequency
+
+You can now choose how often to receive email notifications for latency breaches:
+
+* *Remind me every day (Recommended)*:Get notified when a new issue occurs on any FSx for ONTAP file system.
+
+If multiple latency issues occur on the same file system in one day, you'll receive only one email.
+
+After sending a latency alert for a file system, Workload Factory waits 24 hours before sending another alert for that file system.
+
+* *Notify on any latency breach (every 20 minutes)*: Get notified when a breach is detected, up to once every 20 minutes.
+
+Daily notifications are enabled by default to reduce email volume while still alerting you to latency issues. You can change your notification preference when setting up latency monitoring or editing threshold settings.
+
+https://docs.netapp.com/us-en/workload-eda/task-configure-latency-monitoring.html[Learn how to configure latency monitoring^].
+
 // Use absolute links in these files
