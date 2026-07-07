@@ -9,21 +9,21 @@ summary: Configure custom filters for the Projects dashboard to organize metrics
 :imagesdir: ./media/
 
 [.lead]
-Configure custom filters for the Projects dashboard to organize metrics according to your business structure—such as projects, teams, or cost centers. This helps you track costs accurately, identify which resources consume the most capacity, and make informed decisions about resource allocation and budget planning. By aligning filters with how your organization operates, you can quickly access relevant data and improve efficiency in capacity planning, cost tracking, and performance monitoring.
+Set up custom filters on the Projects dashboard to organize data in a way that matches how your business works, such as by project, team, or cost center. This makes it easier to see costs clearly, spot which resources use the most capacity, and make better decisions about budgets and staffing. When the filters match your organization's structure, you can quickly find the data you need and manage capacity, costs, and performance more efficiently.
 
 == Before you begin
 
-To effectively use custom filters, configure AWS tags on your FSx for ONTAP volumes based on your business requirements—for example, tags that represent projects, teams, or business units.
+To use custom filters, add AWS tags to your FSx for ONTAP volumes based on your needs, such as tags for projects, teams, or business units.
 
 == Configure custom filters
 
-NOTE: Only the first admin user to access the Projects dashboard can configure, add, or delete custom filters. All other users, including subsequent admins, have read-only access to the filters.
+NOTE: Only the first admin who opens the Projects dashboard can create, change, or delete custom filters. All other users, including other admins, can only view the filters.
 
 .About this task
 
-You can configure up to five custom filters based on your AWS tags. Each custom filter requires three components: a filter label name, an AWS tag key name, and a selection type (single or multi-selection). 
+You can configure up to five custom filters using your AWS tags. Each filter needs the following: a filter label, an AWS tag key, and a selection type (single or multiple). 
 
-If you don't configure any custom filters, the default filters (file system, volume type, and time range) remain available so you can still view and interact with your dashboards.
+If you don't configure any custom filters, the default filters, file system, volume type, and time range, will still be available, so you can continue to view and use your dashboards.
 
 .Steps
 
@@ -38,7 +38,7 @@ If you have not already configured your dashboard, you are automatically prompte
 * AWS tag key name (the actual tag key used on your resources)
 * Selection type (single or multi-selection)
 +
-NOTE: Filters appear on the dashboard in the order you configure them. Consider organizing your most frequently used filters first for easier access.
+NOTE: Filters appear on the dashboard in the order you set them. Put the filters you use most at the top so they're easier to access.
 
 . Select *Apply*. 
 +
@@ -48,7 +48,7 @@ You can delete a custom filter by selecting the trash icon next to that filter b
 
 .Result
 
-When these tags are applied, Workload Factory begins collecting and displaying the relevant CloudWatch metrics. Your dashboard becomes a dynamic tool for organizing, tracking costs, and filtering resources based on your organizational needs.
+When you apply these tags, Workload Factory starts collecting and showing the related CloudWatch metrics. Your dashboard then helps you organize resources, track costs, and filter items based on your needs.
 
 == Related information
 

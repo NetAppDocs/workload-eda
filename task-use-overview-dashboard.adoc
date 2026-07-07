@@ -9,7 +9,7 @@ summary: Use the Overview dashboard to monitor cluster health, view capacity rec
 :imagesdir: ./media/
 
 [.lead]
-Use the Overview dashboard to monitor cluster health and capacity across your FSx for ONTAP file systems. Filter data, view capacity recommendations, manage SSD capacity settings, and analyze performance trends to make informed decisions about volume placement and capacity scaling.
+Use the Overview dashboard to check the health and capacity of your FSx for ONTAP file systems. You can filter the data, see capacity recommendations, adjust SSD capacity settings, and review performance trends to help decide where to place volumes and when to scale capacity.
 
 == Before you begin
 
@@ -17,7 +17,7 @@ You must have link:task-activate-overview-dashboard.html[activated the Overview 
 
 == Filter the dashboard
 
-Use the filters at the top of the dashboard to focus on specific file systems. These filters apply to the latency, utilization, and ONTAP events sections and to the clusters table.
+Use the filters at the top of the dashboard to view specific file systems. The filters apply to the latency, utilization, ONTAP events sections, and the clusters table.
 
 .Steps
 
@@ -32,7 +32,7 @@ Use the filters at the top of the dashboard to focus on specific file systems. T
 
 == View cluster health status
 
-At the top of the dashboard, a snapshot of health and activity across your filtered file systems is displayed. This information is only shown when at least one FSx for ONTAP link is associated with your file systems.
+At the top of the dashboard, you see a summary of health and activity for the file systems you selected. This appears only when at least one FSx for ONTAP link is connected to your file systems.
 
 .About this task
 
@@ -56,7 +56,7 @@ The ONTAP events view card displays the number of EMS events by category (Capaci
 
 == View and apply capacity recommendations
 
-Workload Factory automatically runs a capacity recommendation algorithm for each FSx for ONTAP file system. You can identify file systems with capacity recommendations by filtering the Clusters table.
+Workload Factory automatically runs a capacity recommendation for each FSx for ONTAP file system. You can find file systems with recommendations by filtering the Clusters table.
 
 .Steps
 
@@ -76,14 +76,14 @@ The graph also displays recommendation decision points and automation decision p
 
 == Change SSD management mode
 
-Change the SSD capacity management mode for individual file systems to control whether you want manual recommendations or automated capacity scaling.
+For each file system, choose how SSD capacity is managed: receive manual recommendations or allow automatic scaling.
 
 .About this task
 
 SSD management modes include:
 
 * *Automate*: Automatically increase SSD capacity based on predefined thresholds
-* *Recommend*: Receive capacity recommendations that you manually review and apply
+* *Recommend*: Get capacity recommendations that you manually review and apply
 * *None*: No capacity recommendations or automated actions
 
 If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes automation decisions. If you select Recommend mode, you can configure only the Threshold parameter.
@@ -103,19 +103,19 @@ If you select Automate mode, you can configure the Threshold, Lookback, and Ahea
 
 .Result
 
-The file system uses the new mode immediately. If you selected Recommend or Automate, the system uses the configured parameters for capacity analysis and decision-making.
+The file system switches to the new mode right away. If you choose Recommend or Automate, the system uses the set settings to analyze storage capacity and make decisions.
 
 == Bulk edit SSD management parameters
 
-Adjust SSD capacity management parameters for multiple file systems simultaneously to apply consistent settings across your clusters.
+Change SSD capacity settings for several file systems at once so the same settings apply across your clusters.
 
 .About this task
 
 When you select multiple file systems for bulk editing:
 
-* If all selected file systems have identical parameter values, those values appear as defaults in the edit dialog
-* If any selected file system is in None mode, default values are populated in the dialog
-* If parameter values differ across the selected file systems, default values are populated in the dialog
+* If all selected file systems use the same settings, those settings appear as the default in the edit dialog.
+* If any selected file system is in None mode, default values are populated in the dialog.
+* If parameter values differ across the selected file systems, default values are populated in the dialog.
 
 .Steps
 
@@ -136,14 +136,14 @@ The parameters are updated for all selected file systems. File systems in Recomm
 
 == Analyze capacity trends and decision points
 
-Use the SSD usage graph to understand capacity behavior over time and identify patterns in capacity management.
+Use the SSD usage graph to see how storage use changes over time and spot patterns.
 
 .About this task
 
 Decision points on the graph indicate when:
 
 * *Recommendation decision points*: The capacity recommendation algorithm identified that additional SSD capacity is needed. These can occur as frequently as every 30 minutes if SSD capacity has not been increased.
-* *Automation decision points*: The automation system attempted to increase SSD capacity. These points indicate whether the action succeeded or failed.
+* *Automation decision points*: The automation system tried to increase SSD capacity. These points show whether the action succeeded or failed.
 
 .Steps
 
@@ -160,7 +160,7 @@ Decision points on the graph indicate when:
 
 == Use the clusters table
 
-The clusters table provides a detailed view of each FSx for ONTAP file system with performance and usage metrics.
+The clusters table gives a detailed view of each FSx for ONTAP file system with performance and usage metrics.
 
 .Steps
 
@@ -179,19 +179,19 @@ Hover over throughput column headers for calculation details.
 
 Consider these recommendations when using the Overview dashboard:
 
-* *Regular monitoring*: Check the dashboard regularly to identify trends before they become issues.
+* *Regular monitoring*: Check the dashboard often to spot trends before they become problems.
 
-* *Set appropriate thresholds*: Configure SSD management thresholds that align with your workload patterns and capacity planning preferences.
+* **Set clear thresholds**: Choose SSD management thresholds that fit your workload and capacity plans.
 
-* *Use filters effectively*: Combine region and account filters to focus on specific subsets of your infrastructure.
+* **Use filters**: Apply region and account filters to focus on the parts of your infrastructure you want to review.
 
-* *Review recommendations promptly*: Filter the Clusters table by Last SSD increase timestamp or description to identify file systems with capacity recommendations. Review and act on these recommendations to prevent capacity constraints.
+* **Review recommendations quickly**: Filter the Clusters table by **Last SSD increase timestamp** or description to find file systems with capacity recommendations. Check and act on them to avoid running out of space.
 
-* *Choose the right mode*: Use Recommend mode when you want control over capacity decisions, or Automation mode for hands-off management.
+* **Pick the right mode**: Use **Recommend** mode if you want to approve capacity changes yourself. Use **Automation** mode if you want the system to manage capacity automatically.
 
-* *Monitor decision points*: Regularly review decision points on capacity graphs to understand algorithm behavior and validate that settings match your needs.
+* **Watch decision points**: Check decision points on capacity graphs to see how the system is making decisions and confirm the settings work for your needs.
 
-* *Leverage bulk editing*: When managing multiple file systems, use bulk parameter editing to maintain consistent capacity management policies.
+* **Edit in bulk**: When managing many file systems, use bulk editing to keep capacity settings consistent.
 
 == Related information
 

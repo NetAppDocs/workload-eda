@@ -1,4 +1,4 @@
-=== Clone support
+=== Clone support in Workload Factory for Builders
 You can now clone a project in BlueXP Workload Factory for Builders. When you clone a project, Builders creates a new project from a snapshot, with the same configuration as the original. Cloning is useful for quickly creating similar projects or for testing purposes. You can mount the new project clone by following the instructions in Builders.
 
 https://docs.netapp.com/us-en/workload-builders/version-projects.html[Manage versions of BlueXP Workload Factory for Builders projects]

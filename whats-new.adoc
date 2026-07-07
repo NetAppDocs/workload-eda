@@ -12,6 +12,10 @@ summary: Learn what's new with Workload Factory for EDA.
 Learn what's new with the EDA capability of Workload Factory.
 
 //tag::whats-new[]
+== 5 July 2026
+
+include::_whatsnew/2026-07-05.adoc[]
+
 == 31 May 2026
 
 include::_whatsnew/2026-05-31.adoc[]

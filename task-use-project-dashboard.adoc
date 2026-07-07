@@ -9,7 +9,7 @@ summary: Use the Projects dashboard to monitor storage usage, filter data by pro
 :imagesdir: ./media/
 
 [.lead]
-Use the Projects dashboard to monitor storage usage across your FSx for ONTAP file systems and volumes. Filter data by projects, teams, or applications, and analyze both aggregated and individual volume performance to make informed decisions about capacity planning and resource optimization.
+Use the Projects dashboard to track storage use across your FSx for ONTAP file systems and volumes. Filter the data by project, team, or application. View both overall and per-volume performance to help plan capacity and use resources more efficiently.
 
 == Before you begin
 
@@ -17,7 +17,7 @@ You should have link:task-configure-project-dashboard.html[configured custom fil
 
 == Filter the dashboard
 
-Filtering helps you focus on specific subsets of your storage resources, making it easier to analyze trends, identify issues, and generate reports for stakeholders. By combining multiple filters, you can answer specific business questions like "How much storage is my ASIC project team using?" or "Which volumes in the US-West region have the highest IOPS?"
+Filtering lets you focus on specific groups of storage resources. This makes it easier to spot trends, find problems, and create reports for stakeholders. By using multiple filters together, you can answer targeted questions such as: “How much storage is the ASIC project team using?” or “Which volumes in the US-West region have the highest IOPS?”
 
 .About this task
 
@@ -36,65 +36,65 @@ You can filter the information displayed on the dashboard using a combination of
 
 == View volume details
 
-Understanding both aggregated and individual volume performance helps you make informed decisions about capacity planning and performance optimization. The Total view shows overall trends, while the Volume view helps you identify specific volumes that may need attention, optimization, or additional resources.
+Looking at both total volume performance and individual volumes helps you plan capacity and improve performance. The Total view shows overall trends. The Volume view helps you find specific volumes that may need attention, tuning, or more resources.
 
 === View aggregated volume metrics
 
-The Total view displays aggregated metrics across all volumes that match your selected filters.
+The Total view shows combined metrics for all volumes that match your filters.
 
 .Steps
 
-. In the *Project* tab, ensure the *Total* tab is selected (this is the default view).
+. Open the **Project** tab and make sure the **Total** tab is selected. This is the default view.
 . Review the metrics displayed:
 * Combined capacity across all volumes
 * Aggregated IOPS
 * Aggregated throughput
-. Use this view to understand overall trends and plan for future capacity needs.
+. Use this view to see trends and plan how much capacity you'll need in the future.
 
 === View individual volume performance
 
-The Volume view displays individual volume performance over time, showing the top 10 volumes for each metric.
+The Volume view shows how each volume performs over time. It highlights the top 10 volumes for each metric.
 
 .Steps
 
-. In the *Project* tab, select the *Volume* tab.
+. In the **Project** tab, select the **Volume** tab.
 . Review the volume metrics:
 * *Volume used capacity*: Shows volumes with the highest current used capacity
 * *IOPS*: Shows volumes with the highest average IOPS during the selected time period
 * *Throughput*: Shows volumes with the highest average throughput during the selected time period
 +
-NOTE: The dashboard displays only the top 10 volumes for each metric. If you have more than 10 volumes, some volumes might not be displayed in the detailed view.
+NOTE: If you have more than 10 volumes, the rest will not appear in the detailed view.
 
 . Hover over any volume line in the graphs to view detailed information:
 * *Volume used capacity*: Volume name, used capacity at that point in time, and allocated capacity
 * *IOPS*: Volume name, average IOPS for the time range, and maximum IOPS for the time range
 * *Throughput*: Volume name, average throughput for the time range, and maximum throughput for the time range
-. Use the legend to identify specific volumes. When the same volumes appear across multiple metrics, the dashboard uses consistent color coding to make it easier to track volumes.
+. Use the legend to identify each volume. The same volumes use the same colors across all metrics so you can track them easily.
 
 .Result
 
-This interactive data helps you:
+Use this data to:
 
-* Analyze volume performance patterns
-* Identify potential bottlenecks
-* Find volumes that may need rightsizing
-* Pinpoint which specific projects or workloads are consuming the most resources
+• Analyze usage patterns  
+• Spot possible bottlenecks  
+• Find volumes that might need to be resized  
+• See which projects or workloads use the most resources
 
 == Best practices
 
 Consider these recommendations when using the Projects dashboard:
 
-* *Regular monitoring*: Check the dashboard regularly to identify trends before they become issues.
+* Check the dashboard regularly to spot patterns before they turn into problems.
 
-* *Combine filters strategically*: Use multiple filters together to answer specific business questions about resource usage.
+* Use several filters at the same time to answer specific questions about how resources are being used.
 
-* *Compare views*: Use both Total and Volume views together—Total for planning and Volume for troubleshooting.
+* Look at both views: use Total to plan capacity and Volume to find and fix issues.
 
-* *Track over time*: Use different time ranges to understand whether performance patterns are normal variations or indicating a trend.
+* Change the time range to see whether changes are normal or part of a growing trend.
 
-* *Document baselines*: Note normal performance levels for your volumes so you can quickly identify anomalies.
+* Record normal performance levels so it's easier to spot unusual behavior later.
 
-* *Act on insights*: Use the volume performance data to make proactive decisions about resource allocation, rightsizing, or optimization before issues impact workloads.
+* Use what you learn from the data to adjust resources, resize volumes, or improve performance before workloads are affected.
 
 == Related information
 

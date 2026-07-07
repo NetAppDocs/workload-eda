@@ -9,7 +9,7 @@ summary: Activate the Overview dashboard to begin collecting CloudWatch metrics 
 :imagesdir: ./media/
 
 [.lead]
-Activate the Overview dashboard to begin collecting CloudWatch metrics for your FSx for ONTAP file systems. Once activated, the dashboard provides centralized monitoring of cluster health, capacity, and throughput.
+Activate the Overview dashboard to start collecting CloudWatch metrics for your FSx for ONTAP file systems. The dashboard lets you see cluster health, capacity, and throughput in one place.
 
 == Before you begin
 
@@ -25,9 +25,9 @@ If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-e
 
 == Activate the dashboard
 
-After Workload Factory confirms credentials with view permissions, you must activate the dashboard to begin collecting CloudWatch metrics for your FSx for ONTAP file systems.
+After Workload Factory verifies credentials with view permissions, activate the dashboard to start collecting CloudWatch metrics for your FSx for ONTAP file systems.
 
-NOTE: Metrics collection can take some time after you provide consent. The dashboard notifies you while the initial collection is in progress.
+NOTE: After you give consent, collecting metrics can take a little time. The dashboard will notify you while the first collection is in progress.
 
 .Steps
 
@@ -40,7 +40,7 @@ NOTE: Metrics collection can take some time after you provide consent. The dashb
 
 .Result
 
-Workload Factory begins collecting CloudWatch metrics for all FSx for ONTAP file systems associated with your configured AWS credentials. The dashboard populates as metrics become available. A notification is displayed if collection is still in progress.
+Workload Factory starts collecting CloudWatch metrics for all FSx for ONTAP file systems linked to your AWS credentials. The dashboard populates as the metrics become available. A notification appears while data collection is still in progress.
 
 == Next steps
 
