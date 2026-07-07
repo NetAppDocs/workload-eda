@@ -9,7 +9,7 @@ summary: Learn how the Overview dashboard in Workload Factory for EDA helps you 
 :imagesdir: ./media/
 
 [.lead]
-The Overview dashboard provides a centralized view for IT administrators managing EDA workloads across multiple FSx for ONTAP file systems. Use it to quickly assess cluster health and usage, decide where to place new volumes or jobs, identify candidates for moving volumes or SVMs, and determine when to scale capacity or throughput.
+The Overview dashboard gives IT administrators one place to monitor EDA workloads across multiple FSx for ONTAP file systems. Use it to quickly check system health and usage, choose where to place new volumes or jobs, find volumes or SVMs that may need to be moved, and see when it’s time to increase capacity or throughput.
 
 == Overview
 
@@ -17,8 +17,8 @@ The Overview dashboard collects CloudWatch metrics for all FSx for ONTAP file sy
 
 It includes:
 
-* *Cluster health status*: Summary information at the top that highlights latency events, SSD utilization and capacity recommendations, and ONTAP EMS events across your file systems.
-* *Clusters table*: A detailed, searchable table showing usage and performance metrics for each cluster, with support for filtering, sorting, pagination, and CSV export.
+* *Cluster health status*: A summary at the top highlights latency events, SSD usage, capacity recommendations, and ONTAP EMS events across your file systems.
+* *Clusters table*: A searchable table that shows usage and performance for each cluster. You can filter and sort the data, move between pages, and export it as a CSV file.
 
 It helps you:
 
@@ -32,12 +32,12 @@ It helps you:
 
 === Cluster health status
 
-The cluster health status provides a snapshot of activity across your filtered file systems. This information is only shown when at least one FSx for ONTAP link is associated with your file systems. 
+Cluster health shows a quick view of activity across the file systems you selected. This appears only if at least one FSx for ONTAP link is connected to your file systems. 
 
 The health status includes the following areas:
 
 *Latency*::
-Displays the number of latency events detected across the file systems in scope. You can only view latency information if you have enabled latency monitoring.
+Shows the number of latency events found in the selected file systems. This information appears only if latency monitoring is enabled.
 
 *SSD capacity management*::
 Displays the number of file systems with SSD usage above 80% and the number of file systems with active capacity recommendations. This helps you quickly identify file systems that might require capacity attention.
@@ -59,28 +59,26 @@ Use the table to:
 
 == SSD capacity management
 
-The Overview dashboard provides intelligent SSD capacity management.
-
 === Management modes
 
 *Automate*::
-Workload Factory automatically increases SSD capacity based on predefined thresholds and usage patterns. The system manages capacity scaling without manual intervention. This is ideal for environments where automated management is preferred.
+Workload Factory automatically adds more SSD space when usage reaches set limits. It handles this on its own, so no manual work is needed. This works well for environments that prefer automatic management.
 
 *Recommend*::
-Workload Factory analyzes your SSD usage patterns and provides capacity increase recommendations. You manually review and apply recommendations. This gives you full control over capacity decisions while benefiting from automated analysis.
+Workload Factory analyzes how you use your SSDs and suggests when to increase capacity. You review these suggestions and decide whether to apply them. This keeps you in full control of capacity changes while still benefiting from automated analysis.
 
 *None*::
-No capacity recommendations or automated actions are performed. This is useful when you want to manage capacity manually without system assistance.
+The system does not make capacity recommendations or take automated actions. Use this option if you want to manage capacity yourself.
 
 === Capacity recommendations
 
-When Workload Factory is in Automate or Recommend mode, the system automatically runs a capacity recommendation algorithm for each FSx for ONTAP file system. The algorithm scans once every 24 hours and identifies when SSD capacity adjustments are recommended.
+When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans every 24 hours to see if SSD capacity should be adjusted.
 
 When a recommendation is identified:
 
-* You receive an immediate notification based on your Workload Factory notification settings
-* File systems with recommendations can be identified by filtering the Clusters table by Last SSD increase timestamp or Last SSD increase description columns
-* The total number of file systems with active recommendations is displayed
+* You receive an immediate notification based on your Workload Factory notification settings.
+* Identify file systems with recommendations by filtering the Clusters table using the **Last SSD increase timestamp** or **Last SSD increase description** columns.  
+* The interface shows the total number of file systems that currently have active recommendations.
 
 The recommendation explains the suggested change and the reasoning behind it, such as: _We recommend increasing the SSD size based on your file system SSD usage pattern._
 
@@ -89,7 +87,7 @@ The recommendation explains the suggested change and the reasoning behind it, su
 Parameters control how the capacity management system analyzes and acts on your SSD usage:
 
 *Threshold* (10-90%)::
-The SSD usage percentage that triggers capacity recommendations or automation actions. For example, a threshold of 80% means recommendations or actions occur when SSD usage reaches 80%. Available in both Recommend and Automate modes.
+The SSD usage percentage that triggers capacity recommendations or automation actions. For example, a threshold of 80% means recommendations or actions occur when SSD usage reaches 80%. This setting is available in both Recommend and Automate modes.
 
 *Lookback* (1-200 hours)::
 The time period used to analyze historical SSD usage patterns. A longer lookback period provides more historical context for capacity decisions. Available in Automate mode only.
@@ -97,25 +95,25 @@ The time period used to analyze historical SSD usage patterns. A longer lookback
 *Ahead* (1-200 hours)::
 The time period used to project future capacity needs. A longer ahead period plans further into the future for capacity growth. Available in Automate mode only.
 
-You can configure these parameters individually for each file system or apply consistent settings across multiple file systems using bulk editing.
+You can set these parameters for each file system individually, or use bulk editing to apply the same settings to multiple file systems.
 
 === Understanding capacity decision points
 
-The SSD usage graph displays decision points that indicate when capacity recommendations were generated or automation actions were taken. These visual indicators help you understand the capacity management algorithm behavior over time.
+The SSD usage graph marks when the system made capacity recommendations or took automated actions. These markers show how the capacity management algorithm behaved over time.
 
 *Recommendation decision points*::
-Appear when the capacity recommendation algorithm identifies that additional SSD capacity is needed. These points can occur as frequently as every 30 minutes if SSD capacity has not been increased. The graph displays all decision points when possible, or consolidates them if the time range makes individual points too dense.
+Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points may appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
 
 *Automation decision points*::
-Appear when the automation system attempts to increase SSD capacity. These points indicate whether the automation action succeeded or failed.
+Appear when the automation system tries to increase SSD capacity. They show whether the action succeeded or failed.
 
-Use decision points with the historical SSD usage graph to:
+Use the SSD usage history graph to:
 
-* Understand how frequently capacity adjustments are needed
-* Evaluate whether automation or recommendation mode better fits your workload patterns
-* Identify recurring capacity constraints
-* Plan for future capacity needs based on growth trends
-* Troubleshoot failed automation attempts
+• See how often you need to change storage size  
+• Decide whether automation or recommendation mode fits your usage patterns better  
+• Spot repeated storage shortages  
+• Plan future storage needs based on growth over time  
+• Investigate why automation attempts failed
 
 == Related information
 

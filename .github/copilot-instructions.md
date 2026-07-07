@@ -20,7 +20,7 @@ NetApp Workload Factory for EDA helps customers optimize Amazon FSx for NetApp O
 - **Latency analysis components:** Basic analysis uses ONTAP QoS delay center metrics; AI-agent analysis requires Amazon Bedrock configuration and provides deeper insights for data/cluster latency scenarios.
 - **Tabbed analysis panel:** Latency events open a panel with Overview (basic analysis) and Over time (interactive graph) tabs.
 - **Notification behavior:** Latency notifications are sent per-file-system (not per-volume) and group all affected volumes in a single alert. Max 10 volumes shown in email.
-- **Links requirement:** FSx for ONTAP links are required for basic analysis and AI-agent analysis, but not for detecting latency events.
+- **Links requirement:** Latency graphs (latency, IOPS, throughput) are available with AWS credentials only. FSx for ONTAP links are required for component breakdown in basic analysis and for AI analysis. Events can be detected without credentials or links (from SNS notifications).
 - **Permission modes:** EDA requires read/write permissions. Basic and read-only modes are not supported for latency monitoring.
 - **CloudWatch vs. ONTAP data:** Latency graphs show CloudWatch data; basic analysis uses ONTAP QoS data. Slight discrepancies are expected and documented.
 

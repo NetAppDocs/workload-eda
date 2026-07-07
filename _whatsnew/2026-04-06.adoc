@@ -15,14 +15,14 @@ https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#capa
 
 === Automated AI latency analysis
 
-Latency analysis now includes AI-agent analysis.
+Latency analysis now includes AI analysis.
 
-For complex scenarios involving data or cluster latency, you can invoke AI-agent analysis to receive:
+For complex scenarios involving data or cluster latency, you can invoke AI analysis to receive:
 
 * Detailed root cause identification
 * List of affected EC2 clients
 * Specific remediation steps
 
-AI-agent analysis requires Amazon Bedrock model ARN configuration and is available on-demand for scenarios where basic analysis recommends deeper investigation. The AI agent can identify issues such as bully volumes, non-optimal mount point configurations, FlexGroup rebalancing needs, and scale-out requirements.
+AI analysis requires Amazon Bedrock model ARN configuration and is available on-demand for scenarios where basic analysis recommends deeper investigation. The AI agent can identify issues such as bully volumes, non-optimal mount point configurations, FlexGroup rebalancing needs, and scale-out requirements.
 
-https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#run-ai-agent-analysis[Learn more about AI-agent analysis^].
+https://docs.netapp.com/us-en/workload-eda/task-monitor-latency.html#run-ai-agent-analysis[Learn more about AI analysis^].

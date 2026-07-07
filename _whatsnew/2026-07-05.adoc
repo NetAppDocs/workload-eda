@@ -1,0 +1,19 @@
+=== Enhanced latency analysis with IOPS and throughput graphs
+
+The latency analysis panel now shows synchronized performance graphs in the *Over time* tab:
+
+* *Latency graph*: Shows how latency changes over time, with threshold lines and alerts when limits are exceeded.
+* *IOPS graph*: Shows operations per second, with threshold lines and indicators for past limit breaches.
+* *Throughput graph*: Shows data transfer rates (DataReadBytes or DataWriteBytes).
+
+All graphs use the same timeline and automatically show the correct metrics based on whether the event is a read or write.
+
+A new filter lets you switch between All, Read, Write, or Metadata operations for more detailed analysis.
+
+These graphs help you see how latency, IOPS, and throughput relate to each other, making it easier to find the cause of performance issues and decide how to fix them.
+
+Performance graphs are now available only when AWS credentials are provided. FSx for ONTAP links are required only for the component breakdown in basic and AI analysis.
+
+https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn how to analyze latency trends with multiple graphs^].
+
+// Use absolute links in these files
