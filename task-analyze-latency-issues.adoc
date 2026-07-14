@@ -15,9 +15,9 @@ See detected delays and use automated tools to find the cause and fix slow perfo
 
 You must have link:task-configure-latency-monitoring.html[configured latency monitoring] before you can view and analyze latency events.
 
-== View latency events
+== View volumes with latency above threshold
 
-The latency events table shows all warning and critical events from the past 72 hours in one place.
+The Volumes with latency above threshold table shows volumes that breached the warning or critical latency threshold in the past 72 hours.
 
 .About this task
 
@@ -31,33 +31,33 @@ The latency events table shows all warning and critical events from the past 72 
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
 . Select the *Latency* tab.
-. Review the information for each event in the latency events table.
+. Review the information for each event in the table.
 . To view details for a latency event, select the event in the *Severity* column. This opens a latency analysis panel for that event.
 . To sort the table, select any column header. By default, critical events are displayed first sorted by time, followed by warning events sorted by time.
 . To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
 . To add columns to the table, select image:column-icon.png[The column icon], choose the columns, and select *Apply*.
-. To analyze latency trends over time, select an event to open the latency analysis panel. Use the *Over time* tab to view the interactive latency graph. See link:task-analyze-latency-trends.html[Analyze latency trends] for details.
+. The latency analysis panel provides a quick view of the breach, including a latency chart and controls for time frame and Type (Read/Write). Select *View full analysis* to open the detailed Latency analysis page with basic analysis, AI analysis (optional), and additional charts. See link:task-analyze-latency-trends.html[Analyze latency trends] for details.
 
 == Analyze a latency event
+
+.Before you begin
+
+Configure an Amazon Bedrock model ARN in Workload Factory settings, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
 
 Basic analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
 === Latency analysis panel
 
-Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event:
+Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event.
 
-* *Overview*: Shows basic results that identify which component is causing the delay
-* *Over time*: Shows an interactive latency graph with historical data
+If an Amazon Bedrock model ARN is configured, you can run AI analysis on data and cluster scenarios. If Bedrock is not configured, a link to the Storage Workloads configuration page for that file system is provided, where you can set up Bedrock access.
 
-==== Overview tab
+* *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
+An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
 
-The *Overview* tab shows the results of an automatic analysis. If the file is linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
+* *AI*: Shows a deeper investigation to determine the specific root cause and potential remediation steps.
 
-If an Amazon Bedrock model ARN is configured, the **Overview** tab lets you run AI analysis on data and cluster scenarios. If Bedrock is not configured, the tab shows a link to the Storage Workloads configuration page for that file system, where you can set up Bedrock access.
-
-==== Over time tab
-
-The **Over time** tab shows interactive graphs of CloudWatch metrics for the affected volume. These graphs display latency, IOPS, and throughput over time. They show either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges (1H, 3H, 12H, 24H, 72H) and use a filter to view All, Read, Write, or Metadata operations.
+* *Detailed latency analysis*: Shows interactive graphs of CloudWatch metrics for the affected volume. These graphs display latency, IOPS, and throughput over time. They show either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
 
 For detailed instructions on using the graphs, see link:task-analyze-latency-trends.html[Analyze latency trends].
 
@@ -65,34 +65,14 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 
 . In the *Latency* tab, locate the event you want to analyze.
 . In the *Severity* column, select a latency event to open an analysis panel for that event.
-. Review the *Overview* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
-. Optionally, select the *Over time* tab to view latency trends for the affected volume.
-. If the latency needs deeper investigation, such as possible data or cluster issues, run the AI analysis.
-
-== Run AI analysis
-
-AI analysis provides deeper investigation to determine the specific root cause and potential remediation steps. 
-
-.Before you begin
-
-Configure an Amazon Bedrock model ARN in Workload Factory settings, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
-
-.About this task
-
-When you run AI analysis, the system automatically refreshes the basic analysis data and uses it as input for the AI analysis.
-
-.Steps
-
-. In the *Latency* tab, locate the event you want to analyze.
-. In the *Severity* column, select a latency event to open an analysis panel for that event.
+. Review the *Basic* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
+. Review the *AI analysis* tab to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
 +
-If no link is associated with the file system, a prompt is displayed asking you to associate a link with the affected file system. Select the prompt to be redirected to the link setup page for that file system.
-. Review the *Overview* tab to understand the basic analysis results and identify the latency source.
-. If the latency source is identified as data or cluster, select *Analyze* to run AI analysis.
-. Review the results including:
+Review the results including:
 * Potential root cause explanation
 * List of affected EC2 clients
 * Recommended remediation steps
+. Select *View full analysis* to see the full results of the AI analysis, including performance charts that show volume latency, IOPS, and throughput from CloudWatch metrics over the selected time period.
 . Follow the recommended steps to fix the latency issue.
 . After you make the changes, check the latency events table to confirm the issue is fixed.
 
@@ -100,7 +80,7 @@ If no link is associated with the file system, a prompt is displayed asking you 
 
 Consider these recommendations when analyzing latency issues:
 
-* *Monitor trends*: Regularly check the latency events table to spot patterns or repeated issues that might point to configuration problems.
+* *Monitor trends*: Regularly check the Volumes with latency above threshold table to spot patterns or repeated issues that might point to configuration problems.
 
 * *Use AI analysis strategically*: Use AI analysis when reviewing data if basic analysis suggests it. AI analysis can reveal deeper insights for complex performance issues that need detailed troubleshooting.
 
