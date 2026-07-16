@@ -22,27 +22,27 @@ The *Detailed latency analysis* page provides performance graphs to help you ana
 
 .About this task
 
-The graphs show CloudWatch metrics for the affected volume. All graphs use the same timeline. They automatically display read or write metrics based on which alarm triggered the event.
+The graphs show CloudWatch metrics for the affected volume. All graphs use the same timeline. They automatically display metrics based on which alarm triggered the event.
 
 You can change the time range to see performance over different periods. You can also switch between All, Read, Write, or Metadata operations.
 
 The visualization includes:
 
 * *Latency graph*: Shows volume latency (ms) over time with warning and critical threshold lines and breach markers.
-* *IOPS graph*: Shows IOPS over time (read or write), with thresholds and breach markers (if configured).
-* *Throughput graph*: Shows throughput over time (read or write) for the selected time frame. If **Metadata** is selected in the filter, the throughput graph shows no data.
+* *IOPS graph*: Shows IOPS over time, with thresholds and breach markers (if configured).
+* *Throughput graph*: Shows throughput over time for the selected time frame. If **Metadata** is selected in the filter, the throughput graph shows no data.
 * *Threshold lines*: Dotted horizontal lines show warning and critical thresholds.
 * *Breach markers*: Visual markers indicate detected breaches. Hover over a marker to view severity, time detected, CloudWatch median latency (ms), and QoS latency component breakdown.
 
 .Steps
 
-. In the *Latency* tab, select a volume in the Volumes with latency above threshold table.
+. In the *Latency* tab, select the event in the Severity column.
 +
 The latency analysis panel opens.
 
-. Review the latency chart and the breach summary for the selected *Time frame* and *Type* (Read/Write).
-. Select *View full analysis* to open *Latency > Detailed latency analysis*.
-. In *Latency charts*, use *Time frame* (for example, 72 Hours) and *Type* (Read/Write) to adjust the charts.
+. Review the latency chart and the breach summary for the selected *Time frame* and *Type*.
+. Select *View full analysis* to open *Detailed latency analysis*.
+. In *Latency charts*, use *Time frame* (for example, 72 Hours) and *Type* (Read/Write/Metadata) to adjust the charts.
 . Review the charts for:
 +
 * *Latency* (ms) with warning/critical threshold lines

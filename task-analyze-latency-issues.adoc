@@ -36,7 +36,7 @@ The Volumes with latency above threshold table shows volumes that breached the w
 . To sort the table, select any column header. By default, critical events are displayed first sorted by time, followed by warning events sorted by time.
 . To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
 . To add columns to the table, select image:column-icon.png[The column icon], choose the columns, and select *Apply*.
-. The latency analysis panel provides a quick view of the breach, including a latency chart and controls for time frame and Type (Read/Write). Select *View full analysis* to open the detailed Latency analysis page with basic analysis, AI analysis (optional), and additional charts. See link:task-analyze-latency-trends.html[Analyze latency trends] for details.
+. The latency analysis panel provides a quick view of the breach, including a latency chart and controls for time frame and type. Select *View full analysis* to open the detailed Latency analysis page with basic analysis, AI analysis (optional), and additional charts. See link:task-analyze-latency-trends.html[Analyze latency trends] for details.
 
 == Analyze a latency event
 
@@ -55,7 +55,7 @@ If an Amazon Bedrock model ARN is configured, you can run AI analysis on data an
 * *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
 
-* *AI*: Shows a deeper investigation to determine the specific root cause and potential remediation steps.
+* *AI analysis*: Shows a deeper investigation to determine the specific root cause and potential remediation steps.
 
 * *Detailed latency analysis*: Shows interactive graphs of CloudWatch metrics for the affected volume. These graphs display latency, IOPS, and throughput over time. They show either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
 
@@ -66,9 +66,10 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 . In the *Latency* tab, locate the event you want to analyze.
 . In the *Severity* column, select a latency event to open an analysis panel for that event.
 . Review the *Basic* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
-. Review the *AI analysis* tab to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
+. In the *AI analysis* tab, select *Analyze* to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
 +
 Review the results including:
+
 * Potential root cause explanation
 * List of affected EC2 clients
 * Recommended remediation steps
