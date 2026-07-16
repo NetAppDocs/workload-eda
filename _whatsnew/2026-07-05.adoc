@@ -1,6 +1,6 @@
-=== Enhanced latency analysis with IOPS and throughput graphs
+=== Enhanced latency analysis with synchronized latency, IOPS, and throughput charts
 
-The latency tab now includes a *Detailed latency analysis* page with synchronized performance graphs:
+The latency analysis panel now includes a *Detailed latency analysis* page with synchronized performance graphs:
 
 * *Latency graph*: Shows how latency changes over time, with threshold lines and alerts when limits are exceeded.
 * *IOPS graph*: Shows operations per second, with threshold lines and indicators for past limit breaches.
@@ -8,7 +8,7 @@ The latency tab now includes a *Detailed latency analysis* page with synchronize
 
 All graphs use the same timeline and automatically show the correct metrics based on whether the event is a read or write.
 
-A new filter lets you switch between All, Read, Write, or Metadata operations for more detailed analysis.
+You can adjust the view and correlate latency spikes with changes in IOPS and throughput. Breach markers and hover details help you see when thresholds were exceeded and review key metrics for the detected breach.
 
 https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn how to analyze latency trends with multiple graphs^].
 
