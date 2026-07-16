@@ -1,62 +1,60 @@
 ---
 sidebar: sidebar
 permalink: task-analyze-latency-trends.html
-keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency
-summary: Use the interactive latency graph to analyze volume latency trends over time, identify patterns, and track remediation effectiveness.
+keywords: latency graph, latency visualization, latency trends, breach patterns, latency spikes, latency patterns, time range analysis, breach frequency, iops, throughput
+summary: Use the interactive graphs to analyze volume latency trends over time, identify patterns, and track remediation effectiveness.
 ---
 = Analyze latency trends for EDA in Workload Factory
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-After a latency event is detected, use the interactive graph to see how latency and volume change over time. This helps you spot patterns, see if the problem happens often or only once, and decide how to fix it based on the data.
+
+After a latency breach is detected, use the charts to see how volume latency, IOPS, and throughput change over time. This helps you spot patterns and validate whether remediation improved performance.
 
 == Before you begin
 
-You must have link:task-configure-latency-monitoring.html[configured latency monitoring] and at least one latency event detected. You can view performance graphs if you have AWS credentials. To see the component breakdown, you need a link.
+You need to have link:task-configure-latency-monitoring.html[configured latency monitoring] and at least one detected breach. To view the charts, ensure AWS credentials are available. To view QoS latency component breakdown, ensure the file system is linked.
 
 == Analyze latency trends
 
-The *Over time* tab provides performance graphs to help you analyze volume behavior: latency, IOPS, and throughput.
+The *Detailed latency analysis* page provides performance graphs to help you analyze volume behavior over time: latency, IOPS, and throughput.
 
 .About this task
 
-The graphs show CloudWatch metrics for the affected volume. All graphs use the same timeline. They automatically display read or write metrics based on which alarm triggered the event.
+The graphs show CloudWatch metrics for the affected volume. All graphs use the same timeline. They automatically display metrics based on which alarm triggered the event.
 
 You can change the time range to see performance over different periods. You can also switch between All, Read, Write, or Metadata operations.
 
 The visualization includes:
 
-* *Latency graph*: Shows actual latency values (in milliseconds) collected from CloudWatch over time with threshold lines and breach indicators.
-* *IOPS graph*: Shows actual latency in milliseconds from CloudWatch over time. Threshold lines mark the set limits, and markers show when those limits were exceeded. It also shows operations per second with a threshold line and markers for past breaches. Read activity shows DataReadOperations, and write activity shows DataWriteOperations.
-* *Throughput graph*: Shows data transfer rates. For read events, it displays DataReadBytes. For write events, it displays DataWriteBytes. If **Metadata** is selected in the filter, the throughput graph shows no data.
-* *Threshold lines*: Dotted horizontal lines show the warning and critical limits you set on the latency and IOPS graphs.
-* *Breach indicators*: Visual markers that show when thresholds were exceeded and how many times during the period.
-* *Breach details*: For each breach, view the median delay, the percentage above the limit, QoS delay center data, and the time it was detected.
+* *Latency graph*: Shows volume latency (ms) over time with warning and critical threshold lines and breach markers.
+* *IOPS graph*: Shows IOPS over time, with thresholds and breach markers (if configured).
+* *Throughput graph*: Shows throughput over time for the selected time frame. If **Metadata** is selected in the filter, the throughput graph shows no data.
+* *Threshold lines*: Dotted horizontal lines show warning and critical thresholds.
+* *Breach markers*: Visual markers indicate detected breaches. Hover over a marker to view severity, time detected, CloudWatch median latency (ms), and QoS latency component breakdown.
 
 .Steps
 
-. In the *Latency* tab, select a latency event from the events table.
+. In the *Latency* tab, select the event in the Severity column.
 +
 The latency analysis panel opens.
 
-. Select the *Over time* tab.
-
-. Review the default view, which shows performance graphs for latency, IOPS, and throughput over the past 3 hours.
-
-. Optionally, use the *Type* filter to switch between All, Read, Write, or Metadata operations. The default matches the event type (Read for read events, Write for write events).
+. Review the latency chart and the breach summary for the selected *Time frame* and *Type*.
+. Select *View full analysis* to open *Detailed latency analysis*.
+. In *Latency charts*, use *Time frame* (for example, 72 Hours) and *Type* (Read/Write/Metadata) to adjust the charts.
+. Review the charts for:
++
+* *Latency* (ms) with warning/critical threshold lines
+* *IOPS* with threshold lines (if configured)
+* *Throughput* over the same time range
+. Use the spike markers and the breach summary (for example, “1 critical breach detected in this timeframe”) to correlate latency increases with IOPS and throughput changes.
 
 . Change the time range to review other periods and look for patterns.
 
 . Check the trend lines for latency, IOPS, and throughput. The IOPS and latency graphs include threshold lines for comparison.
 
-. Look for breach indicators on the graphs. These markers appear when thresholds are exceeded multiple times during the selected time period.
-
-. To see more details, hover over or select a breach indicator.
-
-. Review the breach count summary:
-+
-The graph shows the total number of warning or critical breaches during the selected time period.
+. Hover over a breach marker to view breach details (severity, time detected, CW median latency, and QoS latency components).
 
 . Use the graph insights to:
 +
@@ -69,7 +67,7 @@ The graph shows the total number of warning or critical breaches during the sele
 
 You can see how latency for the volume changes over time. This helps you decide whether to take action now, change alert limits, or check for system issues.
 
-NOTE: The latency graph uses CloudWatch metrics. These might be slightly different from ONTAP QoS delay center data because they are collected in different ways. Both are shown to give a more complete view.
+NOTE: The charts use CloudWatch metrics. These might differ slightly from QoS-reported latency components because they are collected in different ways.
 
 == Graph interpretation
 
