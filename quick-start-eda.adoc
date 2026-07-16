@@ -56,7 +56,7 @@ link:task-configure-project-dashboard.html[Learn how to configure the Projects d
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Configure FSx for ONTAP latency analysis
 
 [role="quick-margin-para"]
-Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run time. Configure warning and critical alerts, set up email or SNS notifications to receive real-time alerts, leverage automated basic analysis, and optionally enable AI analysis for complex scenarios by configuring an Amazon Bedrock model ARN.
+Set up latency thresholds to proactively identify and resolve performance issues before they impact simulation run time. Configure warning and critical alerts, set up email or SNS notifications to receive real-time alerts, leverage automated basic analysis, and optionally use AI analysis for complex scenarios.
 
 [role="quick-margin-para"]
 link:task-configure-latency-monitoring.html[Learn how to configure latency monitoring^]. After events are detected, you can link:task-analyze-latency-trends.html[analyze latency trends^] using the interactive graph.

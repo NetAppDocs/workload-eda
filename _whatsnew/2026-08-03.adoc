@@ -1,0 +1,11 @@
+=== AI-powered latency analysis with budget control
+
+AI latency analysis now supports three modes of access:
+
+* *NetApp-managed AI credits*: If your administrator enables it, you can use AI analysis through NetApp's managed Amazon Bedrock integration. No additional setup is required. Your monthly usage is limited by your assigned budget. If you reach your monthly limit, you'll see this message: “Monthly AI credit limit reached. Contact NetApp Support for help.” You can then request a budget increase or set up your own Bedrock account.
+
+* *Your own Amazon Bedrock account*: Use your own Bedrock model ARN to run AI analysis with no spending limits. All costs are billed to your AWS account.
+
+* *Disabled by administrator*: If your administrator turns off AI features, the AI analysis options will be grayed out and show the message “Disabled by your administrator.”
+
+// Use absolute links in these files

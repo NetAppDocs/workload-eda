@@ -35,7 +35,9 @@ For instructions on creating and associating links, see link:https://docs.netapp
 
 === Amazon Bedrock model ARN (optional)
 
-(Optional) To use AI analysis, provide an Amazon Bedrock model ARN in Workload Factory settings. Without it, you can still use latency monitoring and basic analysis.
+(Optional) You can enable AI analysis by configuring your own Amazon Bedrock model ARN in Workload Factory settings. Depending on your account setup, AI analysis might also be available through NetApp-managed AI credits.
+
+AI analysis is unavailable if your monthly NetApp AI credit limit has been reached or your administrator has disabled AI features.
 
 For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
 

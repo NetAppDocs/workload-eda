@@ -42,7 +42,7 @@ The Volumes with latency above threshold table shows volumes that breached the w
 
 .Before you begin
 
-Configure an Amazon Bedrock model ARN in Workload Factory settings, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
+To use AI analysis, one of the following must be available: NetApp-managed AI credits or your own Amazon Bedrock model ARN in Workload Factory settings.
 
 Basic analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
@@ -50,7 +50,10 @@ Basic analysis helps you quickly find what is causing slowdowns without having t
 
 Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event.
 
-If an Amazon Bedrock model ARN is configured, you can run AI analysis on data and cluster scenarios. If Bedrock is not configured, a link to the Storage Workloads configuration page for that file system is provided, where you can set up Bedrock access.
+AI analysis availability depends on your account setup:
+
+* If NetApp-managed AI credits are enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
+* If you configure your own Amazon Bedrock model ARN, you can run AI analysis using your AWS account.
 
 * *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
@@ -66,7 +69,7 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 . In the *Latency* tab, locate the event you want to analyze.
 . In the *Severity* column, select a latency event to open an analysis panel for that event.
 . Review the *Basic* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
-. In the *AI analysis* tab, select *Analyze* to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
+. In the *AI analysis* tab, select *Analyze* (when available) to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
 +
 Review the results including:
 

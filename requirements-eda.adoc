@@ -20,7 +20,7 @@ You need to add AWS credentials to Workload Factory with read/write permissions,
 
 _Basic_ mode and _Read-only_ mode permissions are not supported at this time.
 
-NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To receive notifications for latency events, configure notification preferences in Workload Factory settings. To enable optional AI analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:learn-latency-monitoring.html[Learn about latency monitoring].
+NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To receive notifications for latency events, configure notification preferences in Workload Factory settings. Optional AI analysis for complex latency scenarios is available when NetApp-managed AI credits are enabled or when you provide your own Amazon Bedrock model ARN. link:learn-latency-monitoring.html[Learn about latency monitoring].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Learn how to add AWS credentials to Workload Factory^]
 
