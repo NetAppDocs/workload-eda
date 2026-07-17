@@ -1,15 +1,15 @@
 ---
 sidebar: sidebar
 permalink: task-use-overview-dashboard.html
-keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, bulk edit, decision points, clusters table, ONTAP events, latency events
-summary: Use the Overview dashboard to monitor cluster health, view capacity recommendations, manage SSD capacity settings, and analyze performance trends across your FSx for ONTAP file systems.
+keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, throughput management, bulk edit, decision points, clusters table, ONTAP events, latency events
+summary: Use the Overview dashboard to monitor cluster health, view capacity recommendations, manage SSD and throughput settings, and analyze performance trends across your FSx for ONTAP file systems.
 ---
 = Use the Overview dashboard in Workload Factory for EDA
 :icons: font
 :imagesdir: ./media/
 
 [.lead]
-Use the Overview dashboard to check the health and capacity of your FSx for ONTAP file systems. You can filter the data, see capacity recommendations, adjust SSD capacity settings, and review performance trends to help decide where to place volumes and when to scale capacity.
+Use the Overview dashboard to check the health and capacity of your FSx for ONTAP file systems. You can filter the data, see capacity recommendations, adjust SSD and throughput settings, and review performance trends to help decide where to place volumes and when to scale capacity.
 
 == Before you begin
 
@@ -39,7 +39,9 @@ At the top of the dashboard, you see a summary of health and activity for the fi
 The cluster health status includes the following key areas:
 
 * *Latency*: Number of latency events detected
-* *SSD capacity mode*: SSD utilization status and file systems with active capacity recommendations
+* *File system elasticity*:
+** *SSD capacity*: Shows how many file systems use Automate, Recommend, or None to manage SSD capacity.
+** *Throughput*: Shows how many file systems use Automate, Recommend, or None to manage throughput.
 * *ONTAP events*: Number of EMS events by category (Capacity, Availability & protection, Security & other)
 
 .Steps
@@ -60,10 +62,10 @@ Workload Factory automatically runs a capacity recommendation for each FSx for O
 
 .Steps
 
-. In the *Clusters* table, filter by the *Last SSD increase timestamp* or *Last SSD increase description* columns.
+. In the *Clusters* table, filter by the **SSD increase (time)** or **SSD increase (details)** columns.
 +
 File systems with capacity recommendations appear at the top of the table.
-. Select a file system name in the table to open it and view the recommendations.
+. Select a file system name in the table to open cluster details, including the Cluster information card, SSD capacity card, and SSD Capacity Over Time graph.
 . Review the SSD recommendation and the capacity graph.
 +
 The recommendation explains the suggested change and the reasoning behind it. For example: _We recommend increasing the SSD size based on your file system SSD usage pattern._
@@ -78,36 +80,55 @@ The graph also displays recommendation decision points and automation decision p
 
 For each file system, choose how SSD capacity is managed: receive manual recommendations or allow automatic scaling.
 
-.About this task
-
-SSD management modes include:
-
-* *Automate*: Automatically increase SSD capacity based on predefined thresholds
-* *Recommend*: Get capacity recommendations that you manually review and apply
-* *None*: No capacity recommendations or automated actions
-
-If you select Automate mode, you can configure the Threshold, Lookback, and Ahead parameters that control how the capacity management system analyzes your SSD usage and makes automation decisions. If you select Recommend mode, you can configure only the Threshold parameter.
-
-* *Threshold* (10-90%): The SSD usage percentage that triggers capacity recommendations or automation actions
-* *Lookback* (1-200 hours): The time period used to analyze historical SSD usage patterns
-* *Ahead* (1-200 hours): The time period used to project future capacity needs
-
 .Steps
 
 . In the Clusters table find the file system name. Next to it, open image:icon-action.png[the action menu icon] and select *Change SSD capacity management*.
+. Select *Enable SSD capacity management* and then select *Apply*.
 . Choose your preferred mode:
-* *None*: Disable capacity management
-* *Recommend*: Set the Threshold parameter for recommendation analysis
-* *Automate*: Set the Threshold, Lookback, and Ahead parameters for automated capacity scaling
+* *Notify only (Recommend mode)*
+* *Automate*
+. Configure the SSD capacity management parameters:
++
+
+* Threshold (%): SSD usage percentage that triggers a recommendation
+* Lookback (%): Historical usage data period for analysis
+* Lookahead (%): Projected usage for future capacity planning
 . Select *Apply*.
 
 .Result
 
 The file system switches to the new mode right away. If you choose Recommend or Automate, the system uses the set settings to analyze storage capacity and make decisions.
 
-== Bulk edit SSD management parameters
+== Change throughput management mode
 
-Change SSD capacity settings for several file systems at once so the same settings apply across your clusters.
+For each file system, choose how throughput increase is managed.
+
+.Steps
+
+. In the *Overview* tab, select one or more file systems in the Clusters table.
+. Select *Change throughput management*.
+. Select *Enable throughput management* and then select *Apply*.
+. Choose your preferred mode:
+* *Notify only (Recommend mode)*
+* *Automate*
+. In the dialog, configure the throughput management parameters:
++
+
+* Evaluation window (hours): Time period for analyzing throughput patterns
+* Breached metrics (%): Percentage threshold for determining breach
+* Consecutive breached window (hours): Duration of consecutive breaches before action
+* Minimum latency (ms): Latency threshold used to determine throughput increase
+* Maximum throughput (SKUs): Maximum throughput SKU allowed
+
+. Select *Apply*.
+
+.Result
+
+The selected file systems switch to the new throughput mode immediately.
+
+== Bulk edit management parameters
+
+Change settings for several file systems at once so the same settings apply across your clusters.
 
 .About this task
 
@@ -123,16 +144,16 @@ When you select multiple file systems for bulk editing:
 +
 TIP: You can select individual file systems or use the header checkbox to select all visible file systems.
 
-. Select *Change SSD capacity management* above the table.
+. Select *Change SSD capacity management* or *Change throughput management* above the table.
 . Choose your preferred mode.
-. In the edit dialog, adjust the Threshold, Lookback, and Ahead parameters as needed.
+. In the edit dialog, adjust the parameters as needed.
 +
 Each parameter field includes a tooltip describing its purpose and valid range. The dialog indicates the current values or defaults based on your selection.
 . Select *Apply* to apply the changes to all selected file systems.
 
 .Result
 
-The parameters are updated for all selected file systems. File systems in Recommend or Automate mode use the new parameters immediately for capacity analysis and decision-making.
+The parameters are updated for all selected file systems. File systems in Recommend or Automate mode use the new parameters immediately for analysis and decision-making.
 
 == Analyze capacity trends and decision points
 
@@ -173,7 +194,6 @@ The clusters table gives a detailed view of each FSx for ONTAP file system with 
 Hover over throughput column headers for calculation details.
 . To customize columns, select the column settings icon and choose which columns to display.
 . To export data, select the export icon to download a CSV file.
-. To perform bulk operations, select multiple file systems using the checkboxes, then select *Edit parameters*.
 
 == Best practices
 
@@ -181,17 +201,17 @@ Consider these recommendations when using the Overview dashboard:
 
 * *Regular monitoring*: Check the dashboard often to spot trends before they become problems.
 
-* **Set clear thresholds**: Choose SSD management thresholds that fit your workload and capacity plans.
+* **Set clear thresholds**: Choose SSD usage thresholds and throughput parameters that fit your workload and capacity plans.
 
 * **Use filters**: Apply region and account filters to focus on the parts of your infrastructure you want to review.
 
-* **Review recommendations quickly**: Filter the Clusters table by **Last SSD increase timestamp** or description to find file systems with capacity recommendations. Check and act on them to avoid running out of space.
+* **Review recommendations quickly**: Filter the Clusters table by **SSD increase (time)** or **SSD increase (details)** to find file systems with capacity recommendations. Check and act on them to avoid running out of space.
 
-* **Pick the right mode**: Use **Recommend** mode if you want to approve capacity changes yourself. Use **Automation** mode if you want the system to manage capacity automatically.
+* **Pick the right mode**: Use **Recommend** mode if you want to approve capacity or throughput changes yourself. Use **Automate** mode if you want the system to manage capacity or throughput automatically.
 
 * **Watch decision points**: Check decision points on capacity graphs to see how the system is making decisions and confirm the settings work for your needs.
 
-* **Edit in bulk**: When managing many file systems, use bulk editing to keep capacity settings consistent.
+* **Edit in bulk**: When managing many file systems, use bulk editing to keep settings consistent.
 
 == Related information
 
