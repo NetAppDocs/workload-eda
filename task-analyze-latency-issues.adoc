@@ -50,10 +50,7 @@ Basic analysis helps you quickly find what is causing slowdowns without having t
 
 Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event.
 
-AI analysis availability depends on your account setup:
-
-* If NetApp-managed AI credits are enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
-* If you configure your own Amazon Bedrock model ARN, you can run AI analysis using your AWS account.
+AI analysis availability depends on your account setup. If NetApp-managed AI credits are enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
 
 * *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.

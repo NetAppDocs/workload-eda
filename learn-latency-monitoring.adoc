@@ -81,7 +81,6 @@ When you run AI analysis, the system provides:
 AI analysis availability depends on your account setup:
 
 * *NetApp-managed AI credits enabled*: You can run AI analysis without additional Bedrock setup.
-* *Customer-managed Bedrock*: Configure your own Amazon Bedrock model ARN to run AI analysis through your AWS account.
 * *Disabled by administrator*: AI options are unavailable.
 
 If NetApp-managed AI credits are enabled but your monthly budget is reached, AI analysis is unavailable and a message is displayed.
