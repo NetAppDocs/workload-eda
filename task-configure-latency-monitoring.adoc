@@ -39,7 +39,7 @@ For instructions on creating and associating links, see link:https://docs.netapp
 
 AI analysis is unavailable if your monthly NetApp AI credit limit has been reached or your administrator has disabled AI features.
 
-For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
+For more details, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
 
 === Notification configuration (optional)
 

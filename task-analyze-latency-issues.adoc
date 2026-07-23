@@ -42,7 +42,7 @@ The Volumes with latency above threshold table shows volumes that breached the w
 
 .Before you begin
 
-To use AI analysis, one of the following must be available: NetApp-managed AI credits or your own Amazon Bedrock model ARN in Workload Factory settings.
+To use AI analysis, you must have NetApp-managed AI enabled or your own Amazon Bedrock model ARN configured in Workload Factory settings. For more information, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
 
 Basic analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
@@ -50,7 +50,7 @@ Basic analysis helps you quickly find what is causing slowdowns without having t
 
 Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event.
 
-AI analysis availability depends on your account setup. If NetApp-managed AI credits are enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
+AI analysis availability depends on your account setup. If NetApp-managed AI is enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
 
 * *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
