@@ -58,13 +58,13 @@ The ONTAP events view card displays the number of EMS events by category (Capaci
 
 == View and apply capacity or throughput recommendations
 
-Workload Factory automatically runs a capacity recommendation for each FSx for ONTAP file system. You can find file systems with recommendations by filtering the Clusters table.
+Workload Factory automatically runs recommendations for each FSx for ONTAP file system. You can find file systems with recommendations by filtering the Clusters table.
 
 .Steps
 
 . In the *Clusters* table, filter by the relevant time or details columns.
 +
-File systems with capacity or throughout recommendations appear at the top of the table.
+File systems with capacity or throughput recommendations appear at the top of the table.
 . Select a file system name in the table to open cluster details.
 . Review the recommendation and graph.
 +

@@ -41,7 +41,7 @@ The Volumes with latency above threshold table shows volumes that breached the w
 
 Latency analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
-To use AI analysis, you must have NetApp-managed AI enabled or your own Amazon Bedrock model ARN configured in Workload Factory settings. For more information, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
+NOTE: To use AI analysis, you must have NetApp-managed AI enabled. For more information, see https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html[Manage AI features^].
 
 Basic analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 

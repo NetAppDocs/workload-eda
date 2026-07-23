@@ -4,7 +4,8 @@ As a Workload Factory administrator, you can control access to AI latency analys
 
 * *NetApp-managed AI credits*: If your administrator enables it, you can use AI analysis through NetApp's managed Amazon Bedrock integration. No additional setup is required. Your monthly usage is limited by your assigned budget. If you reach your monthly limit, AI-powered features are disabled and you'll see a message.
 
-* *Disabled by administrator*: If your administrator turns off AI features, the AI analysis options will be grayed out and show the message “Disabled by your administrator.”
+* *Disabled by administrator*: If your administrator turns off AI features, the AI analysis options will be grayed out and a message is shown.
+
 === Elastic throughput increase management
 
 You can now manage throughput increase behavior from the EDA Overview page for one or more selected FSx for ONTAP file systems.

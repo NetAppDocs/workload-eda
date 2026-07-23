@@ -125,7 +125,7 @@ When Workload Factory is in Automate or Recommend mode, it automatically checks 
 When a recommendation is identified:
 
 * You receive an immediate notification based on your Workload Factory notification settings.
-* Identify file systems with recommendations by filtering the Clusters table using the **SSD increase (time)** and **SSD increase (details)** columns.
+* Identify file systems with recommendations by filtering the Clusters table.
 * The interface shows the total number of file systems that currently have active recommendations.
 
 The recommendation explains the suggested change and the reasoning behind it, such as: _We recommend increasing the SSD size based on your file system SSD usage pattern._
