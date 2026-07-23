@@ -72,13 +72,18 @@ NOTE: Latency values from ONTAP QoS analysis and CloudWatch might differ slightl
 
 While basic analysis can identify the source of latency, more complex situations involving data or cluster components often need deeper investigation. AI analysis provides this deeper troubleshooting by finding problems such as overloaded volumes, poor configuration, or the need to add more capacity—issues that basic analysis may miss.
 
+AI analysis availability depends on your account setup:
+
+* *NetApp-managed AI credits enabled*: You can run AI analysis without additional Bedrock setup.
+* *Disabled by administrator*: AI options are unavailable.
+
+If NetApp-managed AI credits are enabled but your monthly budget is reached, AI analysis is unavailable and a message is displayed.
+
 When you run AI analysis, the system provides:
 
 * *Potential root cause*: Detailed explanation of what's causing the latency issue
 * *Affected clients*: List of EC2 instance names impacted by the latency
 * *Potential remediation steps*: Two or more specific actions to resolve the issue
-
-AI analysis requires an Amazon Bedrock model ARN in your Workload Factory settings. If Bedrock isn't set up, you can still use latency monitoring and basic automated analysis.
 
 == Related information
 

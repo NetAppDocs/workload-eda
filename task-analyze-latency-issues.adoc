@@ -41,11 +41,15 @@ The Volumes with latency above threshold table shows volumes that breached the w
 
 Latency analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
-If your account admin has turned off AI features, you'll see a message and won't be able to use AI analysis. Contact your administrator or link:manage-genai-features.html[learn about AI administration]
+To use AI analysis, you must have NetApp-managed AI enabled or your own Amazon Bedrock model ARN configured in Workload Factory settings. For more information, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
+
+Basic analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
 === Latency analysis panel
 
 Select a latency event in the *Severity* column to open the latency analysis panel for that event. The panel includes tabs that provide different views of the latency event.
+
+AI analysis availability depends on your account setup. If NetApp-managed AI is enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
 
 * *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
@@ -61,7 +65,7 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 . In the *Latency* tab, locate the event you want to analyze.
 . In the *Severity* column, select a latency event to open an analysis panel for that event.
 . Review the *Basic* tab. If a link is connected, open the component breakdown to see where the delay comes from. If no link is connected, select the prompt to link one so you can analyze the components.
-. In the *AI analysis* tab, select *Analyze* to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
+. In the *AI analysis* tab, select *Analyze* (when available) to view the results of a deeper investigation, such as possible data or cluster issues. This helps determine the specific root cause and potential remediation steps.
 +
 Review the results including:
 
