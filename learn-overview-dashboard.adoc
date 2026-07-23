@@ -108,6 +108,9 @@ If you have not enabled Throughput management, the system does not make recommen
 The throughput configuration dialog includes:
 
 * *Utilization threshold* (50-100%, default 80%): Throughput utilization percentage that triggers recommendations or automation.
+
+Advanced throughput parameters are available in an expandable *Advanced configuration* section.
+
 * *Evaluation window (hours)* (12-72 hours, default 24)
 * *Breached metrics (%)* (default 66%): Percentage threshold for determining breach
 * *Consecutive breach window (hours)* (1-5 hours, default 2)
@@ -115,11 +118,9 @@ The throughput configuration dialog includes:
 * *Minimum latency (ms)* (default 10 ms)
 * *Maximum throughput SKU* (default None)
 
-Advanced throughput parameters are available in an expandable *Advanced configuration* section.
-
 == File system elasticity recommendations
 
-When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans every 24 hours to see if SSD capacity or throughput should be adjusted.
+When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans periodically to see if SSD capacity or throughput should be adjusted.
 
 When a recommendation is identified:
 
@@ -134,7 +135,7 @@ The recommendation explains the suggested change and the reasoning behind it, su
 The SSD usage graph marks when the system made capacity recommendations or took automated actions. These markers show how the capacity management algorithm behaved over time.
 
 *Recommendation decision points*::
-Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points may appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
+Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points might appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
 
 *Automation decision points*::
 Appear when the automation system tries to increase SSD capacity. They show whether the action succeeded or failed.

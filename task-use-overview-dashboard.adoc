@@ -56,22 +56,22 @@ For details on latency monitoring, see link:task-configure-latency-monitoring.ht
 +
 The ONTAP events view card displays the number of EMS events by category (Capacity, Availability & protection, and Security & other). For a full list of EMS events monitored, see link:https://docs.netapp.com/us-en/ontap-cli-9171/index.html[ONTAP CLI documentation^].
 
-== View and apply capacity recommendations
+== View and apply capacity or throughput recommendations
 
 Workload Factory automatically runs a capacity recommendation for each FSx for ONTAP file system. You can find file systems with recommendations by filtering the Clusters table.
 
 .Steps
 
-. In the *Clusters* table, filter by the **SSD increase (time)** or **SSD increase (details)** columns.
+. In the *Clusters* table, filter by the relevant time or details columns.
 +
-File systems with capacity recommendations appear at the top of the table.
-. Select a file system name in the table to open cluster details, including the Cluster information card, SSD capacity card, and SSD Capacity Over Time graph.
-. Review the SSD recommendation and the capacity graph.
+File systems with capacity or throughout recommendations appear at the top of the table.
+. Select a file system name in the table to open cluster details.
+. Review the recommendation and graph.
 +
 The recommendation explains the suggested change and the reasoning behind it. For example: _We recommend increasing the SSD size based on your file system SSD usage pattern._
 +
-The graph presents current SSD usage alongside historical trends and shows you how the capacity recommendation algorithm would have adjusted capacity over time.
-. On the top right of the graph, select the time range to change the period displayed. The default is one week.
+The graph presents current usage alongside historical trends.
+. On the top right of the graph, select the time range to change the period displayed.
 +
 The graph also displays recommendation decision points and automation decision points (if automation mode is enabled). Hover over any decision point to see details about the capacity recommendation or automation action at that moment.
 . To apply the recommendation, follow the guidance provided in the recommendation message.
@@ -130,14 +130,6 @@ The selected file systems switch to the new throughput mode immediately.
 
 Change settings for several file systems at once so the same settings apply across your clusters.
 
-.About this task
-
-When you select multiple file systems for bulk editing:
-
-* If all selected file systems use the same settings, those settings appear as the default in the edit dialog.
-* If any selected file system is in None mode, default values are populated in the dialog.
-* If parameter values differ across the selected file systems, default values are populated in the dialog.
-
 .Steps
 
 . From the *Overview* tab, select the file systems you want to edit in the table.
@@ -163,7 +155,7 @@ Use the SSD usage graph to see how storage use changes over time and spot patter
 
 Decision points on the graph indicate when:
 
-* *Recommendation decision points*: The capacity recommendation algorithm identified that additional SSD capacity is needed. These can occur as frequently as every 30 minutes if SSD capacity has not been increased.
+* *Recommendation decision points*: The capacity recommendation algorithm identified that additional SSD capacity is needed.
 * *Automation decision points*: The automation system tried to increase SSD capacity. These points show whether the action succeeded or failed.
 
 .Steps
@@ -205,7 +197,7 @@ Consider these recommendations when using the Overview dashboard:
 
 * **Use filters**: Apply region and account filters to focus on the parts of your infrastructure you want to review.
 
-* **Review recommendations quickly**: Filter the Clusters table by **SSD increase (time)** or **SSD increase (details)** to find file systems with capacity recommendations. Check and act on them to avoid running out of space.
+* **Review recommendations quickly**: Filter the Clusters table to find file systems with capacity or throughput recommendations. Check and act on them to avoid running out of space.
 
 * **Pick the right mode**: Use **Recommend** mode if you want to approve capacity or throughput changes yourself. Use **Automate** mode if you want the system to manage capacity or throughput automatically.
 

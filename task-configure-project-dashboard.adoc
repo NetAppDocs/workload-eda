@@ -32,7 +32,7 @@ If you don't configure any custom filters, the default filters, file system, vol
 . Select *Projects*.
 +
 If you have not already configured your dashboard, you are automatically prompted to do so.
-. Select *+ Add filters*.
+. Select *Add filters*.
 . For each custom filter you want to create, add the details:
 * Filter label name (the display name in the dashboard)
 * AWS tag key name (the actual tag key used on your resources)
