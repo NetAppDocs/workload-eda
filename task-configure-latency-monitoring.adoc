@@ -33,13 +33,9 @@ To view component breakdown in basic analysis, you must associate a link with th
 
 For instructions on creating and associating links, see link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
 
-=== Amazon Bedrock model ARN (optional)
+=== Turn on AI settings
 
-(Optional) You can enable AI analysis by configuring your own Amazon Bedrock model ARN in Workload Factory settings. Depending on your account setup, AI analysis might also be available through NetApp-managed AI credits.
-
-AI analysis is unavailable if your monthly NetApp AI credit limit has been reached or your administrator has disabled AI features.
-
-For more details, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
+If your account admin has turned off AI features, you'll see a message and won't be able to use AI analysis. Contact your administrator or link:manage-genai-features.html[learn about AI administration]
 
 === Notification configuration (optional)
 
@@ -67,7 +63,7 @@ NOTE: Latency thresholds you set in EDA apply to your whole account by default. 
 
 .Result
 
-Workload Factory collects latency metrics for all FSx for ONTAP volumes linked to your AWS credentials. It gathers these metrics at least every 20 minutes. Volumes that exceed your set thresholds appear in the latency events table.
+Workload Factory collects latency metrics for all FSx for ONTAP volumes linked to your AWS credentials. Volumes that exceed your set thresholds appear in the latency events table.
 
 == Configure latency notifications
 

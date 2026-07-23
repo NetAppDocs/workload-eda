@@ -17,12 +17,11 @@ You must have link:task-configure-latency-monitoring.html[configured latency mon
 
 == View volumes with latency above threshold
 
-The Volumes with latency above threshold table shows volumes that breached the warning or critical latency threshold in the past 72 hours.
+The Volumes with latency above threshold table shows volumes that breached the warning or critical latency threshold.
 
 .About this task
 
 * Only the most recent breach for each volume is shown. Earlier breaches for the same volume are not displayed.
-* Events are automatically removed after 72 hours.
 * A maximum of 200 events is shown. Older events are removed as new events are added.
 * Events appear even without a file system link. A link is required to view basic analysis details or run AI analysis.
 
@@ -40,7 +39,7 @@ The Volumes with latency above threshold table shows volumes that breached the w
 
 == Analyze a latency event
 
-.Before you begin
+Latency analysis helps you quickly find what is causing slowdowns without having to investigate manually.
 
 To use AI analysis, you must have NetApp-managed AI enabled or your own Amazon Bedrock model ARN configured in Workload Factory settings. For more information, see link:https://docs.netapp.com/us-en/workload-setup-admin/link:manage-genai-features.html[Manage AI features].
 
