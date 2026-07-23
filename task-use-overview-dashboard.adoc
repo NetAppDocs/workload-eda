@@ -90,9 +90,9 @@ For each file system, choose how SSD capacity is managed: receive manual recomme
 . Configure the SSD capacity management parameters:
 +
 
-* Threshold (%): SSD usage percentage that triggers a recommendation
-* Lookback (%): Historical usage data period for analysis
-* Lookahead (%): Projected usage for future capacity planning
+* *Threshold (%)*: SSD usage percentage that triggers a recommendation
+* *Lookback (%)*: Historical usage data period for analysis
+* *Lookahead (%)*: Projected usage for future capacity planning
 . Select *Apply*.
 
 .Result
@@ -114,11 +114,11 @@ For each file system, choose how throughput increase is managed.
 . In the dialog, configure the throughput management parameters:
 +
 
-* Evaluation window (hours): Time period for analyzing throughput patterns
-* Breached metrics (%): Percentage threshold for determining breach
-* Consecutive breached window (hours): Duration of consecutive breaches before action
-* Minimum latency (ms): Latency threshold used to determine throughput increase
-* Maximum throughput (SKUs): Maximum throughput SKU allowed
+* *Evaluation window (hours)*: Time period for analyzing throughput patterns
+* *Breached metrics (%)*: Percentage threshold for determining breach
+* *Consecutive breached window (hours)*: Duration of consecutive breaches before action
+* *Minimum latency (ms)*: Latency threshold used to determine throughput increase
+* *Maximum throughput (SKUs)*: Maximum throughput SKU allowed
 
 . Select *Apply*.
 
