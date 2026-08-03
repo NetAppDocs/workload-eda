@@ -17,7 +17,7 @@ Ensure you meet the following requirements before activating the dashboard.
 
 === AWS credentials with view permissions
 
-You must configure AWS credentials in Workload Factory with at least read (view) permissions for General Storage. _Basic_ credentials are not supported.
+You must configure AWS credentials in Workload Factory with at least read (view) permissions for General Storage. _Basic_ credentials are not supported because they don't include the necessary read permissions for CloudWatch metrics.
 
 If you haven't configured credentials with view permissions, you are redirected to the AWS credentials setup page when you open the Overview tab.
 
@@ -47,10 +47,6 @@ Workload Factory starts collecting CloudWatch metrics for all FSx for ONTAP file
 After activating the dashboard, you can:
 
 * link:task-use-overview-dashboard.html[Use the Overview dashboard] to monitor cluster health and capacity
-* Configure SSD capacity management modes (Automate, Recommend, or None)
+* link:task-use-overview-dashboard.html#change-ssd-management-mode[Enable and configure SSD capacity management modes] (Recommend, Automate, or None)
+* link:task-use-overview-dashboard.html#change-throughput-management-mode[Enable and configure throughput management modes] (Recommend, Automate, or None)
 * Set up filters to focus on specific regions or AWS accounts
-
-== Related information
-
-* link:learn-overview-dashboard.html[Learn about the Overview dashboard]
-* link:task-use-overview-dashboard.html[Use the Overview dashboard]

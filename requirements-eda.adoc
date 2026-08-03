@@ -20,7 +20,7 @@ You need to add AWS credentials to Workload Factory with read/write permissions,
 
 _Basic_ mode and _Read-only_ mode permissions are not supported at this time.
 
-NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To receive notifications for latency events, configure notification preferences in Workload Factory settings. To enable optional AI analysis for complex latency scenarios, you must also provide an Amazon Bedrock model ARN. link:learn-latency-monitoring.html[Learn about latency monitoring].
+NOTE: AWS credentials are also required to use the latency monitoring feature, which collects CloudWatch metrics for volume performance analysis. To receive notifications for latency events, configure notification preferences in Workload Factory settings. Optional AI analysis for complex latency scenarios is available when NetApp-managed AI analysis is enabled. link:learn-latency-monitoring.html[Learn about latency monitoring].
 
 https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Learn how to add AWS credentials to Workload Factory^]
 
@@ -35,7 +35,7 @@ This FSx for ONTAP file system must use FlexVol volumes. FlexGroup volumes are n
 
 * You'll need at least one volume in the file system with the following configuration:
 ** The volume must be configured as an NFS share.
-** The file system must be configured with a link. https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
+** The file system must be configured with a link. link:https://docs.netapp.com/us-en/workload-fsx-ontap/links-overview.html[Learn more about links^].
 
 * You'll need to consider the tag key/value pairs that you want to apply to the AWS resources that are part of this deployment (optional).
 +

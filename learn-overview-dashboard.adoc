@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: learn-overview-dashboard.html
-keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, EMS events, latency events, SSD management, capacity automation, capacity recommendations, decision points
+keywords: cluster overview, cluster dashboard, FSx for ONTAP, cluster health, EMS events, latency events, SSD management, throughput management, capacity automation, capacity recommendations, decision points
 summary: Learn how the Overview dashboard in Workload Factory for EDA helps you monitor FSx for ONTAP cluster health, capacity, and throughput at scale.
 ---
 = Learn about the Overview dashboard in Workload Factory for EDA
@@ -9,7 +9,7 @@ summary: Learn how the Overview dashboard in Workload Factory for EDA helps you 
 :imagesdir: ./media/
 
 [.lead]
-The Overview dashboard gives IT administrators one place to monitor EDA workloads across multiple FSx for ONTAP file systems. Use it to quickly check system health and usage, choose where to place new volumes or jobs, find volumes or SVMs that may need to be moved, and see when it’s time to increase capacity or throughput.
+The Overview dashboard gives IT administrators one place to monitor EDA workloads across multiple FSx for ONTAP file systems. Use it to quickly check system health and usage, choose where to place new volumes or jobs, find volumes or SVMs that may need to be moved, and see when it's time to increase capacity or throughput.
 
 == Overview
 
@@ -17,7 +17,7 @@ The Overview dashboard collects CloudWatch metrics for all FSx for ONTAP file sy
 
 It includes:
 
-* *Cluster health status*: A summary at the top highlights latency events, SSD usage, capacity recommendations, and ONTAP EMS events across your file systems.
+* *Cluster health status*: A summary at the top highlights latency events, SSD usage, throughput mode status, capacity recommendations, and ONTAP EMS events across your file systems.
 * *Clusters table*: A searchable table that shows usage and performance for each cluster. You can filter and sort the data, move between pages, and export it as a CSV file.
 
 It helps you:
@@ -39,8 +39,9 @@ The health status includes the following areas:
 *Latency*::
 Shows the number of latency events found in the selected file systems. This information appears only if latency monitoring is enabled.
 
-*SSD capacity management*::
-Displays the number of file systems with SSD usage above 80% and the number of file systems with active capacity recommendations. This helps you quickly identify file systems that might require capacity attention.
+*File system elasticity*::
+* *SSD capacity*: Shows how many file systems use Automate, Recommend, or None to manage SSD capacity.
+* *Throughput*: Shows how many file systems use Automate, Recommend, or None to manage throughput.
 
 *ONTAP events*::
 Displays the number of EMS events detected, categorized by Capacity, Availability & protection, and Security & other.
@@ -57,30 +58,20 @@ Use the table to:
 * Check link configuration status (Associated link column) - Connection validity is verified daily
 * Select multiple clusters for bulk parameter updates
 
+Select a file system to open cluster details, including cluster information, SSD capacity values, and the SSD Capacity Over Time graph.
+
 == SSD capacity management
 
 === Management modes
 
+*Notify only (Recommend mode)*::
+Workload Factory analyzes how you use your SSDs and suggests when to increase capacity. You review these suggestions and decide whether to apply them. This keeps you in full control of capacity changes while still benefiting from automated analysis.
+
 *Automate*::
 Workload Factory automatically adds more SSD space when usage reaches set limits. It handles this on its own, so no manual work is needed. This works well for environments that prefer automatic management.
 
-*Recommend*::
-Workload Factory analyzes how you use your SSDs and suggests when to increase capacity. You review these suggestions and decide whether to apply them. This keeps you in full control of capacity changes while still benefiting from automated analysis.
-
 *None*::
-The system does not make capacity recommendations or take automated actions. Use this option if you want to manage capacity yourself.
-
-=== Capacity recommendations
-
-When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans every 24 hours to see if SSD capacity should be adjusted.
-
-When a recommendation is identified:
-
-* You receive an immediate notification based on your Workload Factory notification settings.
-* Identify file systems with recommendations by filtering the Clusters table using the **Last SSD increase timestamp** or **Last SSD increase description** columns.  
-* The interface shows the total number of file systems that currently have active recommendations.
-
-The recommendation explains the suggested change and the reasoning behind it, such as: _We recommend increasing the SSD size based on your file system SSD usage pattern._
+If you have not enabled SSD capacity management, the system does not make capacity recommendations or take automated actions. Use this option if you want to manage capacity yourself.
 
 === SSD management parameters
 
@@ -92,17 +83,59 @@ The SSD usage percentage that triggers capacity recommendations or automation ac
 *Lookback* (1-200 hours)::
 The time period used to analyze historical SSD usage patterns. A longer lookback period provides more historical context for capacity decisions. Available in Automate mode only.
 
-*Ahead* (1-200 hours)::
+*Lookahead* (1-200 hours)::
 The time period used to project future capacity needs. A longer ahead period plans further into the future for capacity growth. Available in Automate mode only.
 
 You can set these parameters for each file system individually, or use bulk editing to apply the same settings to multiple file systems.
+
+== Throughput management
+
+You can configure elastic throughput increase behavior for one or multiple file systems.
+
+=== Management modes
+
+*Notify only (Recommend mode)*::
+Workload Factory evaluates throughput pressure and provides recommendations for you to apply.
+
+*Automate*::
+Workload Factory increases throughput automatically when configured conditions are met.
+
+*None*::
+If you have not enabled Throughput management, the system does not make recommendations or take automated actions. Use this option if you want to manage capacity yourself.
+
+=== Throughput parameters
+
+The throughput configuration dialog includes:
+
+* *Utilization threshold* (50-100%, default 80%): Throughput utilization percentage that triggers recommendations or automation.
+
+Advanced throughput parameters are available in an expandable *Advanced configuration* section.
+
+* *Evaluation window (hours)* (12-72 hours, default 24)
+* *Breached metrics (%)* (default 66%): Percentage threshold for determining breach
+* *Consecutive breach window (hours)* (1-5 hours, default 2)
+* *Consecutive breach metrics (%)* (default 95%)
+* *Minimum latency (ms)* (default 10 ms)
+* *Maximum throughput SKU* (default None)
+
+== File system elasticity recommendations
+
+When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans periodically to see if SSD capacity or throughput should be adjusted.
+
+When a recommendation is identified:
+
+* You receive an immediate notification based on your Workload Factory notification settings.
+* Identify file systems with recommendations by filtering the Clusters table.
+* The interface shows the total number of file systems that currently have active recommendations.
+
+The recommendation explains the suggested change and the reasoning behind it, such as: _We recommend increasing the SSD size based on your file system SSD usage pattern._
 
 === Understanding capacity decision points
 
 The SSD usage graph marks when the system made capacity recommendations or took automated actions. These markers show how the capacity management algorithm behaved over time.
 
 *Recommendation decision points*::
-Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points may appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
+Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points might appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
 
 *Automation decision points*::
 Appear when the automation system tries to increase SSD capacity. They show whether the action succeeded or failed.
@@ -114,6 +147,7 @@ Use the SSD usage history graph to:
 • Spot repeated storage shortages  
 • Plan future storage needs based on growth over time  
 • Investigate why automation attempts failed
+
 
 == Related information
 

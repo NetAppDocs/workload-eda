@@ -21,7 +21,7 @@ You must add AWS credentials to Workload Factory with read/write permissions. Th
 
 _Basic_ mode and _Read-only_ mode permissions are not supported for latency monitoring.
 
-If you haven't configured AWS credentials, see link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
+If you haven't configured AWS credentials, refer to link:https://docs.netapp.com/us-en/workload-setup-admin/add-credentials.html[Add AWS credentials^].
 
 === FSx for ONTAP file system
 
@@ -31,13 +31,11 @@ You need at least one FSx for ONTAP file system with volumes deployed in your AW
 
 To view component breakdown in basic analysis, you must associate a link with the FSx for ONTAP file system. Without a link, you can still view latency, IOPS, and throughput graphs. If no link is already associated, select *Associate link* in EDA, choose whether to create a new link or associate an existing link, and then select *Continue* to automatically go to the link creation page in Storage workloads.
 
-For instructions on creating and associating links, see link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
+For instructions on creating and associating links, refer to link:https://docs.netapp.com/us-en/workload-fsx-ontap/create-link.html[Create a link^].
 
-=== Amazon Bedrock model ARN (optional)
+=== Turn on AI settings
 
-(Optional) To use AI analysis, provide an Amazon Bedrock model ARN in Workload Factory settings. Without it, you can still use latency monitoring and basic analysis.
-
-For more details, see link:https://docs.netapp.com/us-en/workload-genai/knowledge-base/requirements-knowledge-base.html#basic-genai-requirements[Basic GenAI requirements^].
+If your account admin has turned off AI features, you'll see a message and won't be able to use AI analysis. Contact your administrator or refer to link:https://docs.netapp.com/us-en/workload-setup-admin/manage-genai-features.html[learn about AI administration^].
 
 === Notification configuration (optional)
 
@@ -65,7 +63,7 @@ NOTE: Latency thresholds you set in EDA apply to your whole account by default. 
 
 .Result
 
-Workload Factory collects latency metrics for all FSx for ONTAP volumes linked to your AWS credentials. It gathers these metrics at least every 20 minutes. Volumes that exceed your set thresholds appear in the latency events table.
+Workload Factory collects latency metrics for all FSx for ONTAP volumes linked to your AWS credentials. Volumes that exceed your set thresholds appear in the latency events table.
 
 == Configure latency notifications
 
@@ -83,7 +81,7 @@ Notification channels:
 * *Email*: Sent to configured email addresses in your Workload Factory notification settings
 * *Amazon SNS*: Published to your configured SNS topic for integration with other systems
 
-To enable notifications, see link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications[Configure notification settings].
+To enable notifications, refer to link:https://docs.netapp.com/us-en/workload-setup-admin/configure-notifications.html#wf-console-email-notifications[Configure notification settings].
 
 == Manage latency configuration
 
