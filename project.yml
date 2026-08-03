@@ -26,6 +26,8 @@ sidebar:
         url: /learn-eda.html 
       - title: Quick start
         url: /quick-start-eda.html
+      - title: Requirements
+        url: /requirements-eda.html
   - title: EDA storage overview
     entries:
       - title: Learn about the Overview dashboard
@@ -56,8 +58,6 @@ sidebar:
     entries: 
       - title: Learn about Perforce integration
         url: /learn-eda-workloads.html
-      - title: Requirements
-        url: /requirements-eda.html 
       - title: Manage projects
         url: /manage-projects.html
       - title: Manage project versions

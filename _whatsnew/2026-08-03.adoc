@@ -1,0 +1,22 @@
+=== AI latency analysis with cost controls
+
+As a Workload Factory administrator, you can control access to AI latency analysis across your organization.
+
+* *NetApp-managed AI credits*: If your administrator enables it, you can use AI analysis through NetApp's managed Amazon Bedrock integration. No additional setup is required. Your monthly usage is limited by your assigned budget. If you reach your monthly limit, AI-powered features are disabled and you'll see a message.
+
+* *Disabled by administrator*: If your administrator turns off AI features, the AI analysis options will be grayed out and you'll see a message that the feature is off.
+
+=== Elastic throughput increase management
+
+You can now manage throughput increase behavior from the EDA Overview page for one or more selected FSx for ONTAP file systems.
+
+* *Mode selection*: Choose *Automate* or *Recommend*.
+* *Bulk updates*: Select one or multiple file systems and apply mode and parameter changes in one action.
+* *Change throughput management dialog*: Edit throughput increase settings with EDA default values in the dialog.
+* *Advanced settings*: Configure additional throughput decision parameters in an expandable *Advanced configuration* section.
+* *Table visibility*: A new *Throughput management* column is available in the Clusters table and can be enabled from column settings.
+* *Top card configuration*: The upper card now supports throughput increase mode configuration, similar to SSD management.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html[Learn how to use the Overview dashboard^].
+
+// Use absolute links in these files
