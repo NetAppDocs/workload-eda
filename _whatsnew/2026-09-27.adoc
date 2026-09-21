@@ -1,0 +1,13 @@
+=== Enhanced SSD capacity notifications
+
+SSD capacity management notifications now include detailed error messages for troubleshooting automation failures. Notifications are sent for successful capacity increases, errors during increase operations, capacity check failures, threshold warnings, and recommendations. Error details include specific failure reasons such as missing permissions, concurrent updates in progress, AWS cooldown periods, or CloudWatch metric retrieval issues.
+
+link:https://docs.netapp.com/us-en/workload-eda/learn-overview-dashboard.html[Learn about SSD capacity management^].
+
+=== Week time frame for latency graphs
+
+Latency analysis graphs now support a 1-week time frame in addition to existing options (1 hour, 3 hours, 12 hours, 24 hours, 72 hours). Use the week view to identify longer-term patterns and trends in volume latency behavior.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn about latency trend analysis^].
+
+// Use absolute links in these files

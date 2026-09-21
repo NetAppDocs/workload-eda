@@ -58,7 +58,9 @@ Use the table to:
 * Check link configuration status (Associated link column) - Connection validity is verified daily
 * Select multiple clusters for bulk parameter updates
 
-Select a file system to open cluster details, including cluster information, SSD capacity values, and the SSD Capacity Over Time graph.
+Select a file system to view cluster details, including cluster information, SSD capacity, and graphs. In the cluster details view, use the *Throughput* and *SSD Capacity* options to switch views.
+
+The Throughput view shows client throughput and resource utilization. The SSD Capacity view shows SSD usage trends and capacity recommendations.
 
 == SSD capacity management
 
@@ -120,7 +122,7 @@ Advanced throughput parameters are available in an expandable *Advanced configur
 
 == File system elasticity recommendations
 
-When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and runs a capacity recommendation algorithm. The system scans periodically to see if SSD capacity or throughput should be adjusted.
+When Workload Factory is in Automate or Recommend mode, it automatically checks each FSx for ONTAP file system and recommends capacity changes. It regularly scans the system to determine whether SSD capacity or throughput should be adjusted. When management is enabled, the file system details page shows SSD capacity and throughput together with historical trends and recommended adjustment points.
 
 When a recommendation is identified:
 
@@ -132,7 +134,7 @@ The recommendation explains the suggested change and the reasoning behind it, su
 
 === Understanding capacity decision points
 
-The SSD usage graph marks when the system made capacity recommendations or took automated actions. These markers show how the capacity management algorithm behaved over time.
+The SSD usage graph shows when the system recommended capacity changes or made automatic adjustments. These markers indicate how the system managed capacity over time. If SSD capacity management is turned off, the graph shows only past usage and does not display recommendations or automatic actions.
 
 *Recommendation decision points*::
 Appear when the system detects that more SSD capacity is needed. If capacity has not been increased, these points might appear as often as every 30 minutes. The graph shows each decision point when possible. If the selected time range is too dense, the points are grouped together.
