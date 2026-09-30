@@ -10,4 +10,8 @@ Latency analysis graphs now support a 1-week time frame in addition to existing 
 
 link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn about latency trend analysis^].
 
+=== Improved file system visibility in the interface
+
+Workload Factory now gives you a clearer view of your file systems in the interface. You can view SSD capacity and throughput usage trends, workload summaries, and detailed configuration information directly from the file system overview.
+
 // Use absolute links in these files
