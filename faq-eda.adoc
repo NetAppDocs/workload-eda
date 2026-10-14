@@ -1,0 +1,100 @@
+---
+sidebar: sidebar
+permalink: faq-eda.html
+keywords: faq, frequently asked questions, frequently asked questions about workload factory for eda, eda, electronic design automation, fsx for ontap, latency monitoring, overview dashboard, project dashboard, perforce, ci/cd, codebox
+summary: "Frequently asked questions about NetApp Workload Factory for EDA."
+---
+
+= FAQ for Workload Factory for EDA
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This FAQ answers common questions about NetApp Workload Factory for EDA. It focuses on concepts, terminology, and behavior that are useful when setting up monitoring, analyzing latency events, configuring dashboards, and managing CI/CD workflows.
+
+== Latency monitoring and analysis
+
+.Why do I need a link associated with my FSx for ONTAP file system?
+
+A link is required to view the component breakdown in basic latency analysis. Without a link, you can still view latency, IOPS, and throughput graphs, but not the detailed breakdown. For more information, refer to link:task-configure-latency-monitoring.html[Configure latency monitoring in Workload Factory for EDA].
+
+.How is a latency alert triggered?
+
+An alert triggers only when both the latency threshold AND the IOPS threshold are exceeded for the same operation type (read or write), and both conditions persist for the entire selected time range. Requiring both reduces false alarms by ensuring high latency occurs while the system is handling real workload. For more information, refer to link:learn-latency-monitoring.html[Learn about latency monitoring in Workload Factory for EDA].
+
+.Why might latency values differ between the basic analysis and CloudWatch graphs?
+
+Basic analysis uses ONTAP QoS delay center metrics while the latency graphs use CloudWatch data, and these two sources collect data differently, so slight discrepancies are expected. The root cause identification itself relies on the ONTAP QoS data. For more information, refer to link:learn-latency-monitoring.html[Learn about latency monitoring in Workload Factory for EDA].
+
+.What is the difference between basic analysis and AI analysis for latency events?
+
+Basic analysis automatically runs on every latency event and uses ONTAP QoS delay center metrics to identify which component (such as FlexCache, capacity pool, QoS limits, disks, data, or cluster) is causing the slowdown. AI analysis is optional and provides deeper investigation for complex data or cluster issues, including a potential root cause, a list of affected EC2 clients, and two or more remediation steps. For more information, refer to link:task-analyze-latency-issues.html[Analyze latency issues in Workload Factory for EDA].
+
+.Why can't I run AI analysis on a latency event?
+
+AI analysis is unavailable if your account administrator has disabled AI features, or if NetApp-managed AI credits are enabled but your monthly budget has been reached. In either case, a message is displayed and you cannot use AI analysis. 
+
+.How many latency events are shown in the events table?
+
+Only the most recent breach for each volume is shown; earlier breaches for the same volume aren't displayed. A maximum of 200 events is shown in total, and older events are removed as new events are added.
+
+.How often will I be notified about latency events?
+
+You can choose between two notification frequencies: *Remind me every day* (recommended), which waits 24 hours before sending another notification for the same file system, or *Notify on any latency breach*, which notifies at most once every 20 minutes. Notifications are sent per file system, not per volume, grouping all affected volumes into a single alert (showing up to 10 volumes in the email). For more information, refer to link:task-configure-latency-monitoring.html[Configure latency monitoring in Workload Factory for EDA].
+
+.How do account-level and volume-level latency thresholds interact?
+
+Latency thresholds you set in EDA apply to your whole account by default. You can also set individual volume latency thresholds in General Storage workloads, and those volume-level settings take priority for that volume. Updating account-level thresholds in EDA won't change any existing volume-level settings. For more information, refer to link:task-configure-latency-monitoring.html[Configure latency monitoring in Workload Factory for EDA].
+
+.Why can't I save my latency threshold configuration?
+
+The critical event threshold must be set higher than the warning threshold. If you set the critical threshold lower than the warning threshold, the system shows an error and you cannot save the configuration.
+
+== Dashboards
+
+.What's the difference between Automate, Recommend, and None modes for SSD capacity and throughput management?
+
+*Notify only (Recommend)*: Workload Factory analyzes usage and suggests changes, but you decide whether to apply them, keeping you in full control. *Automate*: Workload Factory automatically makes capacity or throughput changes when configured conditions are met, with no manual work needed. *None*: The system makes no recommendations or automated actions, so you manage capacity yourself. For more information, refer to link:learn-overview-dashboard.html[Learn about the Overview dashboard in Workload Factory for EDA].
+
+.How many custom filters can I create on the Projects dashboard, and who can manage them?
+
+You can configure up to five custom filters based on AWS tags, each with a filter label, AWS tag key name, and selection type (single or multi-selection). Only the first admin who opens the Projects dashboard can create, change, or delete custom filters—all other users, including other admins, can only view the filters. For more information, refer to link:task-configure-project-dashboard.html[Configure the Projects dashboard in Workload Factory for EDA].
+
+.What happens if I don't configure custom filters on the Projects dashboard?
+
+If you don't configure any custom filters, the default filters—file system, volume type, and time range—are still available, so you can continue to view and use your dashboards. For more information, refer to link:learn-project-dashboard.html[Learn about the Projects dashboard in Workload Factory for EDA].
+
+.How many volumes are shown in the Projects dashboard's Volume view?
+
+The Volume view displays only the top 10 volumes for each metric (used capacity, IOPS, throughput). If you have more than 10 volumes, some volumes won't be displayed in the detailed view. For more information, refer to link:learn-project-dashboard.html[Learn about the Projects dashboard in Workload Factory for EDA].
+
+== CI/CD and Perforce integration
+
+.What are projects and workspaces in EDA CI/CD?
+
+A project is assigned a volume representing your software environment and artifacts. As you update your software, you take snapshots of the volume to mark known versions. A clone of a specific software version—used for development, QA, or build processes—is called a workspace. For more information, refer to link:learn-eda-workloads.html[Learn about Perforce integration in Workload Factory for EDA].
+
+.What happens to snapshots and clones when I delete a project?
+
+When you delete a project, any code or artifacts associated with the project are deleted from the volume. However, snapshots and clones of the project are retained. For more information, refer to link:manage-projects.html[Manage EDA projects in Workload Factory for EDA].
+
+.What limits can I set on project clones?
+
+When creating a project, you can configure operation policies including maximum retention in days (after which Workload Factory removes the clone), maximum number of clones per user or group, and maximum clone size in GiB. For more information, refer to link:manage-projects.html[Manage EDA projects in Workload Factory for EDA].
+
+.How do I integrate Workload Factory for EDA with Perforce?
+
+Download the P4V integration file, open P4V and go to *Tools* > *Manage Tools* > *HTML tabs*, select *Import HTML tabs*, select the integration XML file, and then go to *View* > *Workload Factory*. The Workload Factory for EDA web UI then appears as an HTML tab within the P4V client. For more information, refer to link:integrate-perforce.html[Integrate Workload Factory for EDA with Perforce].
+
+.What is Codebox and how does it help automate EDA workloads?
+
+Codebox is an Infrastructure-as-Code (IaC) co-pilot built into Workload Factory that helps you generate code to execute any operation supported by Workload Factory. It offers code snippet generation during resource creation, acts as an IaC co-pilot for developers and DevOps, and provides a code viewer and automation catalog for quick reuse. For more information, refer to link:automate-codebox.html[Automate EDA workloads with Codebox].
+
+== Support
+
+.Who provides support for FSx for ONTAP versus Workload Factory itself?
+
+Amazon FSx for NetApp ONTAP is an AWS first-party solution, so for support you use the Support Center in your AWS Management Console and open a case selecting "FSx for ONTAP." For general questions about Workload Factory or its applications and services, refer to link:get-help-eda.html[getting help for EDA].
