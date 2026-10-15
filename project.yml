@@ -88,6 +88,8 @@ sidebar:
   #      url: /create-project-snapshot.html
   - title: Knowledge and support
     entries: 
+      - title: FAQ for NetApp Workload Factory for EDA
+        url: /faq-eda.html
       - title: Register for support
         url: /support-registration.html
       - title: Get help
