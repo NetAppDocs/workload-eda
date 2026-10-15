@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: faq-eda.html
-keywords: faq, frequently asked questions, frequently asked questions about workload factory for eda, eda, electronic design automation, fsx for ontap, latency monitoring, overview dashboard, project dashboard, perforce, ci/cd, codebox
+keywords: faq, frequently asked questions, frequently asked questions about workload factory for eda, eda, electronic design automation, fsx for ontap, latency monitoring, overview dashboard, project dashboard, perforce, ci cd, codebox
 summary: "Frequently asked questions about NetApp Workload Factory for EDA."
 ---
 
