@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-analyze-latency-issues.html
-keywords: latency analysis, analyze latency, latency events, root cause analysis, QoS delay center, AI analysis, latency troubleshooting, volume latency, basic analysis, affected clients, remediation steps, iops, throughput
+keywords: latency analysis, analyze latency, latency events, root cause analysis, QoS delay center, AI analysis, latency troubleshooting, volume latency, basic analysis, affected clients, remediation steps, iops, throughput, analysis status, run analysis now
 summary: View and analyze latency events to find performance issues with FSx for ONTAP volumes. Use basic analysis, and optional AI analysis, to identify the root cause and suggested fixes.
 ---
 = Analyze latency issues in Workload Factory for EDA
@@ -30,7 +30,6 @@ The Volumes with latency above threshold table shows volumes that breached the w
 . Log in using one of the link:https://docs.netapp.com/us-en/workload-setup-admin/console-experiences.html[console experiences^].
 . Select the menu image:workloads-menu-icon.png[The hamburger menu icon] and then select *EDA*.
 . Select the *Latency* tab.
-. Review the information for each event in the table.
 . To view details for a latency event, select the event in the *Severity* column. This opens a latency analysis panel for that event.
 . To sort the table, select any column header. By default, critical events are displayed first sorted by time, followed by warning events sorted by time.
 . To dismiss one or more events, next to each event select image:icon-action.png[The action menu icon] *Dismiss*.
@@ -73,6 +72,7 @@ Review the results including:
 * List of affected EC2 clients
 * Recommended remediation steps
 . Select *View full analysis* to see the full results of the AI analysis, including performance charts that show volume latency, IOPS, and throughput from CloudWatch metrics over the selected time period.
+. To update the results, select *Run analysis now*. A new analysis starts for the volume, and the panel updates when the analysis is complete.
 . Follow the recommended steps to fix the latency issue.
 . After you make the changes, check the latency events table to confirm the issue is fixed.
 
