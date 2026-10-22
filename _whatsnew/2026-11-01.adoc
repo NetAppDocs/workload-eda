@@ -1,0 +1,3 @@
+=== Volume details in latency analysis
+
+You can now view the additional volume details *Volume type* (RW/DP), *Volume style* (FlexVol and FlexGroup) in the *Detailed latency analysis* page.
