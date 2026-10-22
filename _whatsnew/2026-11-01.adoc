@@ -1,11 +1,5 @@
-=== Analysis status for latency events
+=== Throughput decision points
 
-You can now view the analysis status for volumes with latency issues. You can see if a volume has been *Analyzed* or *Not analyzed*. The column is sortable, and hovering over *Analyzed* shows the timestamp of the most recent analysis.
+You can now see client throughput recommendation and automation decision points. Hover over a decision point to view details, such as the current and recommended SKU or  breached metrics in time window (%).
 
-link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].
-
-=== Re-run latency analysis
-
-The latency analysis panel now includes a *Run analysis now* button, letting you launch a new analysis for a volume and refresh the results without leaving the panel.
-
-link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#analyze-capacity-trends-and-decision-points[Learn about decision points^].
