@@ -1,0 +1,5 @@
+=== File system pressure check for latency events
+
+For volumes with a latency alert, you can now check whether the file system was under enough pressure to affect performance when the event occurred. You can view CloudWatch data from the 40 minutes before the event and follow a link to the file system for further investigation.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn about analyzing latency trends^].
