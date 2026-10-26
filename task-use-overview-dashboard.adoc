@@ -124,13 +124,13 @@ Use the SSD usage graph to see how storage use changes over time and spot patter
 .Steps
 
 . From the *Overview* tab, select a file system name in the table.
-In the cluster details view, select the *Throughput* or *SSD Capacity* option to switch the graph display.
+. In the Cluster details view, select the *Throughput* or *SSD Capacity* option to switch the graph display.
 
-If you select *Throughput*, the graph shows client throughput and utilization so you can compare demand with the configured throughput level and thresholds.
+** If you select *Throughput*, the graph shows client throughput and utilization so you can compare demand with the configured throughput level and thresholds.
 
-If you select *SSD Capacity*, the graph shows SSD usage, including historical capacity trends and capacity decision points.
+** If you select *SSD Capacity*, the graph shows SSD usage, including historical capacity trends and capacity decision points.
 
-Select different time ranges to view throughput or capacity trends over different periods.
+. Select different time ranges to view throughput or capacity trends over different periods.
 . Hover over decision points on the graph to view details about recommendations or automation actions at specific moments.
 . Use the insights from the graph to:
 * Understand how frequently capacity adjustments are needed
