@@ -82,20 +82,3 @@ Use these tips when reviewing changes in response time:
 * *Distinguish spike types*: Short spikes usually mean temporary issues, such as brief resource contention. Latency that stays high over time points to deeper system problems, like limited capacity or configuration issues. Each situation needs a different fix.
 
 * *Monitor trends after changes*: After adjusting thresholds, adding capacity, or changing settings, monitor the graph for at least 72 hours to make sure the changes worked.
-
-== Check file system pressure
-
-For volumes with a latency alert, you can check whether the underlying file system was under enough pressure to likely affect performance at the time of the event.
-
-.About this task
-
-This check is available only for volumes that have a latency alert, and it runs on demand. It queries the 40 minutes of CloudWatch data leading up to the event and returns one of the following results:
-
-* *Pressured*: The file system shows a high likelihood (greater than 80%) of resource pressure that would affect performance and latency.
-* *Not pressured*: The file system does not show a high likelihood of resource pressure at the time of the event.
-
-.Steps
-
-. In *Detailed latency analysis*, select *Check now*.
-. Review the result: *Pressured* or *Not pressured*.
-. Select the file system link to open the FSx for ONTAP resource and investigate the underlying metrics further.
