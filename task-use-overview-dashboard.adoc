@@ -117,7 +117,7 @@ For each file system, choose how throughput increase is managed.
 
 The selected file systems switch to the new throughput mode immediately.
 
-== Analyze capacity trends and decision points
+== Analyze capacity and throughput trends and decision points
 
 Use the SSD usage graph to see how storage use changes over time and spot patterns.
 
