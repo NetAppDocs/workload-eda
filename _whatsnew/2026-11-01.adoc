@@ -6,6 +6,6 @@ link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html
 
 === Re-run latency analysis
 
-You can now select *Run analysis now* to launch a new latency analysis for a volume and refresh the results on demand.
+You can now select *Run analysis again* to launch a new latency analysis for a volume and refresh the results on demand.
 
 link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].

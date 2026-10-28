@@ -72,7 +72,7 @@ Review the results including:
 * List of affected EC2 clients
 * Recommended remediation steps
 . Select *View full analysis* to see the full results of the AI analysis, including performance charts that show volume latency, IOPS, and throughput from CloudWatch metrics over the selected time period.
-. To update the results, select *Run analysis now*. A new analysis starts for the volume, and the panel updates when the analysis is complete.
+. To update the results, select *Run analysis again*. A new analysis starts for the volume, and the panel updates when the analysis is complete.
 . Follow the recommended steps to fix the latency issue.
 . After you make the changes, check the latency events table to confirm the issue is fixed.
 
