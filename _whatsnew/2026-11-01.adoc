@@ -1,0 +1,19 @@
+=== Volume details in latency analysis
+
+You can now view the additional volume details *Volume type* (RW/DP), *Volume style* (FlexVol and FlexGroup) in the *Detailed latency analysis* page.
+=== File system pressure check for latency events
+
+For volumes with a latency alert, you can now check whether the file system was under enough pressure to affect performance when the event occurred. You can view CloudWatch data from the 40 minutes before the event and follow a link to the file system for further investigation.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-trends.html[Learn about analyzing latency trends^].
+=== Throughput decision points
+
+You can now see client throughput recommendation and automation decision points. Hover over a decision point to view details, such as the current and recommended SKU or  breached metrics in time window (%).
+
+link:https://docs.netapp.com/us-en/workload-eda/task-use-overview-dashboard.html#analyze-capacity-trends-and-decision-points[Learn about decision points^].
+
+=== Re-run latency analysis
+
+You can now select *Run analysis again* to launch a new latency analysis for a volume and refresh the results on demand.
+
+link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].
