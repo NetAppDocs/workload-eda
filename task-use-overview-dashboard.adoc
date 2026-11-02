@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: task-use-overview-dashboard.html
-keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, throughput management, bulk edit, decision points, clusters table, ONTAP events, latency events
+keywords: cluster overview, filter dashboard, cluster health, capacity recommendations, SSD management, throughput management, bulk edit, decision points, throughput decision points, clusters table, ONTAP events, latency events
 summary: Use the Overview dashboard to monitor cluster health, view capacity recommendations, manage SSD and throughput settings, and analyze performance trends across your FSx for ONTAP file systems.
 ---
 = Use the Overview dashboard in Workload Factory for EDA
@@ -33,16 +33,6 @@ Use the filters at the top of the dashboard to view specific file systems. The f
 == View cluster health status
 
 At the top of the dashboard, you see a summary of health and activity for the file systems you selected. This appears only when at least one FSx for ONTAP link is connected to your file systems.
-
-.About this task
-
-The cluster health status includes the following key areas:
-
-* *Latency*: Number of latency events detected
-* *File system elasticity*:
-** *SSD capacity*: Shows how many file systems use Automate, Recommend, or None to manage SSD capacity.
-** *Throughput*: Shows how many file systems use Automate, Recommend, or None to manage throughput.
-* *ONTAP events*: Number of EMS events by category (Capacity, Availability & protection, Security & other)
 
 .Steps
 
@@ -127,29 +117,20 @@ For each file system, choose how throughput increase is managed.
 
 The selected file systems switch to the new throughput mode immediately.
 
-== Analyze capacity trends and decision points
+== Analyze capacity and throughput trends and decision points
 
 Use the SSD usage graph to see how storage use changes over time and spot patterns.
-
-.About this task
-
-Decision points on the graph indicate when:
-
-* *Recommendation decision points*: The capacity recommendation algorithm identified that additional SSD capacity is needed.
-* *Automation decision points*: The automation system tried to increase SSD capacity. These points show whether the action succeeded or failed.
-+
-If SSD capacity management is turned off, the graph shows only past usage and does not display recommendations or automation decisions.
 
 .Steps
 
 . From the *Overview* tab, select a file system name in the table.
-In the cluster details view, select the *Throughput* or *SSD Capacity* option to switch the graph display.
+. In the Cluster details view, select the *Throughput* or *SSD Capacity* option to switch the graph display.
 
-If you select *Throughput*, the graph shows client throughput and utilization so you can compare demand with the configured throughput level and thresholds.
+** If you select *Throughput*, the graph shows client throughput and utilization so you can compare demand with the configured throughput level and thresholds.
 
-If you select *SSD Capacity*, the graph shows SSD usage, including historical capacity trends and capacity decision points.
+** If you select *SSD Capacity*, the graph shows SSD usage, including historical capacity trends and capacity decision points.
 
-Select different time ranges to view throughput or capacity trends over different periods.
+. Select different time ranges to view throughput or capacity trends over different periods.
 . Hover over decision points on the graph to view details about recommendations or automation actions at specific moments.
 . Use the insights from the graph to:
 * Understand how frequently capacity adjustments are needed
