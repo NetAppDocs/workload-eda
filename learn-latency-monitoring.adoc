@@ -89,7 +89,7 @@ When you run AI analysis, the system provides:
 
 === File system pressure
 
-For volumes with a latency alert, you can run an on-demand check to see whether the file system was under enough pressure to affect performance when the event occurred. The check reviews the 40 minutes of CloudWatch data before the event and returns either *Pressured* or *Not pressured*. A Pressured result means there is more than an 80% chance that file system pressure affected performance and latency. The check also includes a link to the FSx for ONTAP resource so you can review the related metrics.
+For volumes with a latency alert, you can run an on-demand check to see whether the file system was under enough pressure to affect performance when the event occurred. The check reviews the 40 minutes of CloudWatch data before the event and returns either *Pressured* or *Not pressured*. A pressured result means there is more than an 80% chance that file system pressure affected performance and latency. The check also includes a link to the FSx for ONTAP resource so you can review the related metrics.
 
 == Related information
 
