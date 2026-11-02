@@ -150,6 +150,24 @@ Use the SSD usage history graph to:
 • Plan future storage needs based on growth over time  
 • Investigate why automation attempts failed
 
+=== Understanding throughput decision points
+
+The client throughput graph shows when the system recommended throughput changes or automatically adjusted throughput. These markers also appear in the graph legend. If throughput management is off, the graph shows only past throughput and does not display recommendations or automatic changes.
+
+*Recommendation decision points*::
+Shown when the system detects that throughput needs to increase. Hover over a decision point to see the details. If multiple recommendations occur at the same timestamp, the point shows the number of recommendations and details for the most recent one.
+
+*Automation decision points*::
+Shown when the automation system tries to increase throughput. Hover over a decision point to see the details. If the increase succeeded, the new SKU is also shown. If it failed, a short explanation is shown instead. If multiple failures happen at the same time, the point shows the number of failures and details from the most recent one.
+
+Use the client throughput graph to:
+
+• See how often you need more throughput  
+• Choose whether automation or recommendation mode works better for your needs  
+• Identify recurring throughput limits  
+• Plan future throughput needs as usage grows over time  
+• Investigate why automation attempts failed
+
 
 == Related information
 
