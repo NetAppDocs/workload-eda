@@ -15,3 +15,6 @@ Known limitations identify platforms, devices, or functions that are not support
 == Operator permissions required
 NetApp Workload Factory for EDA requires Operator permissions to function correctly.
 
+== Latency breakdown for DP volumes
+The component breakdown in basic latency analysis isn't available for data protection (DP) volumes.
+

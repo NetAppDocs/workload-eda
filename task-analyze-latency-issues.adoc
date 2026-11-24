@@ -50,7 +50,7 @@ Select a latency event in the *Severity* column to open the latency analysis pan
 
 AI analysis availability depends on your account setup. If NetApp-managed AI is enabled, you can run AI analysis without setting up Bedrock. AI analysis is unavailable if the monthly credit limit is reached or your administrator disables AI features.
 
-* *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one.
+* *Basic*: Shows the results of an automatic analysis. If linked to the file system, it displays a breakdown of components and shows which one is causing the delay. If no link exists, you are prompted to add one. For data protection (DP) volumes, the component breakdown isn't available.
 An interactive latency graph of CloudWatch metrics for the affected volume is displayed. It shows either read or write metrics, depending on which alarm triggered the event. You can choose different time ranges and use a filter to view All, Read, Write, or Metadata operations.
 
 * *AI analysis*: Shows a deeper investigation to determine the specific root cause and potential remediation steps.
@@ -68,13 +68,25 @@ For detailed instructions on using the graphs, see link:task-analyze-latency-tre
 +
 Review the results including:
 
-* Potential root cause explanation
+* Potential root cause explanation, which checks for FlexCache, capacity pool, and file system causes, throughput and IOPS limits, high SSD usage, write saturation, and other volumes that use the same resources.
 * List of affected EC2 clients
 * Recommended remediation steps
 . Select *View full analysis* to see the full results of the AI analysis, including performance charts that show volume latency, IOPS, and throughput from CloudWatch metrics over the selected time period.
 . To update the results, select *Run analysis again*. A new analysis starts for the volume, and the panel updates when the analysis is complete.
 . Follow the recommended steps to fix the latency issue.
 . After you make the changes, check the latency events table to confirm the issue is fixed.
+
+== Track volumes for automatic analysis
+
+Tracked volumes get AI analysis automatically when a latency event is detected, so you can review the cause without starting an analysis.
+
+* To track volumes, select one or more volumes and mark them as tracked. To stop tracking, deselect them.
+* Tracked volumes show a tracked indicator next to the AI analyzed indicator. You can filter the table to show only tracked volumes.
+* Analysis results are kept for 72 hours, including manual analyses. Automatic analysis results show a timestamp and appear in the *AI analysis* section of the right panel and on the detailed analysis page.
+* Automatic analysis runs again only when a new latency event occurs or 24 hours have passed since the last analysis.
+* If you run an analysis manually, it replaces the current results.
+* Tracked volumes are deselected automatically after 30 days.
+* Notification emails include the results of automatic analyses.
 
 == Best practices
 
