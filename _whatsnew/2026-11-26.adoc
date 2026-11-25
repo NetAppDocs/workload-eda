@@ -1,12 +1,12 @@
 === Track volumes for automatic AI analysis
 
-You can mark volumes as tracked so that AI analysis runs automatically when a latency event is detected. Results are kept for 72 hours and included in notification emails, so you can review the cause without starting an analysis.
+You can mark volumes for automatic AI analysis when a latency issue is detected. Analysis results are saved for 72 hours and included in notification emails, so you can review the cause without running the analysis yourself.
 
 link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].
 
-=== More detailed root cause explanations in AI analysis
+=== Clearer explanations of the root causes in AI analysis
 
-Use AI analysis to see a more detailed potential root cause for a latency event. The explanation now checks for FlexCache, capacity pool, and file system causes, throughput and IOPS limits, high SSD usage, write saturation, and other volumes that use the same resources.
+Use AI analysis to get a clearer explanation of what may have caused a latency event. The analysis checks for issues related to FlexCache, capacity pools, and file systems, as well as throughput and IOPS limits, high SSD usage, write saturation, and other volumes using the same resources.
 
 link:https://docs.netapp.com/us-en/workload-eda/task-analyze-latency-issues.html[Learn about analyzing latency issues^].
 
